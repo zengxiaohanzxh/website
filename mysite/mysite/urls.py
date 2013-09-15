@@ -2,8 +2,6 @@ from django.conf.urls import patterns, include, url
 from django.contrib import admin
 from blog.models import Blog, Category
 admin.autodiscover()
-admin.site.register(Blog)
-admin.site.register(Category)
 
 urlpatterns = patterns('',
     # Examples:
@@ -15,4 +13,6 @@ urlpatterns = patterns('',
 
     # Uncomment the next line to enable the admin:
     url(r'^admin/', include(admin.site.urls)),
+    url(r'^$', 'home.views.homepage', name="home"),
+    url(r'^blogs/', include('blog.urls', namespace='blog'))
 )

@@ -21,11 +21,12 @@ class Blog(models.Model):
     title = models.CharField(max_length=300)
     slug = models.SlugField(unique=True)
     
-    #author = models.ForeignKey(User, blank=True, null=True)
+    # author = models.ForeignKey(User, blank=True, null=True)
     body = models.TextField(help_text="Use textile markup (http://txstyle.org/)")
     tease = models.TextField(blank=True,
                              help_text="Use textile markup (http://txstyle.org/)")
     categories = models.ManyToManyField(Category)
+    pub_date = models.DateTimeField('Date Published')
     image = models.ImageField(upload_to='blog_images', blank=True)
     allow_comments = models.BooleanField(default=False)
     highlight = models.BooleanField(default=True,
@@ -37,11 +38,17 @@ class Blog(models.Model):
         return self.title
 
     def save(self):
-        self.body_html = textile(self.body.encode('utf-8'),
-                                    encoding='utf-8', output='utf-8')
-        self.tease_html = textile(self.tease.encode('utf-8'),
-                                    encoding='utf-8', output='utf-8')
-        super(Post, self).save()
-        
+#         self.body_html = textile(self.body.encode('utf-8'),
+#                                     encoding='utf-8', output='utf-8')
+#         self.tease_html = textile(self.tease.encode('utf-8'),
+#                                     encoding='utf-8', output='utf-8')
+        self.body_html = self.body
+        self.tease_html = self.tease
+        super(Blog, self).save()
+    
+    def list_categories(self):
+        return ', '.join([category.title for category in self.categories.all()])
+    list_categories.short_description = 'Categories'
+    
     def get_absolute_url(self):
-        return reverse('post', kwargs={"slug": self.slug})
+        return reverse('blog', kwargs={"slug": self.slug})

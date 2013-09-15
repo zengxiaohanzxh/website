@@ -12,7 +12,7 @@ MANAGERS = ADMINS
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
-        'NAME': '/home/staff/zengxiaohan/Works/MyWebsite/website/db/mysite.db',                      # Or path to database file if using sqlite3.
+        'NAME': '../db/mysite.db',                      # Or path to database file if using sqlite3.
         # The following settings are not used with sqlite3:
         'USER': '',
         'PASSWORD': '',
@@ -121,10 +121,12 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.admin',
-    'django.contrib.markup'
+#     'django.contrib.markup'
     # Uncomment the next line to enable admin documentation:
     # 'django.contrib.admindocs',
-    'blog'
+    'home',
+    'blog',
+    'bootstrap_toolkit'
 )
 
 SESSION_SERIALIZER = 'django.contrib.sessions.serializers.JSONSerializer'
