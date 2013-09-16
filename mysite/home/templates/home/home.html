@@ -3,16 +3,16 @@
 {% load bootstrap_toolkit %}
 <html>
 	<head>
-		<link rel="shortcut icon" href="{% static 'home/assets/icon/favicon.png' %}">
+		<link rel="shortcut icon" href="{% static 'home/assets/icon/Han-logo-small.png' %}">
 		<title>曾笑寒的个人网站</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<!-- Bootstrap -->
 		<!-- Bootstrap core CSS -->
-		<link rel="stylesheet" type="text/css" href="{% static 'home/style.css' %}" />
+		<link rel="stylesheet" type="text/css" href="{% static 'home/css/mystyle.css' %}" />
 
 		<!-- Custom styles for this template -->
-		<link rel="stylesheet" href="{% static 'home/css/carousel.css' %}" />
-
+		<link rel="stylesheet" href="{% static 'home/css/mycarousel.css' %}" />
+		body { padding-bottom: 50px; }
 		<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
 		<!--[if lt IE 9]>
 		<script src="../../assets/js/html5shiv.js"></script>
@@ -22,7 +22,7 @@
 	<body>
 		<div class="navbar-wrapper">
 			<div class="container">
-				<div class="navbar navbar-inverse navbar-static-top">
+				<div class="navbar navbar-default navbar-fixed-top" role="navigation">
 					<div class="container">
 						<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
 							<span class="icon-bar"></span>
@@ -36,6 +36,12 @@
 								</li>
 								<li>
 									<a href="blogs">博客</a>
+								</li>
+								<li>
+									<a href="blogs">数据</a>
+								</li>
+								<li>
+									<a href="blogs">相册</a>
 								</li>
 								<li>
 									<a href="#contact">联系</a>
@@ -64,15 +70,6 @@
 										</li>
 									</ul>
 								</li>
-								<li>
-									Powered by
-								</li>
-								<li>
-									<a href="https://www.djangoproject.com/"> <img src="{% static 'home/assets/django_logo.png'%}" height="50" width="50" /> </a>
-								</li>
-								<li>
-									<a href="http://getbootstrap.com/"> <img src="{% static 'home/assets/bootstrap_logo.png'%}" height="50" width="50" /> </a>
-								</li>
 							</ul>
 						</div>
 					</div>
@@ -96,7 +93,7 @@
 					{% else %}
 					<div class="item">
 						{% endif %}
-						<img data-src="holder.js/1500x500/auto/#777:#7a7a7a/text:First slide" alt="">
+						<img data-src="holder.js/1500x400/auto/#777:#7a7a7a/text:First slide" alt="">
 						<div class="container">
 							<div class="carousel-caption">
 								<h1>{{ blog.title }}</h1>
@@ -115,30 +112,83 @@
 				<a class="right carousel-control" href="#myCarousel" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
 			</div><!-- /.carousel -->
 
-			<h1>欢迎来到曾笑寒的个人网站.</h1>
-			{% if current_date %}
-			<p>
-				今天是 {{current_date}}
-			</p>
-			<button type="button" class="btn btn-primary">
-				Primary
-			</button>
-			{% endif %}
+			<!-- Wrap the rest of the page in another container to center all the content. -->
+			<div class="container marketing">
 
-			<!-- FOOTER -->
-			<footer>
-				<p class="pull-right">
-					<a href="#">Back to top</a>
-				</p>
+				<!-- Three columns of text below the carousel -->
+				<div class="row">
+					<div class="col-lg-4">
+						<img src="{% static 'home/assets/icon/image-pen.png' %}" height="100" width="100">
+						<h2>文字</h2>
+						<p>
+							以笔录事 以文抒情
+						</p>
+						<p>
+							<a class="btn btn-default" href="#">View details &raquo;</a>
+						</p>
+					</div><!-- /.col-lg-4 -->
+					<div class="col-lg-4">
+						<img src="{% static 'home/assets/icon/image-gear.png' %}" height="100" width="100">
+						<h2>研究</h2>
+						<p>
+							宇宙洪荒 何其有竭
+						</p>
+						<p>
+							<a class="btn btn-default" href="#">View details &raquo;</a>
+						</p>
+					</div><!-- /.col-lg-4 -->
+					<div class="col-lg-4">
+						<img src="{% static 'home/assets/icon/image-camera.png' %}" height="100" width="100">
+						<h2>光影</h2>
+						<p>
+							风轻云淡 且行且观
+						</p>
+						<p>
+							<a class="btn btn-default" href="#">View details &raquo;</a>
+						</p>
+					</div><!-- /.col-lg-4 -->
+				</div><!-- /.row -->
+				<h1>欢迎来到曾笑寒的个人网站.</h1>
+				<h3>俯仰终宇宙，不乐复何如</h3>
+				{% if current_date %}
 				<p>
-					&copy; 2013 曾笑寒 &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a>
+					今天是 {{current_date}}
 				</p>
-			</footer>
+				{% endif %}
+
+				<!-- FOOTER -->
+
+				<div class="footer">
+					<div class="container">
+						<div class="flist">
+							<div>
+								Powered by
+							</div>
+							<div>
+								<a href="https://www.djangoproject.com/" class="navbar-link"> <img src="{% static 'home/assets/django_logo.png'%}" height="50" width="50" border="0"/> </a>
+								<a href="http://getbootstrap.com/" class="navbar-link"> <img src="{% static 'home/assets/bootstrap_logo.png'%}" height="50" width="50" border="0"/> </a>
+							</div>
+						</div>
+						<div class="pull-right">
+							<div class="flist">
+								<div class="flogo">
+									<img src="{% static 'home/assets/icon/Han-logo-medium.png'%}" width="50" height="50" />
+									&nbsp;曾笑寒的个人网站
+								</div>
+								<div class="ftext">
+									&copy; 2013 曾笑寒 保留所有权利 &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
 
 			<!-- Bootstrap core JavaScript -->
 			<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 			<script src="{% static 'home/js/jquery.js' %}"></script>
 			<script src="{% static 'home/js/holder.js' %}"></script>
 			<script src="{% static 'home/js/bootstrap.min.js' %}"></script>
+		</div><!-- /.class="container marketing" -->
 	</body>
 </html>

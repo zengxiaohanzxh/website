@@ -2665,8 +2665,8 @@ button.close {
   padding-right: 15px;
   padding-left: 15px;
   margin-bottom: 20px;
-  background-color: #eeeeee;
-  border-radius: 4px;
+  background-color: #023748;
+  border-radius: 0px;
 }
 
 .navbar:before,
@@ -2698,21 +2698,21 @@ button.close {
   padding-top: 15px;
   padding-bottom: 15px;
   line-height: 20px;
-  color: #777777;
+  color: #3797B7;
   border-radius: 4px;
 }
 
 .navbar-nav > li > a:hover,
 .navbar-nav > li > a:focus {
-  color: #333333;
-  background-color: transparent;
+  color: #59A0B7;
+  background-color: #08556F;
 }
 
 .navbar-nav > .active > a,
 .navbar-nav > .active > a:hover,
 .navbar-nav > .active > a:focus {
-  color: #555555;
-  background-color: #d5d5d5;
+  color: #023748;
+  background-color: #3797B7;
 }
 
 .navbar-nav > .disabled > a,
