@@ -3,8 +3,7 @@
 /* Padding below the footer and lighter body text */
 
 body {
-	padding-bottom: 40px;
-	color: #5a5a5a;
+	padding-bottom: 0px;
 }
 
 /* CUSTOMIZE THE NAVBAR
@@ -23,7 +22,7 @@ body {
 .carousel {
 	margin-bottom: 60px;
 	/* Negative margin to pull up carousel. 90px is roughly margins and height of navbar. */
-	margin-top: 40px;
+	margin-top: 80px;
 }
 /* Since positioning the image, we need to help out the caption */
 .carousel-caption {
@@ -112,7 +111,7 @@ body {
 	}
 	/* The navbar becomes detached from the top, so we round the corners */
 	.navbar-wrapper .navbar {
-		border-radius: 0px;
+		border-radius: 4px;
 	}
 
 	/* Bump up size of carousel content */

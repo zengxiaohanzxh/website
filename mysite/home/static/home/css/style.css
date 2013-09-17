@@ -1,0 +1,114 @@
+/* Customized styles, overriding bootstrap.css and carousel.css */
+
+#content {
+	padding-top: 0px;
+	/*background: #023748;*/
+	background: #BECCCD;
+	margin-left: 20px;
+	margin-right: 20px;
+}
+
+#header {
+	padding-top: 40px;
+	padding-left: 20px;
+	padding-right: 20px;
+	background: #023748;
+	color: #3797B7;
+	margin-left: 0px;
+	margin-right: 0px;
+}
+
+#header .row {
+	margin-left: 0px;
+	margin-right: 0px;
+}
+
+#header .row .pull-right {
+	text-align: right;
+}
+
+#footer {
+	background: #023748;
+	color: #3797B7;
+	padding-top: 40px;
+	padding-bottom: 80px;
+}
+
+#menu {
+	top: 30px;
+	position: relative;
+	float: left;
+	width: 20%;
+	min-height: 1000px;
+	background: #BECCCD;
+}
+
+#main_content {
+	top: 30px;
+	left: 20px;
+	border-left-color: #3797B7;
+	border-left-style: solid;
+	border-left-width: 1px;
+	background: #BECCCD;
+	position: relative;
+	width: 75%;
+	min-height: 1000px;
+	float: left;
+	padding-bottom: 40px;
+	padding-left: 20px;
+	padding-right: 20px;
+	padding-top: 20px;
+}
+
+#blog {
+	border-bottom-color: #023748;
+	border-bottom-style: solid;
+	border-bottom-width: 1px;
+	padding-bottom: 20px;
+	padding-top: 20px;
+}
+
+#blog #blog_tease {
+	padding-top: 20px;
+}
+
+body {
+	/*background: #023748;*/
+	background: #BECCCD;
+	color: #023748;
+}
+
+.navbar-wrapper .navbar {
+	border-radius: 0px;
+}
+
+.navbar-nav {
+	width: 100%;
+}
+
+.btn {
+	border-radius: 0px;
+}
+
+.btn-primary {
+	color: #ffffff;
+	background-color: #023748;
+	border-color: #023748;
+}
+
+.btn-mini {
+	color: #ffffff;
+	background-color: #023748;
+	border-color: #023748;
+}
+
+.carousel {
+	margin-bottom: 60px;
+	/* Negative margin to pull up carousel. 90px is roughly margins and height of navbar. */
+	margin-top: 20px;
+}
+
+.affix {
+	top:70px;
+	width:18%;
+}

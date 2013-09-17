@@ -1,0 +1,54 @@
+<!-- {% extends "base_index.html" %} -->
+
+{% block menu %}
+<div class="bs-sidebar affix">
+	<ul class="nav bs-sidenav">
+		{% if list_blogs %}
+		{% for blog in list_blogs %}
+		{% if forloop.first %}
+		<li class="active">
+			{% else %}
+		<li>
+			{% endif %}
+			<a href="{% url 'blog:content' blog.slug %}">{{ blog.title }}</a>
+		</li>
+		{% endfor %}
+	</ul>
+</div>
+{% else %}
+<li>
+	No blogs are available.
+</li>
+{% endif %}
+{% endblock %}
+
+{% block main_content %}
+{% if list_blogs %}
+{% for blog in list_blogs %}
+<div id="blog">
+	<div>
+		<a href="{% url 'blog:content' blog.slug %}"><h3>{{ blog.title }}</h3></a>
+	</div>
+	<p>{{ blog.pub_date }}</p>
+	{% if blog.category_set.all %}
+	{% for category in blog.categorys.all %}
+	<button type="button "class="btn btn-mini" href="#">
+		{{ category.title }}
+	</button>
+	{% endfor %}
+	{% else %}
+	<button type="button "class="btn btn-mini disabled" href="#">
+		无分类
+	</button>
+	{% endif %}
+	<div id="blog_tease">
+	<p>{{ blog.tease }}</p>
+	</div>
+</div>
+{% endfor %}
+{% else %}
+<li>
+	No blogs are available.
+</li>
+{% endif %}
+{% endblock %}

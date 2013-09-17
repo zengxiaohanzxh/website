@@ -1,194 +1,96 @@
-<!DOCTYPE html>
+{% extends "base.html" %}
 {% load staticfiles %}
-{% load bootstrap_toolkit %}
-<html>
-	<head>
-		<link rel="shortcut icon" href="{% static 'home/assets/icon/Han-logo-small.png' %}">
-		<title>曾笑寒的个人网站</title>
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<!-- Bootstrap -->
-		<!-- Bootstrap core CSS -->
-		<link rel="stylesheet" type="text/css" href="{% static 'home/css/mystyle.css' %}" />
 
-		<!-- Custom styles for this template -->
-		<link rel="stylesheet" href="{% static 'home/css/mycarousel.css' %}" />
-		body { padding-bottom: 50px; }
-		<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-		<!--[if lt IE 9]>
-		<script src="../../assets/js/html5shiv.js"></script>
-		<script src="../../assets/js/respond.min.js"></script>
-		<![endif]-->
-	</head>
-	<body>
-		<div class="navbar-wrapper">
-			<div class="container">
-				<div class="navbar navbar-default navbar-fixed-top" role="navigation">
-					<div class="container">
-						<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
-							<span class="icon-bar"></span>
-							<span class="icon-bar"></span>
-							<span class="icon-bar"></span>
-						</button>
-						<div class="nav-collapse collapse">
-							<ul class="nav navbar-nav">
-								<li class="active">
-									<a href="#">主页</a>
-								</li>
-								<li>
-									<a href="blogs">博客</a>
-								</li>
-								<li>
-									<a href="blogs">数据</a>
-								</li>
-								<li>
-									<a href="blogs">相册</a>
-								</li>
-								<li>
-									<a href="#contact">联系</a>
-								</li>
-								<li class="dropdown">
-									<a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
-									<ul class="dropdown-menu">
-										<li>
-											<a href="#">Action</a>
-										</li>
-										<li>
-											<a href="#">Another action</a>
-										</li>
-										<li>
-											<a href="#">Something else here</a>
-										</li>
-										<li class="divider"></li>
-										<li class="nav-header">
-											Nav header
-										</li>
-										<li>
-											<a href="#">Separated link</a>
-										</li>
-										<li>
-											<a href="#">One more separated link</a>
-										</li>
-									</ul>
-								</li>
-							</ul>
-						</div>
-					</div>
-				</div>
-			</div>
+{% block content %}
+<!-- Main page starts from here -->
+<div id="header">
+	<div class="row">
+		<div class="col-lg-4">
+			<h4>泛覽周王傳，流觀山海圖。俯仰終宇宙，不樂復何如。</h4>
 		</div>
+		<!-- <div class="col-lg-4">
+			<h4>欢迎来到曾笑寒的个人网站.</h4>
+		</div> -->
+		<div class="col-lg-4 pull-right">
+			<h4> {% if current_date %}
+			今天是 {{current_date}}
+			{% endif %} </h4>
+		</div>
+	</div>
+</div>
 
-		<!-- Carousel
-		================================================== -->
-		<div id="myCarousel" class="carousel slide">
-			<!-- Indicators -->
-			<ol class="carousel-indicators">
-				<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-				<li data-target="#myCarousel" data-slide-to="1"></li>
-				<li data-target="#myCarousel" data-slide-to="2"></li>
-			</ol>
-			<div class="carousel-inner">
-				{% for blog in highlighted_blogs %}
-				{% if forloop.first%}
-				<div class="item active">
-					{% else %}
-					<div class="item">
-						{% endif %}
-						<img data-src="holder.js/1500x400/auto/#777:#7a7a7a/text:First slide" alt="">
-						<div class="container">
-							<div class="carousel-caption">
-								<h1>{{ blog.title }}</h1>
-								<p>
-									{{ blog.tease }}
-								</p>
-								<p>
-									<a class="btn btn-large btn-primary" href="blogs/{{blog.slug}}">阅读博文</a>
-								</p>
-							</div>
-						</div>
-					</div>
-					{% endfor %}
-				</div>
-				<a class="left carousel-control" href="#myCarousel" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a>
-				<a class="right carousel-control" href="#myCarousel" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
-			</div><!-- /.carousel -->
-
-			<!-- Wrap the rest of the page in another container to center all the content. -->
-			<div class="container marketing">
-
-				<!-- Three columns of text below the carousel -->
-				<div class="row">
-					<div class="col-lg-4">
-						<img src="{% static 'home/assets/icon/image-pen.png' %}" height="100" width="100">
-						<h2>文字</h2>
-						<p>
-							以笔录事 以文抒情
-						</p>
-						<p>
-							<a class="btn btn-default" href="#">View details &raquo;</a>
-						</p>
-					</div><!-- /.col-lg-4 -->
-					<div class="col-lg-4">
-						<img src="{% static 'home/assets/icon/image-gear.png' %}" height="100" width="100">
-						<h2>研究</h2>
-						<p>
-							宇宙洪荒 何其有竭
-						</p>
-						<p>
-							<a class="btn btn-default" href="#">View details &raquo;</a>
-						</p>
-					</div><!-- /.col-lg-4 -->
-					<div class="col-lg-4">
-						<img src="{% static 'home/assets/icon/image-camera.png' %}" height="100" width="100">
-						<h2>光影</h2>
-						<p>
-							风轻云淡 且行且观
-						</p>
-						<p>
-							<a class="btn btn-default" href="#">View details &raquo;</a>
-						</p>
-					</div><!-- /.col-lg-4 -->
-				</div><!-- /.row -->
-				<h1>欢迎来到曾笑寒的个人网站.</h1>
-				<h3>俯仰终宇宙，不乐复何如</h3>
-				{% if current_date %}
-				<p>
-					今天是 {{current_date}}
-				</p>
-				{% endif %}
-
-				<!-- FOOTER -->
-
-				<div class="footer">
+<div id="content">
+	<!-- Carousel -->
+	<div id="myCarousel" class="carousel slide">
+		<!-- Indicators -->
+		<ol class="carousel-indicators">
+			<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+			<li data-target="#myCarousel" data-slide-to="1"></li>
+			<li data-target="#myCarousel" data-slide-to="2"></li>
+		</ol>
+		<div class="carousel-inner">
+			{% for blog in highlighted_blogs %}
+			{% if forloop.first%}
+			<div class="item active">
+				{% else %}
+				<div class="item">
+					{% endif %}
+					<img data-src="holder.js/1500x400/auto/#879BA1:#7a7a7a/text: " alt="">
 					<div class="container">
-						<div class="flist">
-							<div>
-								Powered by
-							</div>
-							<div>
-								<a href="https://www.djangoproject.com/" class="navbar-link"> <img src="{% static 'home/assets/django_logo.png'%}" height="50" width="50" border="0"/> </a>
-								<a href="http://getbootstrap.com/" class="navbar-link"> <img src="{% static 'home/assets/bootstrap_logo.png'%}" height="50" width="50" border="0"/> </a>
-							</div>
-						</div>
-						<div class="pull-right">
-							<div class="flist">
-								<div class="flogo">
-									<img src="{% static 'home/assets/icon/Han-logo-medium.png'%}" width="50" height="50" />
-									&nbsp;曾笑寒的个人网站
-								</div>
-								<div class="ftext">
-									&copy; 2013 曾笑寒 保留所有权利 &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a>
-								</div>
-							</div>
+						<div class="carousel-caption">
+							<h1>{{ blog.title }}</h1>
+							<p>
+								{{ blog.tease }}
+							</p>
+							<p>
+								<a class="btn btn-large btn-primary" href="blogs/{{blog.slug}}">阅读博文</a>
+							</p>
 						</div>
 					</div>
 				</div>
+				{% endfor %}
 			</div>
+			<a class="left carousel-control" href="#myCarousel" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a>
+			<a class="right carousel-control" href="#myCarousel" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
+		</div><!-- /.carousel -->
 
-			<!-- Bootstrap core JavaScript -->
-			<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-			<script src="{% static 'home/js/jquery.js' %}"></script>
-			<script src="{% static 'home/js/holder.js' %}"></script>
-			<script src="{% static 'home/js/bootstrap.min.js' %}"></script>
-		</div><!-- /.class="container marketing" -->
-	</body>
-</html>
+		<!-- Wrap the rest of the page in another container to center all the content. -->
+		<div class="container marketing">
+
+			<!-- Three columns of text below the carousel -->
+			<div class="row">
+				<div class="col-lg-4">
+					<img src="{% static 'home/assets/icon/image-pen.png' %}" height="100" width="100">
+					<h2>文字</h2>
+					<p>
+						以笔录事 以文抒情
+					</p>
+					<p>
+						<a class="btn btn-default" href="#">View details &raquo;</a>
+					</p>
+				</div><!-- /.col-lg-4 -->
+				<div class="col-lg-4">
+					<img src="{% static 'home/assets/icon/image-gear.png' %}" height="100" width="100">
+					<h2>研究</h2>
+					<p>
+						宇宙洪荒 何其有竭
+					</p>
+					<p>
+						<a class="btn btn-default" href="#">View details &raquo;</a>
+					</p>
+				</div><!-- /.col-lg-4 -->
+				<div class="col-lg-4">
+					<img src="{% static 'home/assets/icon/image-camera.png' %}" height="100" width="100">
+					<h2>光影</h2>
+					<p>
+						风轻云淡 且行且观
+					</p>
+					<p>
+						<a class="btn btn-default" href="#">View details &raquo;</a>
+					</p>
+				</div><!-- /.col-lg-4 -->
+			</div><!-- /.row -->
+		</div>
+	</div><!-- /.class="container marketing" -->
+</div><!-- End of main page -->
+{% endblock %}

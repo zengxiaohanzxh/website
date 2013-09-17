@@ -6,8 +6,12 @@ def index(request):
     list_blogs = Blog.objects.order_by('-pub_date')
     context = RequestContext(request,
                              {'list_blogs':list_blogs, })
-    return render(request, 'blog/index.html', context)
+    return render(request, 'blog/blog_index.html', context)
 
 def content(request, blog_slug):
+    list_blogs = Blog.objects.order_by('-pub_date')
     blog = get_object_or_404(Blog, slug=blog_slug)
-    return render(request, 'blog/content.html', {'blog':blog})
+    return render(request, 'blog/blog_content.html', 
+                  {'blog':blog,
+                   'list_blogs':list_blogs
+                   })
