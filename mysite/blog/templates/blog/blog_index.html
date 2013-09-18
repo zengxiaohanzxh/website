@@ -30,8 +30,9 @@
 		<a href="{% url 'blog:content' blog.slug %}"><h3>{{ blog.title }}</h3></a>
 	</div>
 	<p>{{ blog.pub_date }}</p>
-	{% if blog.category_set.all %}
-	{% for category in blog.categorys.all %}
+	{% with categories=blog.categories.all %}
+    {% if categories %}
+	{% for category in categories %}
 	<button type="button "class="btn btn-mini" href="#">
 		{{ category.title }}
 	</button>
@@ -41,6 +42,7 @@
 		无分类
 	</button>
 	{% endif %}
+    {% endwith %}
 	<div id="blog_tease">
 	<p>{{ blog.tease }}</p>
 	</div>

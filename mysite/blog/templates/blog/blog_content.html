@@ -1,14 +1,14 @@
-{% extends "blog_index.html" %}
+{% extends "blog/blog_index.html" %}
 
 {% block main_content %}
-{% if blogs %}
+{% if blog %}
 <div id="blog">
 	<div>
-		<a href="{% url 'blog:content' blog.slug %}"><h3>{{ blog.title }}</h3></a>
+		<h3>{{ blog.title }}</h3>
 	</div>
 	<p>{{ blog.pub_date }}</p>
-	{% if blog.category_set.all %}
-	{% for category in blog.categorys.all %}
+	{% if blog.categories.all %}
+	{% for category in blog.categories.all %}
 	<button type="button "class="btn btn-mini" href="#">
 		{{ category.title }}
 	</button>
@@ -19,7 +19,7 @@
 	</button>
 	{% endif %}
 	<div id="blog_tease">
-	<p>{{ blog.tease }}</p>
+	<p>{{ blog.body }}</p>
 	</div>
 </div>
 {% endif %}
