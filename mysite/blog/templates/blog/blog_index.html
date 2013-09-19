@@ -25,7 +25,7 @@
 {% block main_content %}
 {% if list_blogs %}
 {% for blog in list_blogs %}
-<div id="blog">
+<div class="blog">
 	<div>
 		<a href="{% url 'blog:content' blog.slug %}"><h3>{{ blog.title }}</h3></a>
 	</div>
@@ -43,7 +43,7 @@
 	</button>
 	{% endif %}
     {% endwith %}
-	<div id="blog_tease">
+	<div class="blog_tease">
 	<p>{{ blog.tease }}</p>
 	</div>
 </div>

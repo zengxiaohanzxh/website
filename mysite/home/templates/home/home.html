@@ -3,16 +3,16 @@
 
 {% block content %}
 <!-- Main page starts from here -->
-<div id="header">
+<div class="header">
 	<div class="row">
 		<div class="col-lg-4">
-			<h4>泛覽周王傳，流觀山海圖。俯仰終宇宙，不樂復何如。</h4>
+			<h4 class="h4 small text">泛覽周王傳，流觀山海圖。俯仰終宇宙，不樂復何如。</h4>
 		</div>
 		<!-- <div class="col-lg-4">
 		<h4>欢迎来到曾笑寒的个人网站.</h4>
 		</div> -->
 		<div class="col-lg-4 pull-right">
-			<h4> {% if current_date %}
+			<h4 class="h4 small text"> {% if current_date %}
 			今天是 {{current_date}}
 			{% endif %} </h4>
 		</div>
@@ -43,7 +43,7 @@
 								{{ blog.tease }}
 							</p>
 							<p>
-								<a class="btn btn-large btn-primary" href="blogs/{{blog.slug}}">阅读博文</a>
+								<a class="btn btn-primary" href="blogs/{{blog.slug}}">阅读博文</a>
 							</p>
 						</div>
 					</div>

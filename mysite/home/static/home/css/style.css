@@ -1,6 +1,6 @@
 /* Customized styles, overriding bootstrap.css and carousel.css */
 
-#content {
+.content {
 	padding-top: 0px;
 	/*background: #023748;*/
 	background: #BECCCD;
@@ -8,7 +8,7 @@
 	margin-right: 20px;
 }
 
-#header {
+.header {
 	padding-top: 40px;
 	padding-left: 20px;
 	padding-right: 20px;
@@ -18,13 +18,21 @@
 	margin-right: 0px;
 }
 
-#header .row {
+.header .text {
+	color: #59A0B7;
+}
+
+.header .row {
 	margin-left: 0px;
 	margin-right: 0px;
 }
 
-#header .row .pull-right {
+.header .row .pull-right {
 	text-align: right;
+}
+
+html {
+	font-family: "WenQuanYi Micro Hei", arial, sans-serif;
 }
 
 .footer {
@@ -42,7 +50,7 @@
 	color: #08556F;
 }
 
-#menu {
+.menu {
 	top: 30px;
 	position: relative;
 	float: left;
@@ -51,9 +59,10 @@
 	background: #BECCCD;
 }
 
-#main_content {
+.main_content {
 	top: 30px;
-	left: 20px;
+	left: 40px;
+	right: 40px;
 	border-left-color: #59A0B7;
 	border-left-style: solid;
 	border-left-width: 1px;
@@ -62,41 +71,67 @@
 	width: 75%;
 	min-height: 1000px;
 	float: left;
-	padding-bottom: 40px;
-	padding-left: 20px;
-	padding-right: 20px;
-	padding-top: 20px;
+	padding-bottom: 60px;
+	padding-left: 60px;
+	padding-right: 60px;
+	padding-top: 40px;
 }
 
-.container #navbar_container {
+.container .navbar_container {
 	margin-left: 20px;
 	margin-right: 20px;
 }
 
+@media (min-width: 1200px) {
+	.container .navbar_container {
+		max-width: 100%;
+	}
+}
+@media (min-width: 992px) {
+	.container .navbar_container {
+		max-width: 100%;
+	}
+}
+
+@media (min-width: 768px) {
+	.container .navbar_container {
+		max-width: 100%;
+	}
+}
+
 h1, h2, h3, h4, h5, a {
 	color: #023748;
+	font-family: "WenQuanYi Micro Hei", arial, sans-serif;
 }
 
 h1:hover, h2:hover, h3:hover, h4:hover, h5:hover, a:hover {
 	color: #08556F;
 }
 
-#blog {
+.blog {
 	border-bottom-color: #023748;
 	border-bottom-style: solid;
 	border-bottom-width: 1px;
 	padding-bottom: 20px;
 	padding-top: 20px;
+	padding-right: 20px;
 }
 
-#blog #blog_tease {
+.blog .blog_tease {
 	padding-top: 20px;
+}
+
+.blog .btn_blog_category {
+
 }
 
 body {
 	/*background: #023748;*/
 	background: #BECCCD;
 	color: #023748;
+	font-family: "WenQuanYi Micro Hei", arial, sans-serif;
+	line-height: 1.6;
+	font-size: 16px;
 }
 
 .nav .pull-right {
@@ -104,16 +139,33 @@ body {
 }
 
 .bs-sidenav > li > a:hover {
-	background:#08556F;
-	color:#BECCCD;
+	background: #08556F;
+	color: #BECCCD;
+}
+
+.navbar {
+	padding-left: 0px;
+	padding-right: 0px;
 }
 
 .navbar-wrapper .navbar {
 	border-radius: 0px;
 }
 
+.navbar-shadow:after {
+	top: 49px;
+	width: 100%;
+	height: 1px;
+	display: block;
+	position: absolute;
+	-webkit-box-shadow: 0px 1px 4px 0px #ffffff;
+	-moz-box-shadow: 0px 1px 4px 0px #ffffff;
+	box-shadow: 0px 1px 4px 0px #ffffff;
+}
+
 .navbar-nav {
 	width: 100%;
+	margin: 0 auto;
 }
 
 .navbar-nav > li > a {
@@ -127,6 +179,22 @@ body {
 
 .navbar-nav #logo {
 	margin-right: 20px;
+}
+
+.navbar-toggle {
+	border: 2px solid #59A0B7;
+	border-radius: 0px;
+}
+
+.navbar-toggle:hover {
+	border: 2px solid #59A0B7;
+	background-color: #BECCCD;
+}
+
+.navbar-toggle .icon-bar {
+	background-color: #59A0B7;
+	width: auto;
+	border-radius: 0px;
 }
 
 .navbar-nav .social_network_logo {
@@ -217,6 +285,7 @@ body {
 	background-repeat: no-repeat;
 	background-position: center;
 	position: absolute;
+	z-index: 14;
 }
 
 .carousel-control.left:hover {
@@ -229,12 +298,17 @@ body {
 	background-repeat: no-repeat;
 	background-position: center;
 	position: absolute;
+	z-index: 14;
 }
 
 .carousel-control.right:hover {
 	background-image: url('/static/home/assets/arrow-right.png');
 }
 /* End of control button customization */
+
+.carousel-indicators {
+	z-index: 14;
+}
 
 .carousel-indicators li {
 	border: 1px solid #023748;
@@ -244,6 +318,20 @@ body {
 .carousel-indicators .active {
 	background-color: #023748;
 	border-color: #023748;
+}
+
+.carousel-caption {
+	left: 25%;
+	right: 25%;
+}
+
+.carousel-caption h1 {
+	font-size: 28px;
+	margin-bottom: 20px;
+}
+
+.carousel-caption p {
+	font-size: 18px;
 }
 
 .affix {
