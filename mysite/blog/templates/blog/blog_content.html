@@ -6,7 +6,9 @@
 	<div>
 		<h3>{{ blog.title }}</h3>
 	</div>
-	<p>{{ blog.pub_date }}</p>
+	<p>
+		{{ blog.pub_date }}
+	</p>
 	{% if blog.categories.all %}
 	{% for category in blog.categories.all %}
 	<button type="button "class="btn btn-mini" href="#">
@@ -18,8 +20,10 @@
 		无分类
 	</button>
 	{% endif %}
-	<div class="blog blog_tease">
-	<p>{{ blog.body }}</p>
+	<div class="blog blog-body">
+		<p id="blog-body">
+			{{ blog.body|safe }}
+		</p>
 	</div>
 </div>
 {% endif %}

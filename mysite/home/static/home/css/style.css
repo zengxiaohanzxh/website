@@ -1,17 +1,49 @@
 /* Customized styles, overriding bootstrap.css and carousel.css */
 
+html {
+	font-family: "WenQuanYi Micro Hei", arial, sans-serif;
+}
+
+body {
+	/*background: #023748;*/
+	background: #BECCCD;
+	color: #023748;
+	font-family: "WenQuanYi Micro Hei", arial, sans-serif;
+	line-height: 1.6;
+	font-size: 16px;
+}
+
+h1, h2, h3, h4, h5, a {
+	color: #023748;
+	font-family: "WenQuanYi Micro Hei", arial, sans-serif;
+	-o-transition: .2s;
+	-ms-transition: .2s;
+	-moz-transition: .2s;
+	-webkit-transition: .2s;
+	transition: .2s;
+}
+
+h1:hover, h2:hover, h3:hover, h4:hover, h5:hover, a:hover {
+	color: #08556F;
+	-o-transition: .2s;
+	-ms-transition: .2s;
+	-moz-transition: .2s;
+	-webkit-transition: .2s;
+	transition: .2s;
+}
+
 .content {
 	padding-top: 0px;
 	/*background: #023748;*/
 	background: #BECCCD;
-	margin-left: 20px;
-	margin-right: 20px;
+	margin-left: 20px auto;
+	margin-right: 20px auto;
 }
 
 .header {
-	padding-top: 40px;
-	padding-left: 20px;
-	padding-right: 20px;
+	padding-top: 50px;
+	padding-left: 100px;
+	padding-right: 100px;
 	background: #023748;
 	color: #59A0B7;
 	margin-left: 0px;
@@ -23,6 +55,7 @@
 }
 
 .header .row {
+	position: relative;
 	margin-left: 0px;
 	margin-right: 0px;
 }
@@ -31,8 +64,43 @@
 	text-align: right;
 }
 
-html {
-	font-family: "WenQuanYi Micro Hei", arial, sans-serif;
+.contact {
+	height: 240px;
+	text-align: center;
+}
+
+.contact .row {
+	bottom: 20px;
+	margin-top: 20px;
+	padding-left: 20%;
+	padding-right: 20%;
+}
+
+.contact img {
+	width: 110px;
+	height: 110px;
+}
+
+.col-lg-3 .contact-img {
+	margin: 20px 0 20px 0;
+	-o-transition: margin .2s ease-in-out;
+	-ms-transition: margin .2s ease-in-out;
+	-moz-transition: margin .2s ease-in-out;
+	-webkit-transition: margin .2s ease-in-out;
+	transition: margin .2s ease-in-out;
+}
+
+.col-lg-3:hover .contact-img{
+	margin: 0 0 40px 0;
+	-o-transition: margin .2s ease-in-out;
+	-ms-transition: margin .2s ease-in-out;
+	-moz-transition: margin .2s ease-in-out;
+	-webkit-transition: margin .2s ease-in-out;
+	transition: margin .2s ease-in-out;
+}
+
+.contact .btn {
+	width: 110px;
 }
 
 .footer {
@@ -48,6 +116,11 @@ html {
 
 .footer a:hover {
 	color: #08556F;
+	-o-transition: .2s;
+	-ms-transition: .2s;
+	-moz-transition: .2s;
+	-webkit-transition: .2s;
+	transition: .2s;
 }
 
 .menu {
@@ -59,7 +132,7 @@ html {
 	background: #BECCCD;
 }
 
-.main_content {
+.main-content {
 	top: 30px;
 	left: 40px;
 	right: 40px;
@@ -77,35 +150,32 @@ html {
 	padding-top: 40px;
 }
 
-.container .navbar_container {
-	margin-left: 20px;
-	margin-right: 20px;
+.container .navbar-container {
+	margin-left: 0px;
+	margin-right: 0px;
 }
 
 @media (min-width: 1200px) {
-	.container .navbar_container {
+	.container .navbar-container {
 		max-width: 100%;
 	}
 }
 @media (min-width: 992px) {
-	.container .navbar_container {
+	.container .navbar-container {
 		max-width: 100%;
 	}
 }
 
 @media (min-width: 768px) {
-	.container .navbar_container {
+	.container .navbar-container {
 		max-width: 100%;
 	}
 }
 
-h1, h2, h3, h4, h5, a {
-	color: #023748;
-	font-family: "WenQuanYi Micro Hei", arial, sans-serif;
-}
-
-h1:hover, h2:hover, h3:hover, h4:hover, h5:hover, a:hover {
-	color: #08556F;
+.content-block {
+	background: #879BA1;
+	margin: 30px 100px 30px 100px;
+	padding: 50px 50px;
 }
 
 .blog {
@@ -117,21 +187,12 @@ h1:hover, h2:hover, h3:hover, h4:hover, h5:hover, a:hover {
 	padding-right: 20px;
 }
 
-.blog .blog_tease {
+.blog .blog-body {
 	padding-top: 20px;
 }
 
-.blog .btn_blog_category {
-
-}
-
-body {
-	/*background: #023748;*/
-	background: #BECCCD;
-	color: #023748;
-	font-family: "WenQuanYi Micro Hei", arial, sans-serif;
-	line-height: 1.6;
-	font-size: 16px;
+.blog.blog-body p {
+	text-align: justify;
 }
 
 .nav .pull-right {
@@ -144,14 +205,27 @@ body {
 }
 
 .navbar {
-	padding-left: 0px;
-	padding-right: 0px;
+	padding-left: 100px;
+	padding-right: 100px;
+}
+
+/* Adjust position of navbar */
+/* Needs to be fixed */
+.navbar-fixed-top {
+	left: 50%;
+	margin-left: -50%;
+}
+
+.navbar-wrapper {
+	margin-top: 0px;
 }
 
 .navbar-wrapper .navbar {
 	border-radius: 0px;
 }
 
+/* Make shadow after the navbar */
+/* Needs to be fixed */
 .navbar-shadow:after {
 	top: 49px;
 	width: 100%;
@@ -205,18 +279,29 @@ body {
 
 .btn {
 	border-radius: 0px;
+	font-size: 16px;
 }
 
 .btn-primary {
 	color: #ffffff;
 	background-color: #023748;
 	border-color: #023748;
+	-o-transition: .2s;
+	-ms-transition: .2s;
+	-moz-transition: .2s;
+	-webkit-transition: .2s;
+	transition: .2s;
 }
 
 .btn-primary:hover {
 	color: #ffffff;
 	background-color: #08556F;
 	border-color: #08556F;
+	-o-transition: .2s;
+	-ms-transition: .2s;
+	-moz-transition: .2s;
+	-webkit-transition: .2s;
+	transition: .2s;
 }
 
 .btn-mini {
@@ -226,9 +311,8 @@ body {
 }
 
 .carousel {
-	margin-bottom: 60px;
-	/* Negative margin to pull up carousel. 90px is roughly margins and height of navbar. */
-	margin-top: 20px;
+	margin-bottom: 30px;
+	margin-top: 0px;
 }
 
 /* Makes the slides fade out for transition
@@ -238,45 +322,49 @@ body {
  */
 
 .carousel.carousel-fade .item {
-	-webkit-transition: opacity 0.8s ease-in-out;
-	-moz-transition: opacity 0.8s ease-in-out;
-	-ms-transition: opacity 0.8s ease-in-out;
-	-o-transition: opacity 0.8s ease-in-out;
-	transition: opacity 0.8s ease-in-out;
-}
-
-.carousel.carousel-fade .active.left {
-	left: 0;
 	opacity: 0;
-	z-index: 2;
+	-webkit-transition: opacity .8s linear;
+	-moz-transition: opacity .8s ease-in-out;
+	-ms-transition: opacity .8s ease-in-out;
+	-o-transition: opacity .8s ease-in-out;
+	transition: opacity .8s ease-in-out;
 }
 
-.carousel.carousel-fade .active.right {
-	left: 0;
-	opacity: 0;
-	z-index: 2;
-}
-
-.carousel.carousel-fade .next {
-	left: 0;
+.carousel.carousel-fade .active {
 	opacity: 1;
+	z-index: 0;
+}
+
+.carousel.carousel-fade .active.left, .carousel.carousel-fade .active.right {
+	left: 0;
+	opacity: 0;
 	z-index: 1;
 }
 
-.carousel.carousel-fade .prev {
-	left: 0;
+.carousel.carousel-fade .next.left, .carousel.carousel-fade .prev.right {
 	opacity: 1;
-	z-index: 1;
+	z-index: 0;
 }
+
 /* End of slide transition customization */
 
 /* Customize the control button */
 .carousel-control {
 	opacity: 1;
+	-o-transition: .2s;
+	-ms-transition: .2s;
+	-moz-transition: .2s;
+	-webkit-transition: .2s;
+	transition: .2s;
+	width: 10%;
 }
 
 .carousel-control:hover {
-	opacity: 1;
+	-o-transition: .2s;
+	-ms-transition: .2s;
+	-moz-transition: .2s;
+	-webkit-transition: .2s;
+	transition: .2s;
 }
 
 .carousel-control.left {
@@ -320,14 +408,36 @@ body {
 	border-color: #023748;
 }
 
+.carousel-inner {
+	background: #879BA1;
+	height: 440px;
+}
+
+.carousel-inner > .item {
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
+.carousel-img img {
+	float: left;
+	position: relative;
+	left: 0%;
+	right: 30%;
+	max-width: 70%;
+	max-height: 90%;
+}
+
 .carousel-caption {
-	left: 25%;
-	right: 25%;
+	left: 65%;
+	right: 10%;
+	text-align: justify;
+	position: absolute;
 }
 
 .carousel-caption h1 {
 	font-size: 28px;
-	margin-bottom: 20px;
+	top: -10px;
+	margin-bottom: 50px;
 }
 
 .carousel-caption p {
@@ -337,4 +447,9 @@ body {
 .affix {
 	top: 70px;
 	width: 18%;
+}
+
+.svg {
+	margin-left: auto;
+	margin-right: auto;
 }

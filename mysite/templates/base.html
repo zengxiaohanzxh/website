@@ -26,72 +26,74 @@
 		<div class="navbar-wrapper">
 			<div class="container">
 				<div class="navbar navbar-default navbar-fixed-top" role="navigation">
-					<div class="container navbar_container">
-						<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
-							<span class="icon-bar"></span>
-							<span class="icon-bar"></span>
-							<span class="icon-bar"></span>
-						</button>
-						<div class="nav-collapse collapse">
-							<ul class="nav navbar-nav">
-								<li>
-									<img src="{% static 'home/assets/icon/Han-logo-medium.png'%}" width="50" height="50" id="logo"/>
-								</li>
-								<li class="active">
-									<a href="{% url 'home' %}">主页</a>
-								</li>
-								<li>
-									<a href="{% url 'blog:index' %}">博客</a>
-								</li>
-								<li>
-									<a href="{% url 'blog:index' %}">数据</a>
-								</li>
-								<li>
-									<a href="{% url 'blog:index' %}">相册</a>
-								</li>
-								<li>
-									<a href="mailto:zengxiaohanzxh@gmail.com">联系</a>
-								</li>
-								<li class="dropdown">
-									<a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
-									<ul class="dropdown-menu">
-										<li>
-											<a href="#">Action</a>
-										</li>
-										<li>
-											<a href="#">Another action</a>
-										</li>
-										<li>
-											<a href="#">Something else here</a>
-										</li>
-										<li class="divider"></li>
-										<li class="nav-header">
-											Nav header
-										</li>
-										<li>
-											<a href="#">Separated link</a>
-										</li>
-										<li>
-											<a href="#">One more separated link</a>
-										</li>
-									</ul>
-								</li>
-								<li class="nav pull-right">
-									<a href="{% url 'blog:index' %}">登录</a>
-								</li>
-								<li class="nav pull-right">
-									<a href="https://twitter.com/XiaohanZeng"> <img src="{% static 'home/assets/twitter-logo.png' %}" class="social_network_logo"/> </a>
-								</li>
-								<li class="nav pull-right">
-									<a href="https://www.facebook.com/xiaohan.zeng.3"> <img src="{% static 'home/assets/facebook-logo.png' %}" class="social_network_logo"/> </a>
-								</li>
-								<li class="nav pull-right">
-									<a href="http://weibo.com/u/2649633623"> <img src="{% static 'home/assets/weibo-logo.png' %}" class="social_network_logo"/> </a>
-								</li>
-								<li class="nav pull-right">
-									<a href="http://www.renren.com/2071260410/profile"> <img src="{% static 'home/assets/renren-logo.png' %}" class="social_network_logo"/> </a>
-								</li>
-							</ul>
+					<div class="navbar-inner">
+						<div class="container navbar-container">
+							<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+								<span class="icon-bar"></span>
+								<span class="icon-bar"></span>
+								<span class="icon-bar"></span>
+							</button>
+							<div class="nav-collapse collapse">
+								<ul class="nav navbar-nav">
+									<li>
+										<img src="{% static 'home/assets/icon/Han-logo-medium.png'%}" width="50" height="50" id="logo"/>
+									</li>
+									<li class="active">
+										<a href="{% url 'home' %}">主页</a>
+									</li>
+									<li>
+										<a href="{% url 'blog:index' %}">博客</a>
+									</li>
+									<li>
+										<a href="{% url 'blog:index' %}">数据</a>
+									</li>
+									<li>
+										<a href="{% url 'blog:index' %}">相册</a>
+									</li>
+									<li>
+										<a href="#contact">联系</a>
+									</li>
+									<li class="dropdown">
+										<a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+										<ul class="dropdown-menu">
+											<li>
+												<a href="#">Action</a>
+											</li>
+											<li>
+												<a href="#">Another action</a>
+											</li>
+											<li>
+												<a href="#">Something else here</a>
+											</li>
+											<li class="divider"></li>
+											<li class="nav-header">
+												Nav header
+											</li>
+											<li>
+												<a href="#">Separated link</a>
+											</li>
+											<li>
+												<a href="#">One more separated link</a>
+											</li>
+										</ul>
+									</li>
+									<li class="nav pull-right">
+										<a href="{% url 'blog:index' %}">登录</a>
+									</li>
+									<li class="nav pull-right">
+										<a href="https://twitter.com/XiaohanZeng"> <img src="{% static 'home/assets/twitter-logo.png' %}" class="social_network_logo"/> </a>
+									</li>
+									<li class="nav pull-right">
+										<a href="https://www.facebook.com/xiaohan.zeng.3"> <img src="{% static 'home/assets/facebook-logo.png' %}" class="social_network_logo"/> </a>
+									</li>
+									<li class="nav pull-right">
+										<a href="http://weibo.com/u/2649633623"> <img src="{% static 'home/assets/weibo-logo.png' %}" class="social_network_logo"/> </a>
+									</li>
+									<li class="nav pull-right">
+										<a href="http://www.renren.com/2071260410/profile"> <img src="{% static 'home/assets/renren-logo.png' %}" class="social_network_logo"/> </a>
+									</li>
+								</ul>
+							</div>
 						</div>
 					</div>
 				</div>

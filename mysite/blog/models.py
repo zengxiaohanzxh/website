@@ -1,4 +1,5 @@
 from django.db import models
+from textile import textile
 
 class Category(models.Model):
     '''
@@ -38,12 +39,10 @@ class Blog(models.Model):
         return self.title
 
     def save(self):
-#         self.body_html = textile(self.body.encode('utf-8'),
-#                                     encoding='utf-8', output='utf-8')
-#         self.tease_html = textile(self.tease.encode('utf-8'),
-#                                     encoding='utf-8', output='utf-8')
-        self.body_html = self.body
-        self.tease_html = self.tease
+        self.body_html = textile(self.body.encode('utf-8'),
+                                    encoding='utf-8', output='utf-8')
+        self.tease_html = textile(self.tease.encode('utf-8'),
+                                    encoding='utf-8', output='utf-8')
         super(Blog, self).save()
     
     def list_categories(self):

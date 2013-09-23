@@ -5,13 +5,13 @@
 <!-- Main page starts from here -->
 <div class="header">
 	<div class="row">
-		<div class="col-lg-4">
+		<div class="col-lg-5">
 			<h4 class="h4 small text">泛覽周王傳，流觀山海圖。俯仰終宇宙，不樂復何如。</h4>
 		</div>
 		<!-- <div class="col-lg-4">
 		<h4>欢迎来到曾笑寒的个人网站.</h4>
 		</div> -->
-		<div class="col-lg-4 pull-right">
+		<div class="col-lg-5 pull-right">
 			<h4 class="h4 small text"> {% if current_date %}
 			今天是 {{current_date}}
 			{% endif %} </h4>
@@ -19,7 +19,7 @@
 	</div>
 </div>
 
-<div id="content">
+<div class="content">
 	<!-- Carousel -->
 	<div id="myCarousel" class="carousel slide carousel-fade">
 		<!-- Indicators -->
@@ -35,15 +35,17 @@
 				{% else %}
 				<div class="item">
 					{% endif %}
-					<img data-src="holder.js/1500x400/auto/#879BA1:#7a7a7a/text: " alt="">
 					<div class="container">
+						<div class="carousel-img">
+							<img src="{% static 'home/assets/Logo.jpg' %}" alt=""/>
+						</div>
 						<div class="carousel-caption">
 							<h1>{{ blog.title }}</h1>
 							<p>
 								{{ blog.tease }}
 							</p>
 							<p>
-								<a class="btn btn-primary" href="blogs/{{blog.slug}}">阅读博文</a>
+								<a class="btn btn-primary btn-large" href="blogs/{{blog.slug}}">阅读博文</a>
 							</p>
 						</div>
 					</div>
@@ -55,42 +57,134 @@
 		</div><!-- /.carousel -->
 
 		<!-- Wrap the rest of the page in another container to center all the content. -->
-		<div class="container marketing">
+		<div class="content-block">
+			<div class="container marketing">
 
-			<!-- Three columns of text below the carousel -->
+				<!-- Three columns of text below the carousel -->
+				<div class="row">
+					<div class="col-lg-4">
+						<img src="{% static 'home/assets/icon/image-pen.png' %}" height="100" width="100">
+						<h2>文字</h2>
+						<p>
+							以笔录事 以文抒情
+						</p>
+						<p>
+							<a class="btn btn-primary btn-large" href="#">文字</a>
+						</p>
+					</div><!-- /.col-lg-4 -->
+					<div class="col-lg-4">
+						<img src="{% static 'home/assets/icon/image-gear.png' %}" height="100" width="100">
+						<h2>研究</h2>
+						<p>
+							宇宙洪荒 何其有竭
+						</p>
+						<p>
+							<a class="btn btn-default" href="#">View details &raquo;</a>
+						</p>
+					</div><!-- /.col-lg-4 -->
+					<div class="col-lg-4">
+						<img src="{% static 'home/assets/icon/image-camera.png' %}" height="100" width="100">
+						<h2>光影</h2>
+						<p>
+							风轻云淡 且行且观
+						</p>
+						<p>
+							<a class="btn btn-default" href="#">View details &raquo;</a>
+						</p>
+					</div><!-- /.col-lg-4 -->
+				</div><!-- /.row -->
+			</div>
+		</div><!-- /.class="container marketing" -->
+	</div>
+
+	<div class="content-block">
+		<div class="container featurette">
+			<div class="row featurette">
+				<div class="col-md-7">
+					<h2 class="featurette-heading">First featurette heading. <span class="text-muted">It'll blow your mind.</span></h2>
+					<p class="lead">
+						Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.
+					</p>
+				</div>
+				<div class="col-md-5">
+					<img class="featurette-image img-responsive" src="data:image/png;base64," data-src="holder.js/500x500/auto" alt="Generic placeholder image">
+				</div>
+			</div>
+
+			<hr class="featurette-divider">
+
+			<div class="row featurette">
+				<div class="col-md-5">
+					<img class="featurette-image img-responsive" src="data:image/png;base64," data-src="holder.js/500x500/auto" alt="Generic placeholder image">
+				</div>
+				<div class="col-md-7">
+					<h2 class="featurette-heading">Oh yeah, it's that good. <span class="text-muted">See for yourself.</span></h2>
+					<p class="lead">
+						Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.
+					</p>
+				</div>
+			</div>
+
+			<hr class="featurette-divider">
+
+			<div class="row featurette">
+				<div class="col-md-7">
+					<h2 class="featurette-heading">And lastly, this one. <span class="text-muted">Checkmate.</span></h2>
+					<p class="lead">
+						Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.
+					</p>
+				</div>
+				<div class="col-md-5">
+					<img class="featurette-image img-responsive" src="data:image/png;base64," data-src="holder.js/500x500/auto" alt="Generic placeholder image">
+				</div>
+			</div>
+		</div><!-- /.class="container featurette" -->
+	</div>
+
+	<div class="content-block" id="contact">
+		<div class="contact">
+			<div>
+				<h2>联 系</h2>
+			</div>
 			<div class="row">
-				<div class="col-lg-4">
-					<img src="{% static 'home/assets/icon/image-pen.png' %}" height="100" width="100">
-					<h2>文字</h2>
-					<p>
-						以笔录事 以文抒情
-					</p>
-					<p>
-						<a class="btn btn-default" href="#">View details &raquo;</a>
-					</p>
-				</div><!-- /.col-lg-4 -->
-				<div class="col-lg-4">
-					<img src="{% static 'home/assets/icon/image-gear.png' %}" height="100" width="100">
-					<h2>研究</h2>
-					<p>
-						宇宙洪荒 何其有竭
-					</p>
-					<p>
-						<a class="btn btn-default" href="#">View details &raquo;</a>
-					</p>
-				</div><!-- /.col-lg-4 -->
-				<div class="col-lg-4">
-					<img src="{% static 'home/assets/icon/image-camera.png' %}" height="100" width="100">
-					<h2>光影</h2>
-					<p>
-						风轻云淡 且行且观
-					</p>
-					<p>
-						<a class="btn btn-default" href="#">View details &raquo;</a>
-					</p>
-				</div><!-- /.col-lg-4 -->
-			</div><!-- /.row -->
+				<div class="col-lg-3">
+					<a href="http://www.renren.com/2071260410/profile">
+					<div class="contact-img">
+						<img src="{% static 'home/assets/renren-logo-dark.png' %}" class="social_network_logo" />
+					</div>
+					<p class="btn btn-primary">
+						人人
+					</p> </a>
+				</div>
+				<div class="col-lg-3">
+					<a href="http://weibo.com/u/2649633623">
+					<div class="contact-img">
+						<img src="{% static 'home/assets/weibo-logo-dark.png' %}" class="social_network_logo"/>
+					</div>
+					<p class="btn btn-primary" >
+						微博
+					</p></a>
+				</div>
+				<div class="col-lg-3">
+					<a  href="https://www.facebook.com/xiaohan.zeng.3">
+					<div class="contact-img">
+						<img src="{% static 'home/assets/facebook-logo-dark.png' %}" class="social_network_logo"/>
+					</div>
+					<p class="btn btn-primary">
+						FACEBOOK
+					</p></a>
+				</div>
+				<div class="col-lg-3">
+					<a href="https://twitter.com/XiaohanZeng">
+					<div class="contact-img">
+						<img src="{% static 'home/assets/twitter-logo-dark.png' %}" class="social_network_logo"/>
+					</div>
+					<p class="btn btn-primary">
+						TWITTER
+					</p></a>
+				</div>
+			</div>
 		</div>
-	</div><!-- /.class="container marketing" -->
+	</div>
 </div><!-- End of main page -->
 {% endblock %}
