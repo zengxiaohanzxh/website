@@ -2,25 +2,25 @@
 
 {% block main_content %}
 {% if blog %}
-<div id="blog">
-	<div>
+<div class="blog">
+	<div class="blog-title">
 		<h3>{{ blog.title }}</h3>
+		<p>
+			{{ blog.pub_date }}
+		</p>
+		{% if blog.categories.all %}
+		{% for category in blog.categories.all %}
+		<button type="button "class="btn btn-mini" href="#">
+			{{ category.title }}
+		</button>
+		{% endfor %}
+		{% else %}
+		<button type="button "class="btn btn-mini disabled" href="#">
+			无分类
+		</button>
+		{% endif %}
 	</div>
-	<p>
-		{{ blog.pub_date }}
-	</p>
-	{% if blog.categories.all %}
-	{% for category in blog.categories.all %}
-	<button type="button "class="btn btn-mini" href="#">
-		{{ category.title }}
-	</button>
-	{% endfor %}
-	{% else %}
-	<button type="button "class="btn btn-mini disabled" href="#">
-		无分类
-	</button>
-	{% endif %}
-	<div class="blog blog-body">
+	<div class="blog-body">
 		<p id="blog-body">
 			{{ blog.body|safe }}
 		</p>
