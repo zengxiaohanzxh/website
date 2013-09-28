@@ -1,14 +1,14 @@
-<!-- {% extends "base_index.html" %} -->
+{% extends "base_index.html" %}
 
 {% block menu %}
 <div class="container">
 	<div class="bs-sidebar affix">
 		<h3>博文目录</h3>
 		<div class="sidebar-content">
-			<ul class="nav nav-tabs nav-justified">
+			<ul class="nav nav-pills nav-stacked">
 				<li class="active">
-					<h4>所有博文</h4>
 					<span class="badge pull-right">{{ list_blogs|length }}</span>
+					<h4>所有博文</h4>
 					<ul>
 						{% if list_blogs %}
 						{% for blog in list_blogs %}
@@ -27,6 +27,42 @@
 						{% endif %}
 					</ul>
 				</li>
+				<li>
+					<h4>按时排序</h4>
+					<ul>
+						{% if list_blogs %}
+						{% for blog in list_blogs %}
+						{% if forloop.first %}
+						<li class="active">
+							{% else %}
+						<li>
+							{% endif %}
+							{{ blog.title }}
+						</li>
+						{% endfor %}
+						{% else %}
+						<li>
+							No blogs are available.
+						</li>
+						{% endif %}
+					</ul>
+				</li>
+				<li>
+					<h4>按类排序</h4>
+					<ul>
+						{% if list_categories %}
+						{% for category in list_categories %}
+						<li>
+							{{ category.title }}
+						</li>
+						{% endfor %}
+						{% else %}
+						<li>
+							无分类
+						</li>
+						{% endif %}
+					</ul>
+				</li>
 			</ul>
 		</div>
 	</div>
@@ -38,53 +74,41 @@
 {% if list_blogs %}
 <div class="container">
 	<div class="pagination">
-		<span class="step-links"> 
-		{% if list_blogs.has_previous %} 
-		<a href="?page={{ list_blogs.previous_page_number }}">
-		previous
-		</a> 
-		{% endif %} 
-		<span class="current"> Page {{ list_blogs.number }} of {{ list_blogs.paginator.num_pages }} 
-		</span> 
-		{% if list_blogs.has_next %} 
-		<a href="?page={{ list_blogs.next_page_number }}">
-		next
-		</a> 
-		{% endif %} 
-		</span>
+		<span class="step-links"> {% if list_blogs.has_previous %} <a href="?page={{ list_blogs.previous_page_number }}"> previous </a> {% endif %} <span class="current"> Page {{ list_blogs.number }} of {{ list_blogs.paginator.num_pages }} </span> {% if list_blogs.has_next %} <a href="?page={{ list_blogs.next_page_number }}"> next </a> {% endif %} </span>
 	</div>
-</div>
-{% for blog in list_blogs %}
-<div class="blog">
-	<div>
-		<a href="{% url 'blog:content' blog.slug %}"><h3>{{ blog.title }}</h3></a>
+
+	{% for blog in list_blogs %}
+	<div class="blog">
+		<div>
+			<a href="{% url 'blog:content' blog.slug %}"><h3>{{ blog.title }}</h3></a>
+		</div>
+		<p>
+			{{ blog.pub_date }}
+		</p>
+		{% with categories=blog.categories.all %}
+		{% if categories %}
+		{% for category in categories %}
+		<button type="button "class="btn btn-mini" href="#">
+			{{ category.title }}
+		</button>
+		{% endfor %}
+		{% else %}
+		<button type="button "class="btn btn-mini disabled" href="#">
+			无分类
+		</button>
+		{% endif %}
+		{% endwith %}
+		<div class="blog-body">
+			<p>
+				{{ blog.tease }}
+			</p>
+		</div>
 	</div>
-	<p>
-		{{ blog.pub_date }}
-	</p>
-	{% with categories=blog.categories.all %}
-	{% if categories %}
-	{% for category in categories %}
-	<button type="button "class="btn btn-mini" href="#">
-		{{ category.title }}
-	</button>
 	{% endfor %}
 	{% else %}
-	<button type="button "class="btn btn-mini disabled" href="#">
-		无分类
-	</button>
+	<li>
+		No blogs are available.
+	</li>
 	{% endif %}
-	{% endwith %}
-	<div class="blog-body">
-		<p>
-			{{ blog.tease }}
-		</p>
-	</div>
 </div>
-{% endfor %}
-{% else %}
-<li>
-	No blogs are available.
-</li>
-{% endif %}
 {% endblock %}

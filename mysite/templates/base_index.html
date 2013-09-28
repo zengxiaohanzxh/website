@@ -2,12 +2,16 @@
 {% load staticfiles %}
 
 {% block content %}
-<div class="content blog">
-	<div class="menu">
-		{% block menu %}{% endblock %}
-	</div>
-	<div class="main-content">
-		{% block main_content %}{% endblock %}
+<div class="container">
+	<div class="content blog">
+		<div class="row">
+			<div class="menu">
+				{% block menu %}{% endblock %}
+			</div>
+			<div class="main-content">
+				{% block main_content %}{% endblock %}
+			</div>
+		</div>
 	</div>
 </div>
 {% endblock %}

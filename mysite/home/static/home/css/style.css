@@ -5,16 +5,19 @@ html {
 }
 
 body {
-	background: #BECCCD;
-	color: #023748;
 	font-family: "WenQuanYi Micro Hei", arial, sans-serif;
+	background: #FFFFFF;
+	color: #0A1D23;
 	line-height: 1.6;
 	font-size: 16px;
+	margin: 0 auto;
+	padding: 0px;
+	text-align: center;
 }
 
 h1, h2, h3, h4, h5, a {
-	color: #023748;
 	font-family: "WenQuanYi Micro Hei", arial, sans-serif;
+	color: #023748;
 	-o-transition: .2s;
 	-ms-transition: .2s;
 	-moz-transition: .2s;
@@ -32,46 +35,32 @@ h1:hover, h2:hover, h3:hover, h4:hover, h5:hover, a:hover {
 }
 
 .content {
+	text-align: left;
 	padding-top: 0px;
-	/*background: #023748;*/
-	background: #BECCCD;
-	margin-left: 20px;
-	margin-right: 20px;
+	background: #FFFFFF;
 	position: relative;
 	min-height: 2000px;
 }
 
 .content.blog {
 	overflow: hidden;
-	background: #879BA1;
-	margin: 0 0;
+	background: #BECCCD;
 }
 
-/*.menu {
- top: 70px;
- left: 20px;
- position: relative;
- float: left;
- width: 20%;
- height: 100%;
- min-height: 1000px;
- background: #BECCCD;
- }*/
-
 .menu {
-	top: 70px;
-	left: 20px;
-	position: relative;
+	width: 35%;
 	float: left;
-	width: 20%;
-	height: 100%;
-	min-height: 1000px;
+	position: relative;
+	min-height: 1px;
+	padding-right: 15px;
+	padding-left: 15px;
 }
 
 .bs-sidebar {
-	margin: 0 40px 40px 20px;
+	margin: 0 20px 40px 20px;
 	top: 70px;
 	width: 20%;
+	max-width: 350px;
 	-o-transition: .2s;
 	-ms-transition: .2s;
 	-moz-transition: .2s;
@@ -119,31 +108,45 @@ h1:hover, h2:hover, h3:hover, h4:hover, h5:hover, a:hover {
 	color: #BECCCD;
 }
 
+.sidebar-content {
+	padding: 0px 20px 0px 20px;
+}
+
+.sidebar-content .badge {
+	border-radius: 0px;
+	color: #BECCCD;
+	background-color: #023748;
+}
+
+.sidebar-content > ul > li > ul > li {
+	list-style: none;
+}
+
 .main-content {
 	top: 70px;
-	left: 20px;
-	right: 20px;
+	right: 60px;
 	background: #BECCCD;
 	position: relative;
-	width: 75%;
 	min-height: 1000px;
-	float: left;
+	float: right;
+	width: 65%;
 	padding: 40px 40px 60px 40px;
 	margin: 0px 0px 100px 40px;
 }
 
 .header {
+	text-align: left;
 	padding-top: 50px;
 	padding-left: 100px;
 	padding-right: 100px;
-	background: #023748;
-	color: #59A0B7;
+	background: #0A1D23;
+	color: #879BA1;
 	margin-left: 0px;
 	margin-right: 0px;
 }
 
 .header .text {
-	color: #59A0B7;
+	color: #879BA1;
 }
 
 .header .row {
@@ -196,15 +199,16 @@ h1:hover, h2:hover, h3:hover, h4:hover, h5:hover, a:hover {
 }
 
 .footer {
-	background: #023748;
-	color: #59A0B7;
+	text-align: left;
+	background: #0A1D23;
+	color: #879BA1;
 	padding-top: 40px;
 	padding-bottom: 80px;
 	bottom: 0;
 }
 
 .footer a {
-	color: #59A0B7;
+	color: #879BA1;
 }
 
 .footer a:hover {
@@ -239,12 +243,22 @@ h1:hover, h2:hover, h3:hover, h4:hover, h5:hover, a:hover {
 }
 
 .content-block {
-	background: #879BA1;
-	margin: 30px 80px 30px 80px;
-	padding: 50px 50px;
+	max-width: 1300px;
+	margin: auto;
+	padding-top: 100px;
+	padding-bottom: 100px;
 }
 
-.content-block .marketing .col-lg-4 img {
+.content-background.marketing {
+	background: #01242F;
+}
+
+.container.marketing .row {
+	padding-left: 15%;
+	padding-right: 15%;
+}
+
+.container.marketing .col-lg-4 img {
 	position: relative;
 	-webkit-transition: all .3s ease;
 	-moz-transition: all .3s ease;
@@ -253,7 +267,7 @@ h1:hover, h2:hover, h3:hover, h4:hover, h5:hover, a:hover {
 	transition: all .3s ease;
 }
 
-.content-block .marketing .col-lg-4:hover img {
+.container.marketing .col-lg-4:hover img {
 	opacity: 0.2;
 	-webkit-filter: blur(3px);
 	-ms-filter: blur(3px);
@@ -266,7 +280,7 @@ h1:hover, h2:hover, h3:hover, h4:hover, h5:hover, a:hover {
 	transition: all .3s ease;
 }
 
-.content-block .marketing .col-lg-4 h1 {
+.container.marketing .col-lg-4 h1 {
 	opacity: 0;
 	position: absolute;
 	letter-spacing: 10px;
@@ -280,8 +294,8 @@ h1:hover, h2:hover, h3:hover, h4:hover, h5:hover, a:hover {
 	transition: all .3s ease;
 }
 
-.content-block .marketing .col-lg-4:hover h1 {
-	color: #023748;
+.container.marketing .col-lg-4:hover h1 {
+	color: #879BA1;
 	opacity: 1;
 	-webkit-transition: all .3s ease;
 	-moz-transition: all .3s ease;
@@ -300,9 +314,9 @@ h1:hover, h2:hover, h3:hover, h4:hover, h5:hover, a:hover {
 	transition: opacity .3s ease;
 }
 
-.content-block .marketing .col-lg-4:hover h4 {
+.container.marketing .col-lg-4:hover h4 {
 	opacity: 1;
-	color: #023748;
+	color: #879BA1;
 	-webkit-transition: opacity .3s ease .3s;
 	-moz-transition: opacity .3s ease .3s;
 	-o-transition: opacity .3s ease .3s;
@@ -310,30 +324,24 @@ h1:hover, h2:hover, h3:hover, h4:hover, h5:hover, a:hover {
 	transition: opacity .3s ease .3s;
 }
 
-.content-block .marketing .col-lg-4 .btn {
-	width: 150px;
-	/*-webkit-transform: translateY(-80px);
-	 -webkit-transition: all .3s ease;
-	 -moz-transition: all .3s ease;
-	 -o-transition: all .3s ease;
-	 -ms-transition: all .3s ease;
-	 transition: all .3s ease;*/
+.container.marketing .marketing-header {
+	text-align: center;
+	padding-bottom: 80px;
 }
 
-/*.content-block .marketing .col-lg-4:hover .btn {
- -webkit-transform: translateY(0px);
- -webkit-transition: all .3s ease;
- -moz-transition: all .3s ease;
- -o-transition: all .3s ease;
- -ms-transition: all .3s ease;
- transition: all .3s ease;
- }*/
+.container.marketing .marketing-header h1 {
+	color: #879BA1;
+	letter-spacing: .1em;
+}
+
+.container.featurette {
+	padding-top: 0;
+}
 
 .main-content .blog {
-	border-bottom-color: #023748;
+	border-bottom-color: #0A1D23;
 	border-bottom-style: solid;
 	border-bottom-width: 1px;
-	padding: 40px;
 }
 
 .main-content .blog-body {
@@ -348,17 +356,15 @@ h1:hover, h2:hover, h3:hover, h4:hover, h5:hover, a:hover {
 .navbar {
 	padding-left: 100px;
 	padding-right: 100px;
-}
-
-/* Adjust position of navbar */
-/* Needs to be fixed */
-.navbar-fixed-top {
-	left: 50%;
-	margin-left: -50%;
+	background-color: #0A1D23;
+	-webkit-box-shadow: 0px 0px 10px 2px #0A1D23;
+	-moz-box-shadow: 0px 0px 10px 2px #0A1D23;
+	box-shadow: 0px 0px 10px 2px #0A1D23;
 }
 
 .navbar-wrapper {
 	margin-top: 0px;
+	text-align: left;
 }
 
 .navbar-wrapper .navbar {
@@ -367,16 +373,6 @@ h1:hover, h2:hover, h3:hover, h4:hover, h5:hover, a:hover {
 
 /* Make shadow after the navbar */
 /* Needs to be fixed */
-.navbar-shadow:after {
-	top: 49px;
-	width: 100%;
-	height: 1px;
-	display: block;
-	position: absolute;
-	-webkit-box-shadow: 0px 1px 4px 0px #ffffff;
-	-moz-box-shadow: 0px 1px 4px 0px #ffffff;
-	box-shadow: 0px 1px 4px 0px #ffffff;
-}
 
 .navbar-nav {
 	width: 100%;
@@ -384,12 +380,7 @@ h1:hover, h2:hover, h3:hover, h4:hover, h5:hover, a:hover {
 }
 
 .navbar-nav > li > a {
-	color: #59A0B7;
-}
-
-.navbar-nav > .active > a, .navbar-nav > .active > a:hover, .navbar-nav > .active > a:focus {
-	color: #023748;
-	background-color: #59A0B7;
+	color: #879BA1;
 }
 
 .navbar-nav #logo {
@@ -397,17 +388,27 @@ h1:hover, h2:hover, h3:hover, h4:hover, h5:hover, a:hover {
 }
 
 .navbar-toggle {
-	border: 2px solid #59A0B7;
+	border: 2px solid #879BA1;
 	border-radius: 0px;
+	-webkit-transition: .3s;
+	-moz-transition: .3s;
+	-ms-transition: .3s;
+	-o-transition: .3s;
+	transition: .3s;
 }
 
 .navbar-toggle:hover {
-	border: 2px solid #59A0B7;
-	background-color: #BECCCD;
+	border: 2px solid #879BA1;
+	background-color: #023748;
+	-webkit-transition: .3s;
+	-moz-transition: .3s;
+	-ms-transition: .3s;
+	-o-transition: .3s;
+	transition: .3s;
 }
 
 .navbar-toggle .icon-bar {
-	background-color: #59A0B7;
+	background-color: #879BA1;
 	width: auto;
 	border-radius: 0px;
 }
@@ -452,7 +453,7 @@ h1:hover, h2:hover, h3:hover, h4:hover, h5:hover, a:hover {
 }
 
 .carousel {
-	margin: 0px -20px 30px -20px;
+	margin: 0px -20px 0px -20px;
 }
 
 /* Makes the slides fade out for transition
@@ -549,13 +550,11 @@ h1:hover, h2:hover, h3:hover, h4:hover, h5:hover, a:hover {
 }
 
 .carousel-inner {
-	background: #879BA1;
 	height: 440px;
 }
 
-.carousel-inner > .item {
-	margin-top: 20px;
-	margin-bottom: 20px;
+.carousel-inner .container {
+	margin: 0;
 }
 
 .carousel-img img {
@@ -565,6 +564,15 @@ h1:hover, h2:hover, h3:hover, h4:hover, h5:hover, a:hover {
 	right: 30%;
 	max-width: 70%;
 	max-height: 90%;
+}
+
+.carousel-caption-background {
+	background: rgba(10,29,35,0.6);
+	padding : 50px;
+}
+
+.carousel-caption-content {
+	opacity: 1;
 }
 
 .carousel-caption {
