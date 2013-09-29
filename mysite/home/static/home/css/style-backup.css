@@ -245,8 +245,8 @@ h1:hover, h2:hover, h3:hover, h4:hover, h5:hover, a:hover {
 .content-block {
 	max-width: 1300px;
 	margin: auto;
-	padding-top: 100px;
-	padding-bottom: 100px;
+	padding-top: 120px;
+	padding-bottom: 120px;
 }
 
 .content-background.marketing {
@@ -285,7 +285,6 @@ h1:hover, h2:hover, h3:hover, h4:hover, h5:hover, a:hover {
 	position: absolute;
 	letter-spacing: 10px;
 	top: 30px;
-	left: 5px;
 	width: 100%;
 	-webkit-transition: all .3s ease;
 	-moz-transition: all .3s ease;
@@ -332,6 +331,24 @@ h1:hover, h2:hover, h3:hover, h4:hover, h5:hover, a:hover {
 .container.marketing .marketing-header h1 {
 	color: #879BA1;
 	letter-spacing: .1em;
+}
+
+.container.marketing .marketing-header h4 {
+	color: #879BA1;
+	padding-top: 10px;
+	letter-spacing: .1em;
+}
+
+.container.self-intro .row .img-wrapper, .container.featurette .row .img-wrapper {
+	width: 35%;
+	float: left;
+}
+
+.container.self-intro .row .text-wrapper, .container.featurette .row .text-wrapper {
+	width: 65%;
+	float: right;
+	padding-left: 50px;
+	padding-right: 50px;
 }
 
 .container.featurette {
@@ -568,7 +585,7 @@ h1:hover, h2:hover, h3:hover, h4:hover, h5:hover, a:hover {
 
 .carousel-caption-background {
 	background: rgba(10,29,35,0.6);
-	padding : 50px;
+	padding: 50px;
 }
 
 .carousel-caption-content {

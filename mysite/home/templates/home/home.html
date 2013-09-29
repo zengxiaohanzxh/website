@@ -66,11 +66,12 @@
 				<div class="container marketing">
 					<div class="marketing-header">
 						<h1>欢迎来到曾笑寒的个人主页</h1>
+						<h4>随便逛逛吧 也许有你感兴趣的话题哦</h4>
 					</div>
 					<!-- Three columns of text below the carousel -->
 					<div class="row">
 						<div class="col-lg-4">
-							<a href="{% url 'blog:index' %}">
+							<a href="#writing">
 							<div class="img-wrapper">
 								<img src="{% static 'home/assets/icon/image-pen.png' %}" height="150" width="150"/>
 							</div> <h1>文字</h1>
@@ -79,7 +80,7 @@
 							</div> </a>
 						</div><!-- /.col-lg-4 -->
 						<div class="col-lg-4">
-							<a href="{% url 'blog:index' %}">
+							<a href="#data">
 							<div class="img-wrapper">
 								<img src="{% static 'home/assets/icon/image-gear.png' %}" height="150" width="150"/>
 							</div> <h1>研究</h1>
@@ -88,7 +89,7 @@
 							</div></a>
 						</div><!-- /.col-lg-4 -->
 						<div class="col-lg-4">
-							<a href="{% url 'blog:index' %}">
+							<a href="#travel">
 							<div class="img-wrapper">
 								<img src="{% static 'home/assets/icon/image-camera.png' %}" height="150" width="150"/>
 							</div> <h1>光影</h1>
@@ -103,26 +104,47 @@
 
 		<div class="content-background">
 			<div class="content-block">
-				<div class="container featurette">
+				<div class="container self-intro">
 					<div class="row featurette">
-						<div class="col-md-7">
+						<div class="text-wrapper">
 							<h2 class="featurette-heading">First featurette heading. <span class="text-muted">It'll blow your mind.</span></h2>
 							<p class="lead">
 								Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.
 							</p>
 						</div>
-						<div class="col-md-5">
+						<div class="img-wrapper">
+							<img class="featurette-image img-responsive" src="data:image/png;base64," data-src="holder.js/400x400/auto" alt="Generic placeholder image">
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="content-background">
+			<div class="content-block">
+				<div class="container featurette">
+					<div class="row featurette" id="writing">
+						<div class="text-wrapper">
+							<h2 class="featurette-heading">First featurette heading. <span class="text-muted">It'll blow your mind.</span></h2>
+							<p class="lead">
+								Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.
+							</p>
+							<p class="btn btn-primary btn-large">
+								阅读
+							</p>
+						</div>
+						<div class="img-wrapper">
 							<img class="featurette-image img-responsive" src="data:image/png;base64," data-src="holder.js/500x500/auto" alt="Generic placeholder image">
 						</div>
 					</div>
 
 					<hr class="featurette-divider">
 
-					<div class="row featurette">
-						<div class="col-md-5">
+					<div class="row featurette" id="data">
+						<div class="img-wrapper">
 							<img class="featurette-image img-responsive" src="data:image/png;base64," data-src="holder.js/500x500/auto" alt="Generic placeholder image">
 						</div>
-						<div class="col-md-7">
+						<div class="text-wrapper">
 							<h2 class="featurette-heading">Oh yeah, it's that good. <span class="text-muted">See for yourself.</span></h2>
 							<p class="lead">
 								Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.
@@ -132,14 +154,14 @@
 
 					<hr class="featurette-divider">
 
-					<div class="row featurette">
-						<div class="col-md-7">
+					<div class="row featurette" id="travel">
+						<div class="text-wrapper">
 							<h2 class="featurette-heading">And lastly, this one. <span class="text-muted">Checkmate.</span></h2>
 							<p class="lead">
 								Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.
 							</p>
 						</div>
-						<div class="col-md-5">
+						<div class="img-wrapper">
 							<img class="featurette-image img-responsive" src="data:image/png;base64," data-src="holder.js/500x500/auto" alt="Generic placeholder image">
 						</div>
 					</div>
