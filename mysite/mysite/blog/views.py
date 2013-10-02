@@ -2,7 +2,7 @@ from django.template import RequestContext, loader
 from django.shortcuts import render, get_object_or_404
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
-from blog.models import Blog, Category
+from mysite.blog.models import Blog, Category
 
 def index(request):
     list_categories = Category.objects.all()

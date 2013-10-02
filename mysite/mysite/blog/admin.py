@@ -1,5 +1,5 @@
 from django.contrib import admin
-from blog.models import Blog, Category
+from mysite.blog.models import Blog, Category
 
 class BlogAdmin(admin.ModelAdmin):
     '''

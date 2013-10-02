@@ -1,7 +1,7 @@
 from django.shortcuts import render_to_response
 from django.shortcuts import render, get_object_or_404
 from datetime import date
-from blog.models import Blog, Category
+from mysite.blog.models import Blog, Category
 
 def homepage(request):
     current_date = date.today()
