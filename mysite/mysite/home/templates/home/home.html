@@ -4,17 +4,17 @@
 {% block content %}
 <!-- Main page starts from here -->
 <div class="header">
-	<div class="row">
+	<div class="row container">
 		<div class="col-lg-5">
-			<h4 class="h4 small text">泛覽周王傳，流觀山海圖。俯仰終宇宙，不樂復何如。</h4>
+			<h5 class="h5 small text">泛覽周王傳，流觀山海圖。俯仰終宇宙，不樂復何如。</h5>
 		</div>
 		<!-- <div class="col-lg-4">
 		<h4>欢迎来到曾笑寒的个人网站.</h4>
 		</div> -->
 		<div class="col-lg-5 pull-right">
-			<h4 class="h4 small text"> {% if current_date %}
+			<h5 class="h5 small text"> {% if current_date %}
 			今天是 {{current_date}}
-			{% endif %} </h4>
+			{% endif %} </h5>
 		</div>
 	</div>
 </div>
@@ -36,7 +36,7 @@
 				{% endif %}
 				<div class="container">
 					<div class="carousel-img">
-						<img src="{% static 'home/assets/Logo.jpg' %}" alt=""/>
+						<img src="{{ MEDIA_URL }}{{ blog.image }}" alt=""/>
 					</div>
 					<div class="carousel-caption">
 						<div class="carousel-caption-background">
@@ -64,16 +64,16 @@
 		<div class="content-background marketing">
 			<div class="content-block marketing">
 				<div class="container marketing">
-					<div class="marketing-header">
-						<h1>欢迎来到曾笑寒的个人主页</h1>
-						<h4>随便逛逛吧 也许有你感兴趣的话题哦</h4>
-					</div>
 					<!-- Three columns of text below the carousel -->
 					<div class="row">
+						<div class="marketing-header">
+							<h1>欢迎来到曾笑寒的个人主页</h1>
+							<h4>随便逛逛吧 也许有你感兴趣的话题哦</h4>
+						</div>
 						<div class="col-lg-4">
 							<a href="#writing">
 							<div class="img-wrapper">
-								<img src="{% static 'home/assets/icon/image-pen.png' %}" height="150" width="150"/>
+								<img src="{% static 'home/assets/icon/image-pen.png' %}" height="100" width="100"/>
 							</div> <h1>文字</h1>
 							<div class="text-wrapper">
 								<h4> 以笔录事 以文抒情 </h4>
@@ -82,7 +82,7 @@
 						<div class="col-lg-4">
 							<a href="#data">
 							<div class="img-wrapper">
-								<img src="{% static 'home/assets/icon/image-gear.png' %}" height="150" width="150"/>
+								<img src="{% static 'home/assets/icon/image-gear.png' %}" height="100" width="100"/>
 							</div> <h1>研究</h1>
 							<div class="text-wrapper">
 								<h4>宇宙洪荒 何其有竭</h4>
@@ -91,7 +91,7 @@
 						<div class="col-lg-4">
 							<a href="#travel">
 							<div class="img-wrapper">
-								<img src="{% static 'home/assets/icon/image-camera.png' %}" height="150" width="150"/>
+								<img src="{% static 'home/assets/icon/image-camera.png' %}" height="100" width="100"/>
 							</div> <h1>光影</h1>
 							<div class="text-wrapper">
 								<h4> 风轻云淡 且行且观 </h4>
@@ -102,28 +102,25 @@
 			</div>
 		</div><!-- /.class="container marketing" -->
 
-		<div class="content-background">
+		<div class="content-background" id="self-intro">
 			<div class="content-block">
-				<div class="container self-intro">
-					<div class="row featurette">
+				<div class="container featurette">
+					<div class="row">
 						<div class="text-wrapper">
-							<h2 class="featurette-heading">First featurette heading. <span class="text-muted">It'll blow your mind.</span></h2>
+							<h2 class="featurette-heading">{ 一名纯正的理工科男生 } <span class="text-muted"># 兼具点文艺气质</span></h2>
 							<p class="lead">
 								Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.
 							</p>
-						</div>
-						<div class="img-wrapper">
-							<img class="featurette-image img-responsive" src="data:image/png;base64," data-src="holder.js/400x400/auto" alt="Generic placeholder image">
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
 
-		<div class="content-background">
+		<div class="content-background"  id="writing">
 			<div class="content-block">
 				<div class="container featurette">
-					<div class="row featurette" id="writing">
+					<div class="row">
 						<div class="text-wrapper">
 							<h2 class="featurette-heading">First featurette heading. <span class="text-muted">It'll blow your mind.</span></h2>
 							<p class="lead">
@@ -133,17 +130,15 @@
 								阅读
 							</p>
 						</div>
-						<div class="img-wrapper">
-							<img class="featurette-image img-responsive" src="data:image/png;base64," data-src="holder.js/500x500/auto" alt="Generic placeholder image">
-						</div>
 					</div>
+				</div>
+			</div>
+		</div>
+		<div class="content-background" id="data">
+			<div class="content-block">
+				<div class="container featurette">
 
-					<hr class="featurette-divider">
-
-					<div class="row featurette" id="data">
-						<div class="img-wrapper">
-							<img class="featurette-image img-responsive" src="data:image/png;base64," data-src="holder.js/500x500/auto" alt="Generic placeholder image">
-						</div>
+					<div class="row">
 						<div class="text-wrapper">
 							<h2 class="featurette-heading">Oh yeah, it's that good. <span class="text-muted">See for yourself.</span></h2>
 							<p class="lead">
@@ -151,18 +146,18 @@
 							</p>
 						</div>
 					</div>
-
-					<hr class="featurette-divider">
-
-					<div class="row featurette" id="travel">
+				</div>
+			</div>
+		</div>
+		<div class="content-background"  id="travel">
+			<div class="content-block">
+				<div class="container featurette">
+					<div class="row">
 						<div class="text-wrapper">
 							<h2 class="featurette-heading">And lastly, this one. <span class="text-muted">Checkmate.</span></h2>
 							<p class="lead">
 								Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.
 							</p>
-						</div>
-						<div class="img-wrapper">
-							<img class="featurette-image img-responsive" src="data:image/png;base64," data-src="holder.js/500x500/auto" alt="Generic placeholder image">
 						</div>
 					</div>
 				</div><!-- /.class="container featurette" -->
@@ -173,7 +168,7 @@
 			<div class="content-block" id="contact">
 				<div class="contact">
 					<div>
-						<h2>联 系</h2>
+						<h1>联 系</h1>
 					</div>
 					<div class="row">
 						<div class="col-lg-3">
