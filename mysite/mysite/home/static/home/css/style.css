@@ -19,7 +19,7 @@ a{font-size:14px}
 .carousel-indicators{z-index:14}.carousel-indicators .active{background-color:#023748;border-color:#023748}
 .carousel-indicators li{border:1px solid #023748;border-radius:0}
 .carousel-caption{left:65%;right:10%;text-align:justify;position:absolute}.carousel-caption p{font-size:18px}
-.carousel-caption h1{font-size:28px;top:-10px;margin-bottom:50px}
+.carousel-caption h1{font-size:28px;top:-10px;margin-bottom:50px;text-align:left}
 .carousel-caption .carousel-caption-background{background:rgba(10,29,35,0.6);padding:50px}.carousel-caption .carousel-caption-background .carousel-caption-content{opacity:1}
 .bs-sidebar{margin:0 20px 40px 20px;top:70px;width:20%;max-width:350px;-o-transition:.2s;-ms-transition:.2s;-moz-transition:.2s;-webkit-transition:.2s;transition:.2s;-webkit-transform:translateY(0)}.bs-sidebar:hover{background:#becccd;-o-transition:.2s;-ms-transition:.2s;-moz-transition:.2s;-webkit-transition:.2s;transition:.2s;-webkit-transform:translateY(10px)}.bs-sidebar:hover .sidebar-content{opacity:1;-o-transition:opacity .2s .1s,-webkit-transform .2s .1s;-ms-transition:opacity .2s .1s,-webkit-transform .2s .1s;-moz-transition:opacity .2s .1s,-webkit-transform .2s .1s;-webkit-transition:opacity .2s .1s,-webkit-transform .2s .1s;transition:opacity .2s .1s,-webkit-transform .2s .1s;-webkit-transform:translateY(10px)}
 .bs-sidebar .sidebar-heading{padding:20px 40px 20px 20px;margin-top:0;margin-bottom:0;background:#023748}
