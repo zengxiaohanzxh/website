@@ -1,6 +1,7 @@
 html{font-family:"WenQuanYi Micro Hei",arial,sans-serif}
 body{font-family:"WenQuanYi Micro Hei",arial,sans-serif;background:#fff;color:#0a1d23;line-height:1.6;font-size:14px;margin:0 auto;padding:0;text-align:center}
-h1,h2,h3,h4,h5,a{font-family:"WenQuanYi Micro Hei",arial,sans-serif;color:#023748;-o-transition:.2s;-ms-transition:.2s;-moz-transition:.2s;-webkit-transition:.2s;transition:.2s}h1:hover,h2:hover,h3:hover,h4:hover,h5:hover,a:hover{color:#08556f;-o-transition:.2s;-ms-transition:.2s;-moz-transition:.2s;-webkit-transition:.2s;transition:.2s}
+h1,h2,h3,h4,h5{font-family:"WenQuanYi Micro Hei",arial,sans-serif;color:#023748}
+a{font-family:"WenQuanYi Micro Hei",arial,sans-serif;color:#023748;-o-transition:.2s;-ms-transition:.2s;-moz-transition:.2s;-webkit-transition:.2s;transition:.2s}a:hover{color:#08556f;-o-transition:.2s;-ms-transition:.2s;-moz-transition:.2s;-webkit-transition:.2s;transition:.2s}
 p{font-size:14px;line-height:1.8em}
 h1{font-size:24px}
 h2{font-size:22px}
@@ -18,11 +19,11 @@ a{font-size:14px}
 .carousel-img img{position:absolute;top:0;left:0;float:center;width:100%;height:500px}
 .carousel-indicators{z-index:14}.carousel-indicators .active{background-color:#023748;border-color:#023748}
 .carousel-indicators li{border:1px solid #023748;border-radius:0}
-.carousel-caption{left:65%;right:10%;text-align:justify;position:absolute}.carousel-caption p{font-size:18px}
+.carousel-caption{left:65%;right:10%;text-align:justify;position:absolute;text-shadow:none}.carousel-caption p{font-size:18px}
 .carousel-caption h1{font-size:28px;top:-10px;margin-bottom:50px;text-align:left}
 .carousel-caption .carousel-caption-background{background:rgba(10,29,35,0.6);padding:50px}.carousel-caption .carousel-caption-background .carousel-caption-content{opacity:1}
-.bs-sidebar{margin:0 20px 40px 20px;top:70px;width:20%;max-width:350px;-o-transition:.2s;-ms-transition:.2s;-moz-transition:.2s;-webkit-transition:.2s;transition:.2s;-webkit-transform:translateY(0)}.bs-sidebar:hover{background:#becccd;-o-transition:.2s;-ms-transition:.2s;-moz-transition:.2s;-webkit-transition:.2s;transition:.2s;-webkit-transform:translateY(10px)}.bs-sidebar:hover .sidebar-content{opacity:1;-o-transition:opacity .2s .1s,-webkit-transform .2s .1s;-ms-transition:opacity .2s .1s,-webkit-transform .2s .1s;-moz-transition:opacity .2s .1s,-webkit-transform .2s .1s;-webkit-transition:opacity .2s .1s,-webkit-transform .2s .1s;transition:opacity .2s .1s,-webkit-transform .2s .1s;-webkit-transform:translateY(10px)}
-.bs-sidebar .sidebar-heading{padding:20px 40px 20px 20px;margin-top:0;margin-bottom:0;background:#023748}
+.bs-sidebar{margin:0 20px 40px 20px;top:70px;width:20%;max-width:100px;-o-transition:.2s;-ms-transition:.2s;-moz-transition:.2s;-webkit-transition:.2s;transition:.2s;-webkit-transform:translateY(0)}@media (min-width:1200px){.bs-sidebar{max-width:250px}}.bs-sidebar:hover{background:#becccd;-o-transition:.2s;-ms-transition:.2s;-moz-transition:.2s;-webkit-transition:.2s;transition:.2s;-webkit-transform:translateY(10px)}.bs-sidebar:hover .sidebar-content{opacity:1;-o-transition:opacity .2s .1s,-webkit-transform .2s .1s;-ms-transition:opacity .2s .1s,-webkit-transform .2s .1s;-moz-transition:opacity .2s .1s,-webkit-transform .2s .1s;-webkit-transition:opacity .2s .1s,-webkit-transform .2s .1s;transition:opacity .2s .1s,-webkit-transform .2s .1s;-webkit-transform:translateY(10px)}
+.bs-sidebar .sidebar-heading{padding:10px 40px 10px 20px;margin-top:0;margin-bottom:0;background:#023748}
 .bs-sidebar .sidebar-heading>h4{color:#becccd}
 .bs-sidebar .sidebar-content{opacity:0;-o-transition:opacity .2s .1s,-webkit-transform .2s .1s;-ms-transition:opacity .2s .1s,-webkit-transform .2s .1s;-moz-transition:opacity .2s .1s,-webkit-transform .2s .1s;-webkit-transition:opacity .2s .1s,-webkit-transform .2s .1s;transition:opacity .2s .1s,-webkit-transform .2s .1s;min-height:300px;-webkit-transform:translateY(0);padding:0 20px 0 20px}.bs-sidebar .sidebar-content .badge{border-radius:0;color:#becccd;background-color:#023748}
 .bs-sidebar .sidebar-content>ul>li>ul>li{list-style:none}
@@ -41,7 +42,7 @@ a{font-size:14px}
 .header .text{color:#cee0e5}
 .featurette-heading{font-size:30px}.featurette-heading:hover{color:#023748}
 .lead{font-size:14px;margin-top:40px;margin-bottom:40px}@media (min-width:768px){.lead{font-size:14px}}
-.menu{width:35%;float:left;position:relative;min-height:1px;padding-right:15px;padding-left:15px}
+.menu{width:15%;float:left;position:relative;min-height:1px;padding-right:15px;padding-left:15px}
 .main-content{top:70px;right:60px;background:#becccd;position:relative;min-height:1000px;float:right;width:65%;padding:40px 40px 60px 40px;margin:0 0 100px 40px}.main-content .blog{padding-top:40px;padding-bottom:40px;border-bottom-color:#0a1d23;border-bottom-style:solid;border-bottom-width:1px}
 .main-content .blog-body{padding-top:40px;text-align:justify}
 .contact{height:240px;text-align:center}.contact img{width:80px;height:80px}
@@ -50,7 +51,7 @@ a{font-size:14px}
 .footer{text-align:left;background:#0a1d23;color:#cee0e5;padding-top:40px;padding-bottom:80px;bottom:0}.footer a{color:#cee0e5}
 .footer a:hover{color:#08556f;-o-transition:.2s;-ms-transition:.2s;-moz-transition:.2s;-webkit-transition:.2s;transition:.2s}
 .container.marketing .col-lg-4 img{position:relative;-webkit-transition:all .3s ease;-moz-transition:all .3s ease;-o-transition:all .3s ease;-ms-transition:all .3s ease;transition:all .3s ease}
-.container.marketing .col-lg-4 h1{opacity:0;position:absolute;letter-spacing:10px;top:30px;width:95%;-webkit-transition:all .3s ease;-moz-transition:all .3s ease;-o-transition:all .3s ease;-ms-transition:all .3s ease;transition:all .3s ease}
+.container.marketing .col-lg-4 h1{opacity:0;position:absolute;letter-spacing:10px;top:20px;width:90%;-webkit-transition:all .3s ease;-moz-transition:all .3s ease;-o-transition:all .3s ease;-ms-transition:all .3s ease;transition:all .3s ease}
 .container.marketing .col-lg-4:hover h4{opacity:1;color:#cee0e5;-webkit-transition:opacity .3s ease .3s;-moz-transition:opacity .3s ease .3s;-o-transition:opacity .3s ease .3s;-ms-transition:opacity .3s ease .3s;transition:opacity .3s ease .3s}
 .container.marketing .col-lg-4:hover img{opacity:.2;-webkit-filter:blur(3px);-ms-filter:blur(3px);-moz-filter:blur(3px);-o-filter:blur(3px);-webkit-transition:all .3s ease;-moz-transition:all .3s ease;-o-transition:all .3s ease;-ms-transition:all .3s ease;transition:all .3s ease}
 .container.marketing .col-lg-4:hover h1{color:#cee0e5;opacity:1;-webkit-transition:all .3s ease;-moz-transition:all .3s ease;-o-transition:all .3s ease;-ms-transition:all .3s ease;transition:all .3s ease}
