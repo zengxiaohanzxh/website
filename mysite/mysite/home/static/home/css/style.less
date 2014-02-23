@@ -20,7 +20,7 @@ body {
 	text-align: center;
 }
 
-h1 , h2 , h3 , h4 , h5 {
+h1 , h2 , h3 , h4 , h5 , .h1 , .h2 , .h3 , .h4 , .h5 {
 	font-family: "WenQuanYi Micro Hei", "Microsoft YaHei", arial, sans-serif;
 	color: @color-dark-green;
 }
@@ -271,7 +271,6 @@ a {
 	}
 }
 
-
 .btn {
 	border-radius: 0px;
 	font-size: 14px;
@@ -404,10 +403,6 @@ a {
 	font-size: 30px;
 	&.light {
 		color: @color-text-light;
-	}
-
-	&:hover {
-		color: @color-dark-green;
 	}
 }
 
@@ -603,6 +598,10 @@ a {
 			color: @color-text-light;
 		}
 
+		.text-muted {
+			color: #666666;
+		}
+
 		padding-top: 80px;
 		padding-bottom: 60px;
 	}
@@ -658,6 +657,10 @@ a {
 }
 
 .content-background {
+	.content-block {
+		padding-top: 200px;
+	}
+
 	&.marketing {
 		background: @color-dark;
 		z-index: 90;
@@ -678,6 +681,16 @@ a {
 		}
 	}
 
+	&#writing {
+		background-image: url('/media/assets/images/writing.JPG');
+		-webkit-background-size: cover;
+		-moz-background-size: cover;
+		-o-background-size: cover;
+		background-size: cover;
+		z-index: 70;
+		height: 700px;
+	}
+
 	&#data {
 		background-image: url('/media/assets/images/code.png');
 		-webkit-background-size: cover;
@@ -685,6 +698,7 @@ a {
 		-o-background-size: cover;
 		background-size: cover;
 		z-index: 60;
+		height: 700px;
 	}
 
 	&#travel {
@@ -695,6 +709,7 @@ a {
 		background-size: cover;
 		background-position: 30%;
 		z-index: 50;
+		height: 700px;
 	}
 }
 
