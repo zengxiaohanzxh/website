@@ -26,7 +26,7 @@ a{font-size:14px}
 .bs-sidebar .sidebar-heading{padding:10px 40px 10px 20px;margin-top:0;margin-bottom:0;background:#023748}
 .bs-sidebar .sidebar-heading>h4{color:#becccd}
 .bs-sidebar .sidebar-content{opacity:0;-o-transition:opacity .2s .1s,-webkit-transform .2s .1s;-ms-transition:opacity .2s .1s,-webkit-transform .2s .1s;-moz-transition:opacity .2s .1s,-webkit-transform .2s .1s;-webkit-transition:opacity .2s .1s,-webkit-transform .2s .1s;transition:opacity .2s .1s,-webkit-transform .2s .1s;min-height:300px;-webkit-transform:translateY(0);padding:0 20px 0 20px}.bs-sidebar .sidebar-content .badge{border-radius:0;color:#becccd;background-color:#023748}
-.bs-sidebar .sidebar-content>ul>li>ul>li{list-style:none}
+.bs-sidebar .sidebar-content>ul>li{list-style:none}.bs-sidebar .sidebar-content>ul>li>a{padding:0}
 .btn{border-radius:0;font-size:14px}
 .btn-primary{color:#fff;background-color:#023748;border-color:#023748;-o-transition:.2s;-ms-transition:.2s;-moz-transition:.2s;-webkit-transition:.2s;transition:.2s}.btn-primary:hover{color:#fff;background-color:#08556f;border-color:#08556f;-o-transition:.2s;-ms-transition:.2s;-moz-transition:.2s;-webkit-transition:.2s;transition:.2s}
 .btn-mini{color:#fff;background-color:#023748;border-color:#023748}
@@ -42,7 +42,7 @@ a{font-size:14px}
 .header .text{color:#cee0e5}
 .featurette-heading{font-size:30px}.featurette-heading.light{color:#cee0e5}
 .featurette-heading:hover{color:#023748}
-.lead{font-size:14px;margin-top:40px;margin-bottom:40px}@media (min-width:768px){.lead{font-size:14px}}
+.lead{font-size:16px;margin-top:40px;margin-bottom:40px}@media (min-width:768px){.lead{font-size:16px}}
 .menu{width:15%;float:left;position:relative;min-height:1px;padding-right:15px;padding-left:15px}
 .main-content{top:70px;right:60px;background:#becccd;position:relative;min-height:1000px;float:right;width:65%;padding:40px 40px 60px 40px;margin:0 0 100px 40px}.main-content .blog{padding-top:40px;padding-bottom:40px;border-bottom-color:#0a1d23;border-bottom-style:solid;border-bottom-width:1px}
 .main-content .blog-body{padding-top:40px;text-align:justify}

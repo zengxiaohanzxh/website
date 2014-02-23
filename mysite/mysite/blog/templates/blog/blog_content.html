@@ -1,15 +1,15 @@
 {% extends "blog/blog_index.html" %}
 
 {% block main_content %}
-{% if blog %}
+{% if object %}
 <div class="blog">
 	<div class="blog-title">
-		<h3>{{ blog.title }}</h3>
+		<h3>{{ object.title }}</h3>
 		<p>
-			{{ blog.pub_date }}
+			{{ object.pub_date }}
 		</p>
-		{% if blog.categories.all %}
-		{% for category in blog.categories.all %}
+		{% if object.categories.all %}
+		{% for category in object.categories.all %}
 		<button type="button "class="btn btn-mini" href="#">
 			{{ category.title }}
 		</button>
@@ -22,7 +22,7 @@
 	</div>
 	<div class="blog-body">
 		<p id="blog-body">
-			{{ blog.body|safe }}
+			{{ object.body|safe }}
 		</p>
 	</div>
 </div>

@@ -7,64 +7,22 @@
 			<h4>博文目录</h4>
 		</div>
 		<div class="sidebar-content">
-			<ul class="nav nav-pills nav-stacked">
+			<ul class="nav">
 				<li class="active">
 					<span class="badge pull-right">{{ list_blogs|length }}</span>
-					<h4>所有博文</h4>
-					<ul>
-						{% if list_blogs %}
-						{% for blog in list_blogs %}
-						{% if forloop.first %}
-						<li class="active">
-							{% else %}
-						<li>
-							{% endif %}
-							<a href="{% url 'blog:content' blog.slug %}">{{ blog.title }}</a>
-						</li>
-						{% endfor %}
-						{% else %}
-						<li>
-							No blogs are available.
-						</li>
-						{% endif %}
-					</ul>
+					<a href="{% url 'blog:index' %}"> <h4>所有博文</h4> </a>
 				</li>
+				{% if list_categories %}
+				{% for category in list_categories %}
 				<li>
-					<h4>按时排序</h4>
-					<ul>
-						{% if list_blogs %}
-						{% for blog in list_blogs %}
-						{% if forloop.first %}
-						<li class="active">
-							{% else %}
-						<li>
-							{% endif %}
-							{{ blog.title }}
-						</li>
-						{% endfor %}
-						{% else %}
-						<li>
-							No blogs are available.
-						</li>
-						{% endif %}
-					</ul>
+					<a href="{% url 'blog:categorized' category_slug=category.slug %}"> {{ category.title }} </a>
 				</li>
+				{% endfor %}
+				{% else %}
 				<li>
-					<h4>按类排序</h4>
-					<ul>
-						{% if list_categories %}
-						{% for category in list_categories %}
-						<li>
-							{{ category.title }}
-						</li>
-						{% endfor %}
-						{% else %}
-						<li>
-							无分类
-						</li>
-						{% endif %}
-					</ul>
+					无分类
 				</li>
+				{% endif %}
 			</ul>
 		</div>
 	</div>
@@ -75,9 +33,9 @@
 {% block main_content %}
 {% if list_blogs %}
 <div class="container">
-	<div class="pagination">
+	<!-- <div class="pagination">
 		<span class="step-links"> {% if list_blogs.has_previous %} <a href="?page={{ list_blogs.previous_page_number }}"> previous </a> {% endif %} <span class="current"> Page {{ list_blogs.number }} of {{ list_blogs.paginator.num_pages }} </span> {% if list_blogs.has_next %} <a href="?page={{ list_blogs.next_page_number }}"> next </a> {% endif %} </span>
-	</div>
+	</div> -->
 
 	{% for blog in list_blogs %}
 	<div class="blog">

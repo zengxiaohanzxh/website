@@ -11,6 +11,10 @@ class Category(models.Model):
     title = models.CharField(max_length=100)
     slug = models.SlugField(unique=True)
     
+    class Meta:
+        verbose_name_plural = "categories"
+        ordering = ["title"]
+    
     def __unicode__(self):
         return self.title
     def get_absolute_url(self):
