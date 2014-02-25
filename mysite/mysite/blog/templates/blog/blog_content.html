@@ -1,0 +1,30 @@
+{% extends "blog/blog_index.html" %}
+
+{% block main_content %}
+{% if object %}
+<div class="blog">
+	<div class="blog-title">
+		<h3>{{ object.title }}</h3>
+		<p>
+			{{ object.pub_date }}
+		</p>
+		{% if object.categories.all %}
+		{% for category in object.categories.all %}
+		<button type="button "class="btn btn-mini" href="#">
+			{{ category.title }}
+		</button>
+		{% endfor %}
+		{% else %}
+		<button type="button "class="btn btn-mini disabled" href="#">
+			无分类
+		</button>
+		{% endif %}
+	</div>
+	<div class="blog-body">
+		<p id="blog-body">
+			{{ object.body|safe }}
+		</p>
+	</div>
+</div>
+{% endif %}
+{% endblock %}

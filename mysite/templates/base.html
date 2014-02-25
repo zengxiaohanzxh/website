@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+{% load bootstrap_toolkit %}
+<html>
+	<head>
+		<link rel="shortcut icon" href="{% static 'home/assets/icon/Han-logo-small.png' %}">
+		<title>曾笑寒的个人网站</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta charset="utf-8" />
+		<!-- Bootstrap -->
+		<!-- Bootstrap core CSS -->
+		<link rel="stylesheet" type="text/css" href="{% static 'home/css/bootstrap.css' %}" />
+		<!-- Custom styles for this template -->
+		<link rel="stylesheet" type="text/css" href="{% static 'home/css/carousel.css' %}" />
+		<!-- My styles -->
+		<!-- <link rel="stylesheet" type="text/less" href="{% static 'home/css/style.less' %}" /> -->
+		<link rel="stylesheet" type="text/css" href="{% static 'home/css/style.css' %}" />
+		<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+		<!--[if lt IE 9]>
+		<script src="../../assets/js/html5shiv.js"></script>
+		<script src="../../assets/js/respond.min.js"></script>
+		<![endif]-->
+	</head>
+	<body>
+		{% block navbar %}
+		<!-- Navigation bar -->
+		<div class="navbar-wrapper">
+			<div class="container">
+				<div class="navbar navbar-default navbar-fixed-top" role="navigation">
+					<div class="navbar-inner">
+						<div class="container navbar-container">
+							<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+								<span class="icon-bar"></span>
+								<span class="icon-bar"></span>
+								<span class="icon-bar"></span>
+							</button>
+							<div class="nav-collapse collapse">
+								<ul class="nav navbar-nav">
+									<li>
+										<img src="{% static 'home/assets/icon/Han-logo-medium.png'%}" width="50" height="50" id="logo"/>
+									</li>
+									<li>
+										<a href="{% url 'home' %}">主页</a>
+									</li>
+									<li>
+										<a href="{% url 'blog:index' %}">博客</a>
+									</li>
+									<li>
+										<a href="{% url 'blog:index' %}">数据</a>
+									</li>
+									<li>
+										<a href="{% url 'blog:index' %}">相册</a>
+									</li>
+									<li>
+										<a href="#contact">联系</a>
+									</li>
+									<li class="nav pull-right">
+										<a href="{% url 'blog:index' %}">登录</a>
+									</li>
+									<li class="nav pull-right">
+										<a href="https://twitter.com/XiaohanZeng"> <img src="{% static 'home/assets/twitter-logo.png' %}" class="social_network_logo"/> </a>
+									</li>
+									<li class="nav pull-right">
+										<a href="https://www.facebook.com/xiaohan.zeng.3"> <img src="{% static 'home/assets/facebook-logo.png' %}" class="social_network_logo"/> </a>
+									</li>
+									<li class="nav pull-right">
+										<a href="http://weibo.com/u/2649633623"> <img src="{% static 'home/assets/weibo-logo.png' %}" class="social_network_logo"/> </a>
+									</li>
+									<li class="nav pull-right">
+										<a href="http://www.renren.com/2071260410/profile"> <img src="{% static 'home/assets/renren-logo.png' %}" class="social_network_logo"/> </a>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div><!-- /.navbar -->
+		{% endblock %}
+
+		{% block content %}
+		{% endblock %}
+
+		<!-- FOOTER -->
+		<div class="footer">
+			<div class="container">
+				<div class="row">
+					<div class="col">
+						<div class="pull-right">
+							Powered by &nbsp;
+							<a href="https://www.djangoproject.com/" class="navbar-link"> <img src="{% static 'home/assets/django_logo.png'%}" height="50" width="50" border="0"/> </a>
+							<a href="http://getbootstrap.com/" class="navbar-link"> <img src="{% static 'home/assets/bootstrap_logo.png'%}" height="50" width="50" border="0"/> </a>
+						</div>
+					</div>
+					<div class="col">
+						<div>
+							<img src="{% static 'home/assets/icon/Han-logo-medium.png'%}" width="50" height="50" />
+							&copy; 2014 曾笑寒 保留所有权利
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Bootstrap core JavaScript -->
+		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+		<script src="{% static 'home/js/jquery.js' %}"></script>
+		<script src="{% static 'home/js/holder.js' %}"></script>
+		<script src="{% static 'home/js/bootstrap.min.js' %}"></script>
+		<script src="{% static 'home/js/less-1.4.1.min.js' %}"></script>
+	</body>
+</html>
