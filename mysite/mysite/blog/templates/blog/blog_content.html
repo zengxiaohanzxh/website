@@ -1,5 +1,5 @@
 {% extends "blog/blog_index.html" %}
-
+{% load markup %}
 {% block main_content %}
 {% if object %}
 <div class="blog">
@@ -22,7 +22,7 @@
 	</div>
 	<div class="blog-body">
 		<p id="blog-body">
-			{{ object.body|safe }}
+			{{ object.body|textile|safe }}
 		</p>
 	</div>
 </div>
