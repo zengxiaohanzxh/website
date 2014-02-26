@@ -35,7 +35,7 @@ class Blog(models.Model):
     categories = models.ManyToManyField(Category)
     pub_date = models.DateTimeField('Date Published')
     image = models.ImageField(upload_to='blog_images', blank=True)
-    script = models.FilePathField(blank=True)
+    script = models.FilePathField(path='media/code/js/', blank=True)
     allow_comments = models.BooleanField(default=False)
     highlight = models.BooleanField(default=True,
                                     help_text='Highlight this post on the front page')

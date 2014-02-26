@@ -29,7 +29,7 @@ $(".node").hover(function() {
 	});
 });
 
-d3.json("../data/a-song-of-ice-and-fire.json", function(error, graph) {
+d3.json("/media/code/data/a-song-of-ice-and-fire.json", function(error, graph) {
 	force.nodes(graph.nodes).links(graph.links).start();
 
 	var link = svg.selectAll(".link").data(graph.links).enter().append("line").attr("class", "link");
