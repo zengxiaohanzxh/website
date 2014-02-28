@@ -1,7 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 
-from textile import textile
+from markdown import markdown
 
 class Category(models.Model):
     '''
@@ -46,10 +46,8 @@ class Blog(models.Model):
         return self.title
 
     def save(self):
-        self.body_html = textile(self.body.encode('utf-8'),
-                                    encoding='utf-8', output='utf-8')
-        self.tease_html = textile(self.tease.encode('utf-8'),
-                                    encoding='utf-8', output='utf-8')
+        self.body_html = markdown(self.body, ['codehilite'])
+        self.tease_html = markdown(self.tease)
         super(Blog, self).save()
     
     def list_categories(self):

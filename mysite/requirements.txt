@@ -1,0 +1,4 @@
+markdown
+south
+Pygments
+django-bootstrap-toolkit
