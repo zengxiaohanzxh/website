@@ -13,7 +13,6 @@ class BlogListView(ListView):
         context = super(BlogListView, self).get_context_data(**kwargs)
         context['list_categories'] = Category.objects.all()
         context['selected_category'] = None
-#         context['list_blogs'] = Blog.objects.order_by('-pub_date')
         return context
 
 class CategoryListView(BlogListView):

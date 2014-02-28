@@ -22,8 +22,13 @@
 	</div>
 	<div class="blog-body">
 		<p id="blog-body">
-			{{ object.body|safe }}
+			{{ object.body_html|safe }}
 		</p>
+		{% if object.script %}
+		<p id="blog-script">
+			{{ object.script|safe }}
+		</p>
+		{% endif %}
 	</div>
 </div>
 {% endif %}
