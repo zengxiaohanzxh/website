@@ -2,3 +2,5 @@ markdown
 south
 Pygments
 django-bootstrap-toolkit
+django-grappelli
+django-filebrowser
