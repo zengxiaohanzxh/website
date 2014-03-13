@@ -25,13 +25,16 @@ class Blog(models.Model):
     Class for blog posts.
     '''
     
+    class Meta:
+        ordering = ["-pub_date"]
+    
     title = models.CharField(max_length=300)
     slug = models.SlugField(unique=True)
     lang = models.CharField(default='en', max_length=2)
     author = models.ForeignKey(User, blank=True, null=True)
-    body = models.TextField(help_text="Use textile markup (http://txstyle.org/)")
+    body = models.TextField(help_text="Use markdown")
     tease = models.TextField(blank=True,
-                             help_text="Use textile markup (http://txstyle.org/)")
+                             help_text="Use markdown")
     categories = models.ManyToManyField(Category)
     pub_date = models.DateTimeField('Date Published')
     image = models.ImageField(upload_to='blog_images', blank=True)
