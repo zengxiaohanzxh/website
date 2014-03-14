@@ -48,14 +48,14 @@
 		{% with categories=blog.categories.all %}
 		{% if categories %}
 		{% for category in categories %}
-		<button type="button "class="btn btn-mini" href="#">
+		<span class="label-primary" href="#">
 			{{ category.title }}
-		</button>
+		</span>
 		{% endfor %}
 		{% else %}
-		<button type="button "class="btn btn-mini disabled" href="#">
+		<span class="label" href="#">
 			无分类
-		</button>
+		</span>
 		{% endif %}
 		{% endwith %}
 		<div class="blog-tease">

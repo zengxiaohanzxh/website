@@ -10,14 +10,10 @@
 		</p>
 		{% if object.categories.all %}
 		{% for category in object.categories.all %}
-		<button type="button "class="btn btn-mini" href="#">
-			{{ category.title }}
-		</button>
+		<span class="label-primary" href="#"> {{ category.title }} </span>
 		{% endfor %}
 		{% else %}
-		<button type="button "class="btn btn-mini disabled" href="#">
-			无分类
-		</button>
+		<span class="label" href="#"> 无分类 </span>
 		{% endif %}
 		<div class="share">
 			<a href="http://share.renren.com/share/buttonshare.do?link=http://www.zengxiaohan.com{% url 'blog:content' blog.slug %}"> <img src="{% static 'home/assets/renren-logo-dark.png' %}" class="social_network_logo small"/> </a>
@@ -27,6 +23,7 @@
 		</div>
 	</div>
 	<div class="blog-body">
+		<img src="{{ MEDIA_URL }}{{ object.image }}" class="blog-image"/>
 		<p id="blog-body">
 			{{ object.body_html|safe }}
 		</p>
