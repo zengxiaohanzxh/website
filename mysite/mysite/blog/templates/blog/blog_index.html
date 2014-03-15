@@ -54,11 +54,11 @@
 		<span class="label" href="#"> 无分类 </span>
 		{% endif %}
 		{% endwith %}
+		{% if blog.image %}
+		<hr>
+		<img src="{{ MEDIA_URL }}{{ blog.image }}" class="blog-tease-image"/>
+		{% endif %}
 		<div class="blog-tease">
-			{% if blog.image %}
-			<hr>
-			<img src="{{ MEDIA_URL }}{{ blog.image }}" class="blog-image"/>
-			{% endif %}
 			<p>
 				{{ blog.tease }}
 			</p>
@@ -82,10 +82,13 @@
 <script src="{% static 'home/js/masonry.pkgd.min.js' %}"></script>
 <script type='text/javascript'>
 	// <![CDATA[
-	var $container = $('#masonry-content');
-	$container.masonry({
-		//columnWidth:200,
-		itemSelector : '.item'
+	var $container = $('#masonry-content').masonry();
+	// Resolve image loading issue
+	$container.imagesLoaded(function() {
+		$container.masonry({
+			//columnWidth:200,
+			itemSelector : '.item'
+		});
 	});
 	//var $msnry = $container.data('masonry');
 	// ]]>

@@ -49,9 +49,10 @@ hr{border-top:1px solid #cee0e5}
 .menu{width:15%;float:left;position:relative;min-height:1px}
 .main-content{top:60px;left:10px;position:relative;min-height:1000px;float:right;width:80%}.main-content .blog{background:#becccd;padding:20px 30px 20px 30px;margin:10px 10px 10px 10px;width:47%}
 .main-content .blog-tease{padding-top:20px;text-align:justify}
+.main-content .blog-tease-image{max-width:100%;max-height:300px}
 .main-content .blog-content{background:#becccd;padding:60px 60px 60px 60px;margin:10px 10px 10px 10px}
 .main-content .blog-body{padding-top:40px;padding-bottom:40px;text-align:justify}
-.main-content .blog-image{max-width:100%;max-height:300px;padding:10px 0 20px 0}
+.main-content .blog-image{max-width:100%;max-height:500px;padding:10px 0 20px 0}
 .main-content .blog-comments{border-top-style:solid;border-top-width:1px;border-top-color:#023748;padding-top:40px}
 .contact{height:240px;text-align:center}.contact img{width:80px;height:80px}
 .contact .row{bottom:20px;margin-top:20px;padding-left:20%;padding-right:20%}
