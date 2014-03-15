@@ -33,7 +33,7 @@ a{font-size:14px}
 .label{border-radius:0;font-size:14px}
 .label-primary{background-color:#023748;color:#fff;font-family:"Montserrat","WenQuanYi Micro Hei","Microsoft YaHei",arial,sans-serif;font-size:14px;padding:4px}
 .nav .pull-right{text-align:right}
-.navbar{padding-left:100px;padding-right:100px;background-color:#0a1d23;-webkit-box-shadow:0 0 10px 2px #0a1d23;-moz-box-shadow:0 0 10px 2px #0a1d23;box-shadow:0 0 10px 2px #0a1d23}
+.navbar{background-color:#0a1d23;-webkit-box-shadow:0 0 10px 2px #0a1d23;-moz-box-shadow:0 0 10px 2px #0a1d23;box-shadow:0 0 10px 2px #0a1d23}
 .navbar-nav{width:100%;margin:0 auto}.navbar-nav #logo{margin-right:20px}
 .navbar-nav>li>a{color:#cee0e5;-webkit-transition:.2s ease}.navbar-nav>li>a:hover{background:none}
 .share{margin:20px 0 20px 5px}
@@ -46,7 +46,7 @@ a{font-size:14px}
 .featurette-heading{font-size:30px}.featurette-heading.light{color:#cee0e5}
 .lead{font-size:16px;margin-top:40px;margin-bottom:40px}@media (min-width:768px){.lead{font-size:16px}}
 .menu{width:15%;float:left;position:relative;min-height:1px}
-.main-content{top:60px;left:10px;position:relative;min-height:1000px;float:right;width:80%}.main-content .blog{background:#becccd;padding:20px 20px 20px 20px;margin:10px 10px 10px 10px;width:47%}
+.main-content{top:60px;left:10px;position:relative;min-height:1000px;float:right;width:80%}.main-content .blog{background:#becccd;padding:20px 30px 20px 30px;margin:10px 10px 10px 10px;width:47%}
 .main-content .blog-tease{padding-top:40px;text-align:justify}
 .main-content .blog-content{background:#becccd;padding:60px 60px 60px 60px;margin:10px 10px 10px 10px}
 .main-content .blog-body{padding-top:40px;padding-bottom:40px;text-align:justify}
