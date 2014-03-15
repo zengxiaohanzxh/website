@@ -57,7 +57,7 @@ hr{border-top:1px solid #cee0e5}
 .contact{height:240px;text-align:center}.contact img{width:80px;height:80px}
 .contact .row{bottom:20px;margin-top:20px;padding-left:20%;padding-right:20%}
 .contact .btn{width:90px}
-.footer{text-align:left;background:#0a1d23;color:#cee0e5;padding-top:40px;padding-bottom:80px;bottom:0}.footer a{color:#cee0e5}
+.footer{text-align:left;background:#0a1d23;color:#cee0e5;padding-top:40px;padding-bottom:80px;margin-top:20px;bottom:0}.footer a{color:#cee0e5}
 .footer a:hover{color:#08556f;-o-transition:.2s;-ms-transition:.2s;-moz-transition:.2s;-webkit-transition:.2s;transition:.2s}
 .container.marketing .col-lg-2 h1{opacity:0;position:absolute;letter-spacing:10px;top:0;width:90%;-webkit-transition:all .3s ease;-moz-transition:all .3s ease;-o-transition:all .3s ease;-ms-transition:all .3s ease;transition:all .3s ease}
 .container.marketing .col-lg-2 h4{opacity:0;margin-top:-30px;-webkit-transition:opacity .3s ease;-moz-transition:opacity .3s ease;-o-transition:opacity .3s ease;-ms-transition:opacity .3s ease;transition:opacity .3s ease}
