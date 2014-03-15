@@ -48,16 +48,16 @@
 		{% with categories=blog.categories.all %}
 		{% if categories %}
 		{% for category in categories %}
-		<span class="label-primary" href="#">
-			{{ category.title }}
-		</span>
+		<span class="label-primary" href="#"> {{ category.title }} </span>
 		{% endfor %}
 		{% else %}
-		<span class="label" href="#">
-			无分类
-		</span>
+		<span class="label" href="#"> 无分类 </span>
 		{% endif %}
 		{% endwith %}
+		{% if blog.image %}
+		<hr>
+		<img src="{{ MEDIA_URL }}{{ blog.image }}" class="blog-image"/>
+		{% endif %}
 		<div class="blog-tease">
 			<p>
 				{{ blog.tease }}
