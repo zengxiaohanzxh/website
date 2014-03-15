@@ -80,9 +80,9 @@
 {% endblock %}
 {% block scripts %}
 <script src="{% static 'home/js/masonry.pkgd.min.js' %}"></script>
+<script src="{% static 'home/js/imagesloaded.pkgd.min.js' %}"></script>
 <script type='text/javascript'>
-	// <![CDATA[
-	var $container = $('#masonry-content').masonry();
+	var $container = $('#masonry-content');
 	// Resolve image loading issue
 	$container.imagesLoaded(function() {
 		$container.masonry({
@@ -90,7 +90,5 @@
 			itemSelector : '.item'
 		});
 	});
-	//var $msnry = $container.data('masonry');
-	// ]]>
 </script>
 {% endblock %}
