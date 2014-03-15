@@ -54,11 +54,11 @@
 		<span class="label" href="#"> 无分类 </span>
 		{% endif %}
 		{% endwith %}
-		{% if blog.image %}
-		<hr>
-		<img src="{{ MEDIA_URL }}{{ blog.image }}" class="blog-image"/>
-		{% endif %}
 		<div class="blog-tease">
+			{% if blog.image %}
+			<hr>
+			<img src="{{ MEDIA_URL }}{{ blog.image }}" class="blog-image"/>
+			{% endif %}
 			<p>
 				{{ blog.tease }}
 			</p>
