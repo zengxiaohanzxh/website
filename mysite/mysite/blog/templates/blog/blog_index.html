@@ -32,7 +32,7 @@
 
 {% block main_content %}
 {% if list_blogs %}
-<div class="container" id="masonry_content">
+<div class="container" id="masonry-content">
 	<!-- <div class="pagination">
 	<span class="step-links"> {% if list_blogs.has_previous %} <a href="?page={{ list_blogs.previous_page_number }}"> previous </a> {% endif %} <span class="current"> Page {{ list_blogs.number }} of {{ list_blogs.paginator.num_pages }} </span> {% if list_blogs.has_next %} <a href="?page={{ list_blogs.next_page_number }}"> next </a> {% endif %} </span>
 	</div> -->
@@ -82,7 +82,7 @@
 <script src="{% static 'home/js/masonry.pkgd.min.js' %}"></script>
 <script type='text/javascript'>
 	// <![CDATA[
-	var $container = $('#masonry_content');
+	var $container = $('#masonry-content');
 	$container.masonry({
 		//columnWidth:200,
 		itemSelector : '.item'
