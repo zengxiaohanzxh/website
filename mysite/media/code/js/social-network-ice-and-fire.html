@@ -2,9 +2,9 @@
 <meta charset="utf-8">
 <body>
 	<style>
-		.node {
+		.node > circle {
 			stroke: #fff;
-			stroke-width: 1px;
+			stroke-width: 2px;
 			-o-transition: .2s ease-out;
 			-ms-transition: .2s ease-out;
 			-moz-transition: .2s ease-out;
@@ -12,8 +12,9 @@
 			transition: .2s ease-out;
 		}
 
-		.node:hover {
-			opacity: 0.8;
+		.node > circle:hover {
+			stroke: #888;
+			stroke-width: 4px;
 			-o-transition: .2s ease-out;
 			-ms-transition: .2s ease-out;
 			-moz-transition: .2s ease-out;
@@ -27,19 +28,27 @@
 			stroke-width: 1.5px;
 		}
 
-		.text {
-			fill: #000;
-			font: 10px sans-serif;
+		text {
+			fill: #333;
+			font-size: 14px;
+			font-weight: 700;
+			font-family: "Montserrat", "Helvetica", sans-serif;
 			pointer-events: none;
 		}
 
 	</style>
+
 	<p>
 		A Social Network of Ice and Fire
 	</p>
-	<button>
-		Toggle link
+	<div id="network"></div>
+	<button id="toggle-size" class="btn btn-primary">
+		Toggle Size
 	</button>
+	<button id="toggle-name" class="btn btn-primary">
+		Toggle Name
+	</button>
+
 	<script src="d3.v3.min.js"></script>
 	<script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
 	<script>
@@ -47,28 +56,31 @@
 
 		var color = d3.scale.category20();
 
-		var force = d3.layout.force().charge(-300).linkDistance(100).size([width, height]);
+		var force = d3.layout.force().charge(-500).linkDistance(60).size([width, height]);
 
-		var svg = d3.select("body").append("svg").attr("width", width).attr("height", height);
+		var svg = d3.select("#network").append("svg").attr("width", width).attr("height", height);
 
-		var link;
-		var node;
-		var isDrawing = false;
+		var showSize = false;
+		var showName = false;
 
 		d3.json("../data/a-song-of-ice-and-fire.json", function(error, graph) {
 			force.nodes(graph.nodes).links(graph.links).on("tick", tick).start();
 
-			link = svg.selectAll(".link").data(graph.links).enter().append("line").attr("class", "link");
+			var link = svg.selectAll(".link").data(graph.links).enter().append("line").attr("class", "link");
 
-			node = svg.selectAll(".node").data(graph.nodes).enter().append("circle").attr("class", "node").attr("r", function(d) {
-				return 5 + 5 * Math.log(d.degree);
-			}).style("fill", function(d) {
+			var node = svg.selectAll(".node").data(graph.nodes).enter().append("g").attr("class", "node");
+
+			node.append("circle").attr("r", 9).style("fill", function(d) {
 				return color(d.group);
-			}).on("click", click).call(force.drag);
+			});
 
-			node.append("title").text(function(d) {
+			node.append("text").attr("dy", ".35em").attr("text-anchor", "middle").style({
+				opacity : "0"
+			}).text(function(d) {
 				return d.name;
 			});
+
+			node.on("click", click).on("dblclick", dblclick).on("mouseover", mouseover).on("mouseout", mouseout).call(force.drag);
 
 			function tick() {
 				link.attr("x1", function(d) {
@@ -81,24 +93,74 @@
 					return d.target.y;
 				});
 
-				node.attr("cx", function(d) {
-					return d.x;
-				}).attr("cy", function(d) {
-					return d.y;
+				node.attr("transform", function(d) {
+					return "translate(" + d.x + "," + d.y + ")";
 				});
 			}
 
 			// action to take on mouse click
 			function click() {
-				d3.select(this).select(".node").transition().duration(500).attr("r", 16).style("fill", "lightsteelblue");
+				var svg = d3.select("svg").transition();
+				var node = d3.select(this);
+
+				var associated_links = svg.selectAll(".link").filter(function(link) {
+					return link.source.index == node.index || link.target.index == node.index;
+				}).style("stroke-width", 3);
 			}
 
 			// action to take on mouse double click
 			function dblclick() {
-				d3.select(this).select(".node").transition().duration(500).attr("r", 6).style("fill", "#ccc");
+				d3.select(this).select("circle").transition().duration(500).attr("r", function(d) {
+					return 5 * Math.log(d.degree);
+				}).style("fill", function(d) {
+					return color(d.group);
+				});
+			}
+
+			function mouseover() {
+				d3.select(this).select("text").transition().duration(200).style({
+					opacity : "1"
+				});
+			}
+
+			function mouseout() {
+				if (!showName) {
+					d3.select(this).select("text").transition().duration(200).style({
+						opacity : "0"
+					});
+				}
+			}
+
+
+			d3.select("#toggle-size").on("click", toggleSize);
+
+			function toggleSize() {
+				showSize = (!showSize);
+				if (showSize) {
+					d3.select("body").selectAll(".node").select("circle").transition().duration(400).attr("r", function(d) {
+						return 5 + 5 * Math.log(d.degree);
+					});
+				} else {
+					d3.select("body").selectAll(".node").select("circle").transition().duration(400).attr("r", 9);
+				}
+			}
+
+
+			d3.select("#toggle-name").on("click", toggleName);
+
+			function toggleName() {
+				showName = (!showName);
+				if (showName) {
+					d3.select("body").selectAll(".node").select("text").transition().duration(200).style({
+						opacity : "1"
+					});
+				} else {
+					d3.select("body").selectAll(".node").select("text").transition().duration(200).style({
+						opacity : "0"
+					});
+				}
 			}
 
 		});
-
 	</script>
 </body>
