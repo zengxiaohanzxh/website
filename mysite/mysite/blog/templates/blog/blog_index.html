@@ -1,5 +1,7 @@
 {% extends "base_index.html" %}
 {% load staticfiles %}
+{% block extralinks %}
+{% endblock %}
 {% block menu %}
 <div class="container">
 	<div class="bs-sidebar affix">
@@ -89,6 +91,6 @@
 			//columnWidth:200,
 			itemSelector : '.item'
 		});
-	});
+	}); 
 </script>
 {% endblock %}

@@ -32,10 +32,9 @@
 			fill: #333;
 			font-size: 14px;
 			font-weight: 700;
-			font-family: "Montserrat", "Helvetica", sans-serif;
+			font-family: "Helvetica", sans-serif;
 			pointer-events: none;
 		}
-
 	</style>
 
 	<p>
@@ -49,9 +48,13 @@
 		Toggle Name
 	</button>
 
-	<script src="d3.v3.min.js"></script>
+	<script src="http://d3js.org/d3.v3.min.js"></script>
 	<script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
 	<script>
+		// Transition duration
+		var duration = 200;
+
+		// Canvas size
 		var width = 960, height = 800;
 
 		var color = d3.scale.category20();
@@ -60,6 +63,7 @@
 
 		var svg = d3.select("#network").append("svg").attr("width", width).attr("height", height);
 
+		// Booleans to control size and name
 		var showSize = false;
 		var showName = false;
 
@@ -80,8 +84,20 @@
 				return d.name;
 			});
 
-			node.on("click", click).on("dblclick", dblclick).on("mouseover", mouseover).on("mouseout", mouseout).call(force.drag);
+			// Compute and store whether two nodes are connected
+			var linkedByIndex = {};
+			graph.links.forEach(function(d) {
+				linkedByIndex[d.source.index + "," + d.target.index] = 1;
+			});
 
+			function isConnected(a, b) {
+				return linkedByIndex[a.index + "," + b.index] || linkedByIndex[b.index + "," + a.index] || a.index == b.index;
+			}
+
+			// Add node event listeners
+			node.on("click", click).on("dblclick", dblclick).on("mouseover", mouseover).on("mouseout", mouseout).on("click", click(.4, "#666")).on("dblclick", dblclick()).call(force.drag);
+
+			// Set nodes and links in motion
 			function tick() {
 				link.attr("x1", function(d) {
 					return d.source.x;
@@ -96,52 +112,62 @@
 				node.attr("transform", function(d) {
 					return "translate(" + d.x + "," + d.y + ")";
 				});
-			}
+			};
 
-			// action to take on mouse click
-			function click() {
-				var svg = d3.select("svg").transition();
-				var node = d3.select(this);
-
-				var associated_links = svg.selectAll(".link").filter(function(link) {
-					return link.source.index == node.index || link.target.index == node.index;
-				}).style("stroke-width", 3);
-			}
-
-			// action to take on mouse double click
-			function dblclick() {
-				d3.select(this).select("circle").transition().duration(500).attr("r", function(d) {
-					return 5 * Math.log(d.degree);
-				}).style("fill", function(d) {
-					return color(d.group);
-				});
-			}
-
+			// Display node name upon mouse over
 			function mouseover() {
-				d3.select(this).select("text").transition().duration(200).style({
+				d3.select(this).select("text").transition().duration(duration).style({
 					opacity : "1"
 				});
 			}
 
+			// Back to normal upon mouse off
 			function mouseout() {
 				if (!showName) {
-					d3.select(this).select("text").transition().duration(200).style({
+					d3.select(this).select("text").transition().duration(duration).style({
 						opacity : "0"
 					});
 				}
 			}
 
+			// Highlight neighbors upon clicking
+			function click(opacity, color) {
+				return function(d) {
+					showName = true;
+					node.transition().duration(duration).style("opacity", function(o) {
+						return isConnected(d, o) ? 1 : opacity;
+					}).select("text").style("opacity", function(o) {
+						return isConnected(d, o) ? 1 : 0;
+					});
 
+					link.transition().duration(duration).style("stroke-width", function(o) {
+						return o.source === d || o.target === d ? 3 : 1.5;
+					}).style("stroke", function(o) {
+						return o.source === d || o.target === d ? color : "#888";
+					});
+				};
+			}
+
+			// Back to normal upon double clicking
+			function dblclick() {
+				return function(d) {
+					showName = false;
+					node.transition().duration(duration).style("opacity", 1).select("text").style("opacity", 0);
+					link.transition().duration(duration).style("stroke-width", 1.5).style("stroke", "#999");
+				};
+			}
+
+			// Set buttons to work
 			d3.select("#toggle-size").on("click", toggleSize);
 
 			function toggleSize() {
 				showSize = (!showSize);
 				if (showSize) {
-					d3.select("body").selectAll(".node").select("circle").transition().duration(400).attr("r", function(d) {
+					d3.select("body").selectAll(".node").select("circle").transition().duration(duration * 2).attr("r", function(d) {
 						return 5 + 5 * Math.log(d.degree);
 					});
 				} else {
-					d3.select("body").selectAll(".node").select("circle").transition().duration(400).attr("r", 9);
+					d3.select("body").selectAll(".node").select("circle").transition().duration(duration * 2).attr("r", 9);
 				}
 			}
 
@@ -151,11 +177,11 @@
 			function toggleName() {
 				showName = (!showName);
 				if (showName) {
-					d3.select("body").selectAll(".node").select("text").transition().duration(200).style({
+					d3.select("body").selectAll(".node").select("text").transition().duration(duration).style({
 						opacity : "1"
 					});
 				} else {
-					d3.select("body").selectAll(".node").select("text").transition().duration(200).style({
+					d3.select("body").selectAll(".node").select("text").transition().duration(duration).style({
 						opacity : "0"
 					});
 				}

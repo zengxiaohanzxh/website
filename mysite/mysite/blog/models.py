@@ -49,7 +49,7 @@ class Blog(models.Model):
         return self.title
 
     def save(self):
-        self.body_html = markdown(self.body, ['codehilite'])
+        self.body_html = markdown(self.body)
         self.tease_html = markdown(self.tease)
         super(Blog, self).save()
     
