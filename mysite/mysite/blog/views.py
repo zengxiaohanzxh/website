@@ -23,15 +23,13 @@ class CategoryListView(BlogListView):
 
     def get_queryset(self):
         selected_category = get_object_or_404(Category, slug=self.kwargs['category_slug'])
-        # Pass the chosen category blog posts to the template
-        print selected_category.blog_set.all()
-
         return selected_category.blog_set.all()
 
 
 class BlogDetailView(DetailView):
     model = Blog
     template_name = "blog/blog_content.html"
+    context_object_name = 'blog'
     def get_context_data(self, **kwargs):
         context = super(BlogDetailView, self).get_context_data(**kwargs)
         context['list_categories'] = Category.objects.all()

@@ -4,15 +4,15 @@
 <link rel="stylesheet" href="http://yandex.st/highlightjs/8.0/styles/atelier-forest.light.min.css">
 {% endblock %}
 {% block main_content %}
-{% if object %}
+{% if blog %}
 <div class="blog-content">
 	<div class="blog-title">
-		<h3>{{ object.title }}</h3>
+		<h3>{{ blog.title }}</h3>
 		<p>
-			{{ object.pub_date }}
+			{{ blog.pub_date }}
 		</p>
-		{% if object.categories.all %}
-		{% for category in object.categories.all %}
+		{% if blog.categories.all %}
+		{% for category in blog.categories.all %}
 		<span class="label-primary" href="#"> {{ category.title }} </span>
 		{% endfor %}
 		{% else %}
@@ -26,15 +26,15 @@
 		</div>
 	</div>
 	<div class="blog-body">
-		{% if object.image %}
-		<img src="{{ MEDIA_URL }}{{ object.image }}" class="blog-image"/>
+		{% if blog.image %}
+		<img src="{{ MEDIA_URL }}{{ blog.image }}" class="blog-image"/>
 		{% endif %}
 		<p id="blog-body">
-			{{ object.body_html|safe }}
+			{{ blog.body_html|safe }}
 		</p>
-		{% if object.script %}
+		{% if blog.script %}
 		<p id="blog-script">
-			{{ object.script|safe }}
+			{{ blog.script|safe }}
 		</p>
 		{% endif %}
 	</div>

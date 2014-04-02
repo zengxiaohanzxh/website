@@ -39,19 +39,41 @@
 			font-family: "Helvetica", sans-serif;
 			pointer-events: none;
 		}
+
 		h1, h2, h3, h4, h5 {
 			font-family: "GoT";
 		}
+
+		.btn-round {
+			width: 100px;
+			height: 100px;
+			border-radius: 100px;
+			border: 3px solid #464646;
+			color: #464646;
+			background: white;
+			font-size: 15px;
+			font-family: "GoT";
+		}
+
+		.btn-round:focus {
+			color: #464646;
+		}
+
+		.btn-round:hover {
+			color: #464646;
+			background: #CCC;
+		}
+
 	</style>
 
 	<p>
 		A Social Network of Ice and Fire
 	</p>
 	<div id="network"></div>
-	<button id="toggle-size" class="btn btn-primary">
+	<button id="toggle-size" class="btn btn-round">
 		Toggle Size
 	</button>
-	<button id="toggle-name" class="btn btn-primary">
+	<button id="toggle-name" class="btn btn-round">
 		Toggle Name
 	</button>
 
