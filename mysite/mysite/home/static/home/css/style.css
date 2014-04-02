@@ -85,3 +85,5 @@ hr{border-top:1px solid #cee0e5}
 .content-background#travel{background-image:url('/static/home/assets/travel.jpg');-webkit-background-size:cover;-moz-background-size:cover;-o-background-size:cover;background-size:cover;background-position:30%;z-index:50;height:700px}
 .content-block{max-width:1100px;margin:auto;padding-top:120px;padding-bottom:120px}.content-block.marketing{padding-top:40px;padding-bottom:40px}
 .svg{margin-left:auto;margin-right:auto}
+pre{border-radius:0}
+code{border-radius:0;background-color:#f5f5f5;color:#333}

@@ -4,8 +4,9 @@
 @color-dark-green: #023748;
 @color-dark-green-hover: #08556F;
 @color-darker-green: #01242F;
+@color-code-background: #f5f5f5;
+@color-code: #333333;
 @carousel-height: 600px;
-
 html {
 	font-family: "Helvetica", "WenQuanYi Micro Hei", "Microsoft YaHei", arial, sans-serif;
 }
@@ -779,5 +780,15 @@ hr {
 .svg {
 	margin-left: auto;
 	margin-right: auto;
+}
+
+pre {
+	border-radius: 0px;
+}
+
+code {
+	border-radius: 0px;
+	background-color: @color-code-background;
+	color: @color-code;
 }
 
