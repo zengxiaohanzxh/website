@@ -45,18 +45,11 @@ def get_deg_dist(g):
 if __name__ == '__main__':
     edges = []
     houses = ['Stark', 'Tully', 'Baratheon', 'Targaryen',
-              'Lannister', 'Theon', 'Tarly']
+              'Lannister', 'Greyjoy', 'Tarly', 'Tyrell']
     for line in open('../data/asif.dat').readlines():
         line = line.strip('\n').strip(' ')
         name1, name2 = line.split('\t')
-        if ' ' in name1:
-            # Do not display names of primary houses
-            if name1.split(' ')[1] in houses:
-                name1 = name1.split(' ')[0]
-        if ' ' in name2:
-            if name2.split(' ')[1] in houses:
-                name2 = name2.split(' ')[0]
-        edges.append([name1, name2])
+        edges.append([name1.strip(), name2.strip()])
     
     # Create the networkx instance
     g = nx.Graph()
@@ -71,14 +64,44 @@ if __name__ == '__main__':
     size = float(len(set(partition.values())))
     nw_json = {}
     nodes = sorted(g.nodes(), key=lambda n:g.degree(n), reverse=True)
-    nw_json["nodes"] = [{"name":node,
-                         "group":partition[node],
-                         "degree":g.degree(node)} 
-                        for node in nodes]
+    
+    with open('/home/zxh/Works/Asoiaf_Wiki/items.json') as f:
+        wiki_json = json.load(f)
+    
+    char_desc = {}
+    for char in wiki_json:
+        char_desc[char['name']] = char['description']
+    
+    nw_json["nodes"] = []
+    for node in nodes:
+        name_parts = node.split(' ')
+        if len(name_parts) == 1:
+            name = node
+            house = ''
+        elif len(name_parts) == 2:
+            if name_parts[1] in houses:
+                name = name_parts[0]
+                house = name_parts[1]
+            else:
+                name = node
+                house = ''
+        else:
+            name = node
+            house = ''
+        if node in char_desc:
+            desc = char_desc[node]
+        else:
+            desc = ''
+        nw_json["nodes"].append({"name":name,
+                                 "group":partition[node],
+                                 "degree":g.degree(node),
+                                 "house":house,
+                                 "desc":desc})
+    
     nw_json["links"] = [{"source":nodes.index(edge[0]),
-                       "target":nodes.index(edge[1])} 
+                         "target":nodes.index(edge[1])} 
                         for edge in g.edges()]
-    with open('../data/a-song-of-ice-and-fire.json', 'w') as out_file:
+    with open('../data/a-song-of-ice-and-fire-desc.json', 'w') as out_file:
         json.dump(nw_json, out_file)
     exit()
     

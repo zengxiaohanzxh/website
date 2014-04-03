@@ -41,7 +41,7 @@
 		}
 
 		h1, h2, h3, h4, h5 {
-			font-family: "GoT";
+			font-family: "GoT", "Helvetica";
 		}
 
 		.btn-round {
@@ -52,7 +52,7 @@
 			color: #464646;
 			background: white;
 			font-size: 15px;
-			font-family: "GoT";
+			font-family: "GoT", "Helvetica";
 		}
 
 		.btn-round:focus {
@@ -96,7 +96,7 @@
 		var showSize = false;
 		var showName = false;
 
-		d3.json("../data/a-song-of-ice-and-fire.json", function(error, graph) {
+		d3.json("../data/a-song-of-ice-and-fire-desc.json", function(error, graph) {
 			force.nodes(graph.nodes).links(graph.links).on("tick", tick).start();
 
 			var link = svg.selectAll(".link").data(graph.links).enter().append("line").attr("class", "link");
