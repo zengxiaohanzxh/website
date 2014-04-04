@@ -52,4 +52,4 @@ class CommonPost(models.Model):
     def save(self):
         self.body_html = markdown(self.body)
         self.tease_html = markdown(self.tease)
-        super(Post, self).save()
+        super(CommonPost, self).save()

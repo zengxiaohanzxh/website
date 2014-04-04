@@ -11,7 +11,7 @@ class BlogListView(ListView):
     context_object_name = 'list_blogs'
     def get_context_data(self, **kwargs):
         context = super(BlogListView, self).get_context_data(**kwargs)
-        context['list_categories'] = BlogCategory.objects.all()
+        context['list_categories'] = Category.objects.all()
         context['selected_category'] = None
         return context
 
@@ -32,6 +32,6 @@ class BlogDetailView(DetailView):
     context_object_name = 'blog'
     def get_context_data(self, **kwargs):
         context = super(BlogDetailView, self).get_context_data(**kwargs)
-        context['list_categories'] = BlogCategory.objects.all()
+        context['list_categories'] = Category.objects.all()
         context['list_blogs'] = Blog.objects.order_by('-pub_date')
         return context
