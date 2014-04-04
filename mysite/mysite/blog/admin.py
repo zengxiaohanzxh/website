@@ -1,5 +1,5 @@
 from django.contrib import admin
-from mysite.blog.models import Blog, BlogCategory
+from mysite.blog.models import Blog, Category
 
 class BlogAdmin(admin.ModelAdmin):
     '''
@@ -11,4 +11,4 @@ class BlogAdmin(admin.ModelAdmin):
     date_hierarchy = 'pub_date'
     
 admin.site.register(Blog, BlogAdmin)
-admin.site.register(BlogCategory)
+admin.site.register(Category)
