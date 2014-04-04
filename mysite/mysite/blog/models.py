@@ -1,24 +1,57 @@
 from django.db import models
-from mysite.common.models import CommonPost, CommonCategory
+from django.contrib.auth.models import User
 
-class Category(CommonCategory):
+from markdown import markdown
+
+class Category(models.Model):
     '''
     Class for blog categories.
     '''
     
-    class Meta:
-        verbose_name_plural = "blog categories"
+    title = models.CharField(max_length=100)
+    slug = models.SlugField(unique=True)
     
+    class Meta:
+        verbose_name_plural = "categories"
+        ordering = ["title"]
+    
+    def __unicode__(self):
+        return self.title
     def get_absolute_url(self):
         return reverse('blog-categorized', kwargs={"category_slug": self.slug})
     
-class Blog(CommonPost):
+class Blog(models.Model):
     '''
     Class for blog posts.
     '''
     
+    class Meta:
+        ordering = ["-pub_date"]
+    
+    title = models.CharField(max_length=300)
+    slug = models.SlugField(unique=True)
+    lang = models.CharField(default='en', max_length=2)
+    author = models.ForeignKey(User, blank=True, null=True)
+    body = models.TextField(help_text="Use markdown")
+    tease = models.TextField(blank=True,
+                             help_text="Use markdown")
     categories = models.ManyToManyField(Category)
+    pub_date = models.DateTimeField('Date Published')
+    image = models.ImageField(upload_to='blog_images', blank=True)
     script = models.TextField(help_text="Add scripts here", blank=True)
+    allow_comments = models.BooleanField(default=False)
+    highlight = models.BooleanField(default=True,
+                                    help_text='Highlight this post on the front page')
+    body_html = models.TextField(help_text="Valid html (not markup) for the templates", editable=False)
+    tease_html = models.TextField(blank=True, editable=False)
+    
+    def __unicode__(self):
+        return self.title
+
+    def save(self):
+        self.body_html = markdown(self.body)
+        self.tease_html = markdown(self.tease)
+        super(Blog, self).save()
     
     def list_categories(self):
         return ', '.join([category.title for category in self.categories.all()])
