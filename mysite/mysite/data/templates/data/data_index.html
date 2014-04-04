@@ -1,0 +1,96 @@
+{% extends "base_index.html" %}
+{% load staticfiles %}
+{% block extralinks %}
+{% endblock %}
+{% block menu %}
+<div class="container">
+	<div class="bs-sidebar affix">
+		<div class="sidebar-heading">
+			<h4>博文目录</h4>
+		</div>
+		<div class="sidebar-content">
+			<ul class="nav">
+				<li class="active">
+					<span class="badge pull-right">{{ list_datas|length }}</span>
+					<a href="{% url 'data:index' %}"> <h4>所有博文</h4> </a>
+				</li>
+				{% if list_categories %}
+				{% for category in list_categories %}
+				<li>
+					<a href="{% url 'data:categorized' category_slug=category.slug %}"> <h4> {{ category.title }} </h4></a>
+				</li>
+				{% endfor %}
+				{% else %}
+				<li>
+					无分类
+				</li>
+				{% endif %}
+			</ul>
+		</div>
+	</div>
+</div>
+
+{% endblock %}
+
+{% block main_content %}
+{% if list_datas %}
+<div class="container" id="masonry-content">
+	<!-- <div class="pagination">
+	<span class="step-links"> {% if list_datas.has_previous %} <a href="?page={{ list_datas.previous_page_number }}"> previous </a> {% endif %} <span class="current"> Page {{ list_datas.number }} of {{ list_datas.paginator.num_pages }} </span> {% if list_datas.has_next %} <a href="?page={{ list_datas.next_page_number }}"> next </a> {% endif %} </span>
+	</div> -->
+
+	{% for data in list_datas %}
+	<div class="data item">
+		<div>
+			<a href="{% url 'data:content' data.slug %}"><h3>{{ data.title }}</h3></a>
+		</div>
+		<p>
+			{{ data.pub_date }}
+		</p>
+		{% with categories=data.categories.all %}
+		{% if categories %}
+		{% for category in categories %}
+		<span class="label-primary" href="#"> {{ category.title }} </span>
+		{% endfor %}
+		{% else %}
+		<span class="label" href="#"> 无分类 </span>
+		{% endif %}
+		{% endwith %}
+		{% if data.image %}
+		<hr>
+		<img src="{{ MEDIA_URL }}{{ data.image }}" class="data-tease-image"/>
+		{% endif %}
+		<div class="data-tease">
+			<p>
+				{{ data.tease }}
+			</p>
+		</div>
+		<div class="share">
+			<a href="http://share.renren.com/share/buttonshare.do?link=http://www.zengxiaohan.com{% url 'data:content' data.slug %}"> <img src="{% static 'home/assets/renren-logo-dark.png' %}" class="social_network_logo small"/> </a>
+			<a href="http://service.weibo.com/share/share.php?url=http://www.zengxiaohan.com{% url 'data:content' data.slug %}&appkey=&title={{ data.title }}&pic={{ data.image }}&ralateUid=&language=zh_cn"> <img src="{% static 'home/assets/weibo-logo-dark.png' %}" class="social_network_logo small"/> </a>
+			<a href="https://www.facebook.com/sharer/sharer.php?u=http://www.zengxiaohan.com{% url 'data:content' data.slug %}&display=popup"> <img src="{% static 'home/assets/facebook-logo-dark.png' %}" class="social_network_logo small"/> </a>
+			<a href="https://twitter.com/intent/tweet?text=@XiaohanZeng {{ data.title }}&url=http://www.zengxiaohan.com{% url 'data:content' data.slug %}"> <img src="{% static 'home/assets/twitter-logo-dark.png' %}" class="social_network_logo small"/> </a>
+		</div>
+	</div>
+	{% endfor %}
+	{% else %}
+	<li>
+		No datas are available.
+	</li>
+	{% endif %}
+</div>
+{% endblock %}
+{% block scripts %}
+<script src="{% static 'home/js/masonry.pkgd.min.js' %}"></script>
+<script src="{% static 'home/js/imagesloaded.pkgd.min.js' %}"></script>
+<script type='text/javascript'>
+	var $container = $('#masonry-content');
+	// Resolve image loading issue
+	$container.imagesLoaded(function() {
+		$container.masonry({
+			//columnWidth:200,
+			itemSelector : '.item'
+		});
+	}); 
+</script>
+{% endblock %}

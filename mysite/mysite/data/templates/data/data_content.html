@@ -1,0 +1,68 @@
+{% extends "blog/blog_index.html" %}
+{% load staticfiles %}
+{% block extralinks %}
+<link rel="stylesheet" href="http://yandex.st/highlightjs/8.0/styles/atelier-forest.light.min.css">
+{% endblock %}
+{% block main_content %}
+{% if blog %}
+<div class="blog-content">
+	<div class="blog-title">
+		<h3>{{ blog.title }}</h3>
+		<p>
+			{{ blog.pub_date }}
+		</p>
+		{% if blog.categories.all %}
+		{% for category in blog.categories.all %}
+		<span class="label-primary" href="#"> {{ category.title }} </span>
+		{% endfor %}
+		{% else %}
+		<span class="label" href="#"> 无分类 </span>
+		{% endif %}
+		<div class="share">
+			<a href="http://share.renren.com/share/buttonshare.do?link=http://www.zengxiaohan.com{% url 'blog:content' blog.slug %}"> <img src="{% static 'home/assets/renren-logo-dark.png' %}" class="social_network_logo small"/> </a>
+			<a href="http://service.weibo.com/share/share.php?url=http://www.zengxiaohan.com{% url 'blog:content' blog.slug %}&appkey=&title={{ blog.title }}&pic={{ blog.image }}&ralateUid=&language=zh_cn"> <img src="{% static 'home/assets/weibo-logo-dark.png' %}" class="social_network_logo small"/> </a>
+			<a href="https://www.facebook.com/sharer/sharer.php?u=http://www.zengxiaohan.com{% url 'blog:content' blog.slug %}&display=popup"> <img src="{% static 'home/assets/facebook-logo-dark.png' %}" class="social_network_logo small"/> </a>
+			<a href="https://twitter.com/intent/tweet?text=@XiaohanZeng {{ blog.title }}&url=http://www.zengxiaohan.com{% url 'blog:content' blog.slug %}"> <img src="{% static 'home/assets/twitter-logo-dark.png' %}" class="social_network_logo small"/> </a>
+		</div>
+	</div>
+	<div class="blog-body">
+		{% if blog.image %}
+		<img src="{{ MEDIA_URL }}{{ blog.image }}" class="blog-image"/>
+		{% endif %}
+		<p id="blog-body">
+			{{ blog.body_html|safe }}
+		</p>
+		{% if blog.script %}
+		<p id="blog-script">
+			{{ blog.script|safe }}
+		</p>
+		{% endif %}
+	</div>
+	<div class="blog-comments" id="disqus_thread"></div>
+</div>
+<noscript>
+	Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+</noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+{% endif %}
+{% endblock %}
+{% block scripts %}
+<script type="text/javascript">
+	var disqus_shortname = 'zengxiaohan';
+	(function() {
+		var dsq = document.createElement('script');
+		dsq.type = 'text/javascript';
+		dsq.async = true;
+		dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+		(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+	})(); 
+</script>
+<script src="http://yandex.st/highlightjs/8.0/highlight.min.js"></script>
+<script>
+	$(document).ready(function() {
+		$('pre').each(function(i, e) {
+			hljs.highlightBlock(e);
+		});
+	}); 
+</script>
+{% endblock %}
