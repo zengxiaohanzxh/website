@@ -25,4 +25,4 @@ class Data(CommonPost):
     list_categories.short_description = 'Categories'
     
     def get_absolute_url(self):
-        return reverse('blog', kwargs={"slug": self.slug})
+        return reverse('data', kwargs={"slug": self.slug})
