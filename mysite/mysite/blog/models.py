@@ -12,7 +12,7 @@ class Category(CommonCategory):
     def get_absolute_url(self):
         return reverse('blog-categorized', kwargs={"category_slug": self.slug})
     
-class Blog(Post):
+class Blog(CommonPost):
     '''
     Class for blog posts.
     '''
