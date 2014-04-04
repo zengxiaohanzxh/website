@@ -1,0 +1,121 @@
+.carousel {
+  margin: 0px -20px 0px -20px;
+  z-index: 100;
+  &.carousel-fade {
+    .item {
+      height: 100%;
+      opacity: 0;
+      -webkit-transition: opacity .8s linear;
+      -moz-transition: opacity .8s ease-in-out;
+      -ms-transition: opacity .8s ease-in-out;
+      -o-transition: opacity .8s ease-in-out;
+      transition: opacity .8s ease-in-out;
+    }
+
+    .active , .next.left , .prev.right {
+      opacity: 1;
+      z-index: 0;
+    }
+
+    .active.left , .active.right {
+      left: 0;
+      opacity: 0;
+      z-index: 1;
+    }
+  }
+}
+
+.carousel-inner {
+  height: @carousel-height;
+  .container {
+    margin: 0;
+    height: 100%;
+  }
+}
+
+.carousel-control {
+  opacity: 1;
+  -o-transition: .2s;
+  -ms-transition: .2s;
+  -moz-transition: .2s;
+  -webkit-transition: .2s;
+  transition: .2s;
+  width: 10%;
+  &:hover {
+    -o-transition: .2s;
+    -ms-transition: .2s;
+    -moz-transition: .2s;
+    -webkit-transition: .2s;
+    transition: .2s;
+  }
+
+  &.right {
+    background-image: url('/static/home/assets/arrow-right-dark.png');
+    background-size: 50px 50px;
+    background-repeat: no-repeat;
+    background-position: center;
+    position: absolute;
+    z-index: 14;
+    &:hover {
+      background-image: url('/static/home/assets/arrow-right.png');
+    }
+  }
+
+  &.left {
+    background-image: url('/static/home/assets/arrow-left-dark.png');
+    background-size: 50px 50px;
+    background-repeat: no-repeat;
+    background-position: center;
+    position: absolute;
+    z-index: 14;
+    &:hover {
+      background-image: url('/static/home/assets/arrow-left.png');
+    }
+  }
+}
+
+.carousel-background {
+    background-size:cover;
+    height: @carousel-height;
+}
+
+.carousel-indicators {
+  z-index: 14;
+  .active {
+    background-color: @color-dark-green;
+    border-color: @color-dark-green;
+  }
+
+  li {
+    border: 1px solid @color-dark-green;
+    border-radius: 0px;
+  }
+}
+
+.carousel-caption {
+  left: 65%;
+  right: 10%;
+  text-align: justify;
+  position: absolute;
+  text-shadow: none;
+  p {
+    font-size: 16px;
+    color: @color-text-light;
+  }
+
+  h1 {
+    font-size: 28px;
+    color: @color-text-light;
+    top: -10px;
+    margin-bottom: 50px;
+    text-align: left;
+  }
+
+  .carousel-caption-background {
+    background: rgba(10, 29, 35, 0.6);
+    padding: 50px;
+    .carousel-caption-content {
+      opacity: 1;
+    }
+  }
+}

@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load home_tags %}
 {% load staticfiles %}
 
 {% block content %}
@@ -30,26 +31,25 @@
 		<li data-target="#myCarousel" data-slide-to="4"></li>
 	</ol>
 	<div class="carousel-inner">
-		{% for blog in highlighted_blogs %}
+		{% for post in highlighted_posts %}
 		{% if forloop.first%}
 		<div class="item active">
 			{% else %}
 			<div class="item">
 				{% endif %}
-				<div class="container">
-					<div class="carousel-img">
-						<img src="{{ MEDIA_URL }}{{ blog.image }}" alt=""/>
-					</div>
-					<div class="carousel-caption">
-						<div class="carousel-caption-background">
-							<div class="carousel-caption-content">
-								<h1>{{ blog.title }}</h1>
-								<p>
-									{{ blog.tease }}
-								</p>
-								<p>
-									<a class="btn btn-primary btn-large" href="blogs/{{blog.slug}}">阅读博文</a>
-								</p>
+				<div class="carousel-background" style="background-image:url('{{ MEDIA_URL }}{{ post.image }}')">
+					<div class="container">
+						<div class="carousel-caption">
+							<div class="carousel-caption-background">
+								<div class="carousel-caption-content">
+									<h1>{{ post.title }}</h1>
+									<p>
+										{{ post.tease }}
+									</p>
+									<p>
+										<a class="btn btn-primary btn-large" href="{{post_urls|get_item:post.slug}}">阅读博文</a>
+									</p>
+								</div>
 							</div>
 						</div>
 					</div>
@@ -145,9 +145,10 @@
 							<p class="lead">
 								大数据时代又是一番好光景。浩如烟海的数据下隐藏着许多故事哦！
 							</p>
+							<a href="{% url 'data:index' %}">
 							<p class="btn btn-primary btn-large">
-								建设中
-							</p>
+								查看
+							</p></a>
 						</div>
 					</div>
 				</div>

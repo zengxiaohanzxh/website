@@ -2,37 +2,14 @@
 {% load staticfiles %}
 {% block extralinks %}
 {% endblock %}
-{% block menu %}
-<div class="container">
-	<div class="bs-sidebar affix">
-		<div class="sidebar-heading">
-			<h4>博文目录</h4>
-		</div>
-		<div class="sidebar-content">
-			<ul class="nav">
-				<li class="active">
-					<span class="badge pull-right">{{ list_datas|length }}</span>
-					<a href="{% url 'data:index' %}"> <h4>所有博文</h4> </a>
-				</li>
-				{% if list_categories %}
-				{% for category in list_categories %}
-				<li>
-					<a href="{% url 'data:categorized' category_slug=category.slug %}"> <h4> {{ category.title }} </h4></a>
-				</li>
-				{% endfor %}
-				{% else %}
-				<li>
-					无分类
-				</li>
-				{% endif %}
-			</ul>
-		</div>
+
+{% block content %}
+<div class="masthead masthead-small">
+	<div class="container banner">
+		<h1 class="lead"> 数据 </h1>
+		<h2> 以及隐藏在数据背后的故事 </h2>
 	</div>
 </div>
-
-{% endblock %}
-
-{% block main_content %}
 {% if list_datas %}
 <div class="container" id="masonry-content">
 	<!-- <div class="pagination">

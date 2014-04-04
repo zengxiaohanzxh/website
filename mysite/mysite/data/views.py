@@ -17,7 +17,7 @@ class DataListView(ListView):
 
 class DataCategoryListView(DataListView):
     def get_context_data(self, **kwargs):
-        context = super(CategoryListView, self).get_context_data(**kwargs)
+        context = super(DataCategoryListView, self).get_context_data(**kwargs)
         context['selected_category'] = self.kwargs['category_slug']
         return context
 

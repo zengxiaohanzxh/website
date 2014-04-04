@@ -1,48 +1,52 @@
-{% extends "blog/blog_index.html" %}
+{% extends "data/data_index.html" %}
 {% load staticfiles %}
 {% block extralinks %}
 <link rel="stylesheet" href="http://yandex.st/highlightjs/8.0/styles/atelier-forest.light.min.css">
 {% endblock %}
-{% block main_content %}
-{% if blog %}
-<div class="blog-content">
-	<div class="blog-title">
-		<h3>{{ blog.title }}</h3>
-		<p>
-			{{ blog.pub_date }}
-		</p>
-		{% if blog.categories.all %}
-		{% for category in blog.categories.all %}
-		<span class="label-primary" href="#"> {{ category.title }} </span>
-		{% endfor %}
-		{% else %}
-		<span class="label" href="#"> 无分类 </span>
-		{% endif %}
-		<div class="share">
-			<a href="http://share.renren.com/share/buttonshare.do?link=http://www.zengxiaohan.com{% url 'blog:content' blog.slug %}"> <img src="{% static 'home/assets/renren-logo-dark.png' %}" class="social_network_logo small"/> </a>
-			<a href="http://service.weibo.com/share/share.php?url=http://www.zengxiaohan.com{% url 'blog:content' blog.slug %}&appkey=&title={{ blog.title }}&pic={{ blog.image }}&ralateUid=&language=zh_cn"> <img src="{% static 'home/assets/weibo-logo-dark.png' %}" class="social_network_logo small"/> </a>
-			<a href="https://www.facebook.com/sharer/sharer.php?u=http://www.zengxiaohan.com{% url 'blog:content' blog.slug %}&display=popup"> <img src="{% static 'home/assets/facebook-logo-dark.png' %}" class="social_network_logo small"/> </a>
-			<a href="https://twitter.com/intent/tweet?text=@XiaohanZeng {{ blog.title }}&url=http://www.zengxiaohan.com{% url 'blog:content' blog.slug %}"> <img src="{% static 'home/assets/twitter-logo-dark.png' %}" class="social_network_logo small"/> </a>
+{% block content %}
+{% if data %}
+<div class="main-content-data" style="background-image:url('{{ MEDIA_URL }}{{ data.image }}')">
+	<div class="container data">
+		<div class="data-content">
+			<div class="data-content-text">
+				<div class="data-title">
+					<h1>{{ data.title }}</h1>
+					<p>
+						{{ data.pub_date }}
+					</p>
+					{% if data.categories.all %}
+					{% for category in data.categories.all %}
+					<span class="label-primary" href="#"> {{ category.title }} </span>
+					{% endfor %}
+					{% else %}
+					<span class="label" href="#"> 无分类 </span>
+					{% endif %}
+					<div class="share">
+						<a href="http://share.renren.com/share/buttonshare.do?link=http://www.zengxiaohan.com{% url 'data:content' data.slug %}"> <img src="{% static 'home/assets/renren-logo-dark.png' %}" class="social_network_logo small"/> </a>
+						<a href="http://service.weibo.com/share/share.php?url=http://www.zengxiaohan.com{% url 'data:content' data.slug %}&appkey=&title={{ data.title }}&pic={{ data.image }}&ralateUid=&language=zh_cn"> <img src="{% static 'home/assets/weibo-logo-dark.png' %}" class="social_network_logo small"/> </a>
+						<a href="https://www.facebook.com/sharer/sharer.php?u=http://www.zengxiaohan.com{% url 'data:content' data.slug %}&display=popup"> <img src="{% static 'home/assets/facebook-logo-dark.png' %}" class="social_network_logo small"/> </a>
+						<a href="https://twitter.com/intent/tweet?text=@XiaohanZeng {{ data.title }}&url=http://www.zengxiaohan.com{% url 'data:content' data.slug %}"> <img src="{% static 'home/assets/twitter-logo-dark.png' %}" class="social_network_logo small"/> </a>
+					</div>
+				</div>
+				<div class="data-svg"></div>
+				<div class="data-body">
+					<p id="data-body">
+						{{ data.body_html|safe }}
+					</p>
+					{% if data.code %}
+					<p id="data-script">
+						{{ data.code|safe }}
+					</p>
+					{% endif %}
+				</div>
+				<div class="data-comments" id="disqus_thread"></div>
+			</div>
 		</div>
+		<noscript>
+			Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+		</noscript>
 	</div>
-	<div class="blog-body">
-		{% if blog.image %}
-		<img src="{{ MEDIA_URL }}{{ blog.image }}" class="blog-image"/>
-		{% endif %}
-		<p id="blog-body">
-			{{ blog.body_html|safe }}
-		</p>
-		{% if blog.script %}
-		<p id="blog-script">
-			{{ blog.script|safe }}
-		</p>
-		{% endif %}
-	</div>
-	<div class="blog-comments" id="disqus_thread"></div>
 </div>
-<noscript>
-	Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a>
-</noscript>
 <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
 {% endif %}
 {% endblock %}

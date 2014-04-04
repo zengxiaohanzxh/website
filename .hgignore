@@ -3,3 +3,6 @@ syntax: glob
 *.pydevproject
 *.py~
 *.pyc
+
+syntax: regexp
+^mysite/mysite/settings\.py$
