@@ -1,7 +1,7 @@
 from django.db import models
-from mysite.common.models import Post, Category
+from mysite.common.models import CommonPost, CommonCategory
 
-class BlogCategory(Category):
+class Category(CommonCategory):
     '''
     Class for blog categories.
     '''
@@ -17,7 +17,7 @@ class Blog(Post):
     Class for blog posts.
     '''
     
-    categories = models.ManyToManyField(BlogCategory)
+    categories = models.ManyToManyField(Category)
     script = models.TextField(help_text="Add scripts here", blank=True)
     
     def list_categories(self):

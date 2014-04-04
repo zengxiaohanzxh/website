@@ -1,7 +1,7 @@
 from django.db import models
-from mysite.common.models import Post, Category
+from mysite.common.models import CommonPost, CommonCategory
 
-class DataCategory(Category):
+class DataCategory(CommonCategory):
     '''
     Class for data categories.
     '''
@@ -12,7 +12,7 @@ class DataCategory(Category):
     def get_absolute_url(self):
         return reverse('data-categorized', kwargs={"category_slug": self.slug})
     
-class Data(Post):
+class Data(CommonPost):
     '''
     Class for Data posts.
     '''

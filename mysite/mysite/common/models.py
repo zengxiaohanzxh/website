@@ -2,7 +2,7 @@ from django.db import models
 from django.contrib.auth.models import User
 from markdown import markdown
 
-class Category(models.Model):
+class CommonCategory(models.Model):
     '''
     Abstract class for post categories.
     '''
@@ -17,7 +17,7 @@ class Category(models.Model):
     def __unicode__(self):
         return self.title
     
-class Post(models.Model):
+class CommonPost(models.Model):
     '''
     Abstract class for posts.
     '''
