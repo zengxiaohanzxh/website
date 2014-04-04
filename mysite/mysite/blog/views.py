@@ -3,7 +3,7 @@ from django.shortcuts import render, get_object_or_404
 from django.views.generic import ListView, DetailView
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
-from mysite.blog.models import Blog, Category
+from mysite.blog.models import Blog, BlogCategory
 
 class BlogListView(ListView):
     queryset = Blog.objects.all()
@@ -11,7 +11,7 @@ class BlogListView(ListView):
     context_object_name = 'list_blogs'
     def get_context_data(self, **kwargs):
         context = super(BlogListView, self).get_context_data(**kwargs)
-        context['list_categories'] = Category.objects.all()
+        context['list_categories'] = BlogCategory.objects.all()
         context['selected_category'] = None
         return context
 
@@ -22,7 +22,7 @@ class CategoryListView(BlogListView):
         return context
 
     def get_queryset(self):
-        selected_category = get_object_or_404(Category, slug=self.kwargs['category_slug'])
+        selected_category = get_object_or_404(BlogCategory, slug=self.kwargs['category_slug'])
         return selected_category.blog_set.all()
 
 
@@ -32,6 +32,6 @@ class BlogDetailView(DetailView):
     context_object_name = 'blog'
     def get_context_data(self, **kwargs):
         context = super(BlogDetailView, self).get_context_data(**kwargs)
-        context['list_categories'] = Category.objects.all()
+        context['list_categories'] = BlogCategory.objects.all()
         context['list_blogs'] = Blog.objects.order_by('-pub_date')
         return context

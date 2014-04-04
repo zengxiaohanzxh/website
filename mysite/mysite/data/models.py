@@ -1,24 +1,24 @@
 from django.db import models
 from mysite.common.models import Post, Category
 
-class BlogCategory(Category):
+class DataCategory(Category):
     '''
-    Class for blog categories.
+    Class for data categories.
     '''
     
     class Meta:
-        verbose_name_plural = "blog categories"
+        verbose_name_plural = "data categories"
     
     def get_absolute_url(self):
-        return reverse('blog-categorized', kwargs={"category_slug": self.slug})
+        return reverse('data-categorized', kwargs={"category_slug": self.slug})
     
-class Blog(Post):
+class Data(Post):
     '''
-    Class for blog posts.
+    Class for Data posts.
     '''
     
-    categories = models.ManyToManyField(BlogCategory)
-    script = models.TextField(help_text="Add scripts here", blank=True)
+    categories = models.ManyToManyField(DataCategory)
+    code = models.TextField(help_text="Add code here", blank=True)
     
     def list_categories(self):
         return ', '.join([category.title for category in self.categories.all()])
