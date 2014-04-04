@@ -3,7 +3,7 @@ from django.shortcuts import render, get_object_or_404
 from django.views.generic import ListView, DetailView
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
-from mysite.blog.models import Blog, BlogCategory
+from mysite.blog.models import Blog, Category
 
 class BlogListView(ListView):
     queryset = Blog.objects.all()
