@@ -32,7 +32,7 @@
 	</ol>
 	<div class="carousel-inner">
 		{% for post in highlighted_posts %}
-		{% if forloop.first%}
+		{% if forloop.first %}
 		<div class="item active">
 			{% else %}
 			<div class="item">
@@ -42,12 +42,24 @@
 						<div class="carousel-caption">
 							<div class="carousel-caption-background">
 								<div class="carousel-caption-content">
-									<h1>{{ post.title }}</h1>
-									<p>
+									<p class="post-type">
+										{% if post_types|get_item:post.slug == 'blog' %}
+										博文
+										{% elif post_types|get_item:post.slug == 'data' %}
+										数据
+										{% endif %}
+									</p>
+									<h1 class="post-caption">{{ post.title }}</h1>
+									<p class="post-tease">
 										{{ post.tease }}
 									</p>
 									<p>
-										<a class="btn btn-primary btn-large" href="{{post_urls|get_item:post.slug}}">阅读博文</a>
+										<a class="btn btn-primary btn-large" href="{{post_urls|get_item:post.slug}}">
+										{% if post_types|get_item:post.slug == 'blog' %}
+										阅读
+										{% elif post_types|get_item:post.slug == 'data' %}
+										查看
+										{% endif %}</a>
 									</p>
 								</div>
 							</div>

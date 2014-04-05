@@ -16,8 +16,9 @@
 .carousel-background{background-size:cover;background-position:center;height:600px}
 .carousel-indicators{z-index:14}.carousel-indicators .active{background-color:#023748;border-color:#023748}
 .carousel-indicators li{border:1px solid #023748;border-radius:0}
-.carousel-caption{left:65%;right:10%;text-align:justify;position:absolute;text-shadow:none}.carousel-caption p{font-size:16px;color:#cee0e5}
-.carousel-caption h1{font-size:28px;color:#cee0e5;top:-10px;margin-bottom:50px;text-align:left}
+.carousel-caption{left:65%;right:10%;text-align:justify;position:absolute;text-shadow:none}.carousel-caption .post-tease{font-size:16px;color:#cee0e5}
+.carousel-caption .post-caption{font-size:28px;color:#cee0e5;top:-10px;margin-bottom:30px;text-align:left}
+.carousel-caption .post-type{font-size:16px;color:#cee0e5;padding:10px 0;font-style:italic}
 .carousel-caption .carousel-caption-background{background:rgba(10,29,35,0.6);padding:50px}.carousel-caption .carousel-caption-background .carousel-caption-content{opacity:1}
 .main-content{top:60px;left:10px;position:relative;min-height:1000px;float:right;width:80%}.main-content .blog{background:#becccd;padding:20px 30px 20px 30px;margin:10px 10px 10px 10px;width:47%}
 .main-content .blog-tease{padding-top:20px;text-align:justify}
@@ -43,11 +44,11 @@
 .bs-sidebar .sidebar-heading>h4{color:#becccd}
 .bs-sidebar .sidebar-content{opacity:0;-o-transition:opacity .2s .1s,-webkit-transform .2s .1s;-ms-transition:opacity .2s .1s,-webkit-transform .2s .1s;-moz-transition:opacity .2s .1s,-webkit-transform .2s .1s;-webkit-transition:opacity .2s .1s,-webkit-transform .2s .1s;transition:opacity .2s .1s,-webkit-transform .2s .1s;min-height:300px;-webkit-transform:translateY(0);padding:0 20px 0 20px}.bs-sidebar .sidebar-content .badge{border-radius:0;color:#becccd;background-color:#023748}
 .bs-sidebar .sidebar-content>ul>li{list-style:none}.bs-sidebar .sidebar-content>ul>li>a{padding:0}
-html{font-family:"Helvetica","WenQuanYi Micro Hei","Microsoft YaHei",arial,sans-serif}
-body{font-family:"Helvetica","WenQuanYi Micro Hei","Microsoft YaHei",arial,sans-serif;background:#fff;color:#0a1d23;line-height:1.6;font-size:14px;margin:0 auto;padding:0;text-align:center}
+html{font-family:"Open Sans","WenQuanYi Micro Hei","Microsoft YaHei",arial,sans-serif}
+body{font-family:"Open Sans","WenQuanYi Micro Hei","Microsoft YaHei",arial,sans-serif;background:#fff;color:#0a1d23;line-height:1.6;font-size:14px;margin:0 auto;padding:0;text-align:center}
 h1,h2,h3,h4,h5,.h1,.h2,.h3,.h4,.h5{font-family:"Montserrat","WenQuanYi Micro Hei","Microsoft YaHei",arial,sans-serif;color:#023748}
-a{font-family:"Helvetica","WenQuanYi Micro Hei","Microsoft YaHei",arial,sans-serif;color:#023748;-o-transition:.2s;-ms-transition:.2s;-moz-transition:.2s;-webkit-transition:.2s;transition:.2s}a:hover{color:#08556f;-o-transition:.2s;-ms-transition:.2s;-moz-transition:.2s;-webkit-transition:.2s;transition:.2s}
-p{font-size:14px;line-height:1.8em}
+a{font-family:"Open Sans","WenQuanYi Micro Hei","Microsoft YaHei",arial,sans-serif;color:#023748;-o-transition:.2s;-ms-transition:.2s;-moz-transition:.2s;-webkit-transition:.2s;transition:.2s}a:hover{color:#08556f;-o-transition:.2s;-ms-transition:.2s;-moz-transition:.2s;-webkit-transition:.2s;transition:.2s}
+p{font-size:15px;line-height:1.8em;font-weight:200}
 h1{font-size:24px}
 h2{font-size:22px}
 h3{font-size:20px}
