@@ -13,7 +13,7 @@
 .carousel-control{opacity:1;-o-transition:.2s;-ms-transition:.2s;-moz-transition:.2s;-webkit-transition:.2s;transition:.2s;width:10%}.carousel-control:hover{-o-transition:.2s;-ms-transition:.2s;-moz-transition:.2s;-webkit-transition:.2s;transition:.2s}
 .carousel-control.right{background-image:url('/static/home/assets/arrow-right-dark.png');background-size:50px 50px;background-repeat:no-repeat;background-position:center;position:absolute;z-index:14}.carousel-control.right:hover{background-image:url('/static/home/assets/arrow-right.png')}
 .carousel-control.left{background-image:url('/static/home/assets/arrow-left-dark.png');background-size:50px 50px;background-repeat:no-repeat;background-position:center;position:absolute;z-index:14}.carousel-control.left:hover{background-image:url('/static/home/assets/arrow-left.png')}
-.carousel-background{background-size:cover;background-postition:center;height:600px}
+.carousel-background{background-size:cover;background-position:center;height:600px}
 .carousel-indicators{z-index:14}.carousel-indicators .active{background-color:#023748;border-color:#023748}
 .carousel-indicators li{border:1px solid #023748;border-radius:0}
 .carousel-caption{left:65%;right:10%;text-align:justify;position:absolute;text-shadow:none}.carousel-caption p{font-size:16px;color:#cee0e5}
