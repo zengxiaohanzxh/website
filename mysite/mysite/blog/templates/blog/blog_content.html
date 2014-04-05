@@ -13,18 +13,24 @@
 		<p>
 			{{ blog.pub_date }}
 		</p>
-		{% if blog.categories.all %}
-		{% for category in blog.categories.all %}
-		<span class="label-primary" href="#"> {{ category.title }} </span>
-		{% endfor %}
-		{% else %}
-		<span class="label" href="#"> 无分类 </span>
-		{% endif %}
-		<div class="share">
-			<a href="http://share.renren.com/share/buttonshare.do?link=http://www.zengxiaohan.com{% url 'blog:content' blog.slug %}"> <img src="{% static 'home/assets/renren-logo-dark.png' %}" class="social_network_logo small"/> </a>
-			<a href="http://service.weibo.com/share/share.php?url=http://www.zengxiaohan.com{% url 'blog:content' blog.slug %}&appkey=&title={{ blog.title }}&pic={{ blog.image }}&ralateUid=&language=zh_cn"> <img src="{% static 'home/assets/weibo-logo-dark.png' %}" class="social_network_logo small"/> </a>
-			<a href="https://www.facebook.com/sharer/sharer.php?u=http://www.zengxiaohan.com{% url 'blog:content' blog.slug %}&display=popup"> <img src="{% static 'home/assets/facebook-logo-dark.png' %}" class="social_network_logo small"/> </a>
-			<a href="https://twitter.com/intent/tweet?text=@XiaohanZeng {{ blog.title }}&url=http://www.zengxiaohan.com{% url 'blog:content' blog.slug %}"> <img src="{% static 'home/assets/twitter-logo-dark.png' %}" class="social_network_logo small"/> </a>
+		<div class="row">
+			<div class="col-sm-6">
+				{% if blog.categories.all %}
+				{% for category in blog.categories.all %}
+				<span class="label-primary" href="#"> {{ category.title }} </span>
+				{% endfor %}
+				{% else %}
+				<span class="label" href="#"> 无分类 </span>
+				{% endif %}
+			</div>
+			<div class="col-sm-6">
+				<div class="share">
+					<a href="http://share.renren.com/share/buttonshare.do?link=http://www.zengxiaohan.com{% url 'blog:content' blog.slug %}"> <img src="{% static 'home/assets/renren-logo-dark.png' %}" class="social_network_logo small"/> </a>
+					<a href="http://service.weibo.com/share/share.php?url=http://www.zengxiaohan.com{% url 'blog:content' blog.slug %}&appkey=&title={{ blog.title }}&pic={{ blog.image }}&ralateUid=&language=zh_cn"> <img src="{% static 'home/assets/weibo-logo-dark.png' %}" class="social_network_logo small"/> </a>
+					<a href="https://www.facebook.com/sharer/sharer.php?u=http://www.zengxiaohan.com{% url 'blog:content' blog.slug %}&display=popup"> <img src="{% static 'home/assets/facebook-logo-dark.png' %}" class="social_network_logo small"/> </a>
+					<a href="https://twitter.com/intent/tweet?text=@XiaohanZeng {{ blog.title }}&url=http://www.zengxiaohan.com{% url 'blog:content' blog.slug %}"> <img src="{% static 'home/assets/twitter-logo-dark.png' %}" class="social_network_logo small"/> </a>
+				</div>
+			</div>
 		</div>
 	</div>
 	<div class="blog-body">

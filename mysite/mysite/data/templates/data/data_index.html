@@ -11,42 +11,53 @@
 	</div>
 </div>
 {% if list_datas %}
-<div class="container" id="masonry-content">
+<div class="container">
 	<!-- <div class="pagination">
 	<span class="step-links"> {% if list_datas.has_previous %} <a href="?page={{ list_datas.previous_page_number }}"> previous </a> {% endif %} <span class="current"> Page {{ list_datas.number }} of {{ list_datas.paginator.num_pages }} </span> {% if list_datas.has_next %} <a href="?page={{ list_datas.next_page_number }}"> next </a> {% endif %} </span>
 	</div> -->
 
 	{% for data in list_datas %}
-	<div class="data item">
-		<div>
-			<a href="{% url 'data:content' data.slug %}"><h3>{{ data.title }}</h3></a>
-		</div>
-		<p>
-			{{ data.pub_date }}
-		</p>
-		{% with categories=data.categories.all %}
-		{% if categories %}
-		{% for category in categories %}
-		<span class="label-primary" href="#"> {{ category.title }} </span>
-		{% endfor %}
-		{% else %}
-		<span class="label" href="#"> 无分类 </span>
-		{% endif %}
-		{% endwith %}
-		{% if data.image %}
-		<hr>
-		<img src="{{ MEDIA_URL }}{{ data.image }}" class="data-tease-image"/>
-		{% endif %}
-		<div class="data-tease">
-			<p>
-				{{ data.tease }}
-			</p>
-		</div>
-		<div class="share">
-			<a href="http://share.renren.com/share/buttonshare.do?link=http://www.zengxiaohan.com{% url 'data:content' data.slug %}"> <img src="{% static 'home/assets/renren-logo-dark.png' %}" class="social_network_logo small"/> </a>
-			<a href="http://service.weibo.com/share/share.php?url=http://www.zengxiaohan.com{% url 'data:content' data.slug %}&appkey=&title={{ data.title }}&pic={{ data.image }}&ralateUid=&language=zh_cn"> <img src="{% static 'home/assets/weibo-logo-dark.png' %}" class="social_network_logo small"/> </a>
-			<a href="https://www.facebook.com/sharer/sharer.php?u=http://www.zengxiaohan.com{% url 'data:content' data.slug %}&display=popup"> <img src="{% static 'home/assets/facebook-logo-dark.png' %}" class="social_network_logo small"/> </a>
-			<a href="https://twitter.com/intent/tweet?text=@XiaohanZeng {{ data.title }}&url=http://www.zengxiaohan.com{% url 'data:content' data.slug %}"> <img src="{% static 'home/assets/twitter-logo-dark.png' %}" class="social_network_logo small"/> </a>
+	<div class="data-index">
+		<div class="row">
+			<div class="col-sm-6">
+				<div>
+					<a href="{% url 'data:content' data.slug %}"><h1>{{ data.title }}</h1></a>
+				</div>
+				<p>
+					{{ data.pub_date }}
+				</p>
+				<div class="row data-label-share">
+					<div class="col-sm-6">
+						{% with categories=data.categories.all %}
+						{% if categories %}
+						{% for category in categories %}
+						<span class="label-primary" href="#"> {{ category.title }} </span>
+						{% endfor %}
+						{% else %}
+						<span class="label" href="#"> 无分类 </span>
+						{% endif %}
+						{% endwith %}
+					</div>
+					<div class="col-sm-6 pull-right">
+						<a href="http://share.renren.com/share/buttonshare.do?link=http://www.zengxiaohan.com{% url 'data:content' data.slug %}"> <img src="{% static 'home/assets/renren-logo-dark.png' %}" class="social_network_logo small"/> </a>
+						<a href="http://service.weibo.com/share/share.php?url=http://www.zengxiaohan.com{% url 'data:content' data.slug %}&appkey=&title={{ data.title }}&pic={{ data.image }}&ralateUid=&language=zh_cn"> <img src="{% static 'home/assets/weibo-logo-dark.png' %}" class="social_network_logo small"/> </a>
+						<a href="https://www.facebook.com/sharer/sharer.php?u=http://www.zengxiaohan.com{% url 'data:content' data.slug %}&display=popup"> <img src="{% static 'home/assets/facebook-logo-dark.png' %}" class="social_network_logo small"/> </a>
+						<a href="https://twitter.com/intent/tweet?text=@XiaohanZeng {{ data.title }}&url=http://www.zengxiaohan.com{% url 'data:content' data.slug %}"> <img src="{% static 'home/assets/twitter-logo-dark.png' %}" class="social_network_logo small"/> </a>
+					</div>
+				</div>
+				<div class="data-tease">
+					<p>
+						{{ data.tease }}
+					</p>
+				</div>
+				<a class="btn btn-primary btn-large" href="{% url 'data:content' data.slug %}"> 查看 </a>
+			</div>
+			<div class="col-sm-4">
+				{% if data.image %}
+				<img src="{{ MEDIA_URL }}{{ data.image }}" class="data-tease-image"/>
+				{% endif %}
+
+			</div>
 		</div>
 	</div>
 	{% endfor %}

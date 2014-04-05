@@ -6,41 +6,39 @@
 {% block content %}
 {% if data %}
 <div class="main-content-data" style="background-image:url('{{ MEDIA_URL }}{{ data.image }}')">
-	<div class="container data">
-		<div class="data-content">
-			<div class="data-content-text">
-				<div class="data-title">
-					<h1>{{ data.title }}</h1>
-					<p>
-						{{ data.pub_date }}
-					</p>
-					{% if data.categories.all %}
-					{% for category in data.categories.all %}
-					<span class="label-primary" href="#"> {{ category.title }} </span>
-					{% endfor %}
-					{% else %}
-					<span class="label" href="#"> 无分类 </span>
-					{% endif %}
-					<div class="share">
-						<a href="http://share.renren.com/share/buttonshare.do?link=http://www.zengxiaohan.com{% url 'data:content' data.slug %}"> <img src="{% static 'home/assets/renren-logo-dark.png' %}" class="social_network_logo small"/> </a>
-						<a href="http://service.weibo.com/share/share.php?url=http://www.zengxiaohan.com{% url 'data:content' data.slug %}&appkey=&title={{ data.title }}&pic={{ data.image }}&ralateUid=&language=zh_cn"> <img src="{% static 'home/assets/weibo-logo-dark.png' %}" class="social_network_logo small"/> </a>
-						<a href="https://www.facebook.com/sharer/sharer.php?u=http://www.zengxiaohan.com{% url 'data:content' data.slug %}&display=popup"> <img src="{% static 'home/assets/facebook-logo-dark.png' %}" class="social_network_logo small"/> </a>
-						<a href="https://twitter.com/intent/tweet?text=@XiaohanZeng {{ data.title }}&url=http://www.zengxiaohan.com{% url 'data:content' data.slug %}"> <img src="{% static 'home/assets/twitter-logo-dark.png' %}" class="social_network_logo small"/> </a>
-					</div>
+	<div class="container data-content">
+		<div class="data-content-text">
+			<div class="data-title">
+				<h1>{{ data.title }}</h1>
+				<p>
+					{{ data.pub_date }}
+				</p>
+				{% if data.categories.all %}
+				{% for category in data.categories.all %}
+				<span class="label-primary" href="#"> {{ category.title }} </span>
+				{% endfor %}
+				{% else %}
+				<span class="label" href="#"> 无分类 </span>
+				{% endif %}
+				<div class="share">
+					<a href="http://share.renren.com/share/buttonshare.do?link=http://www.zengxiaohan.com{% url 'data:content' data.slug %}"> <img src="{% static 'home/assets/renren-logo-dark.png' %}" class="social_network_logo small"/> </a>
+					<a href="http://service.weibo.com/share/share.php?url=http://www.zengxiaohan.com{% url 'data:content' data.slug %}&appkey=&title={{ data.title }}&pic={{ data.image }}&ralateUid=&language=zh_cn"> <img src="{% static 'home/assets/weibo-logo-dark.png' %}" class="social_network_logo small"/> </a>
+					<a href="https://www.facebook.com/sharer/sharer.php?u=http://www.zengxiaohan.com{% url 'data:content' data.slug %}&display=popup"> <img src="{% static 'home/assets/facebook-logo-dark.png' %}" class="social_network_logo small"/> </a>
+					<a href="https://twitter.com/intent/tweet?text=@XiaohanZeng {{ data.title }}&url=http://www.zengxiaohan.com{% url 'data:content' data.slug %}"> <img src="{% static 'home/assets/twitter-logo-dark.png' %}" class="social_network_logo small"/> </a>
 				</div>
-				<div class="data-svg"></div>
-				<div class="data-body">
-					<p id="data-body">
-						{{ data.body_html|safe }}
-					</p>
-					{% if data.code %}
-					<p id="data-script">
-						{{ data.code|safe }}
-					</p>
-					{% endif %}
-				</div>
-				<div class="data-comments" id="disqus_thread"></div>
 			</div>
+			<div class="data-svg"></div>
+			<div class="data-body">
+				<p id="data-body">
+					{{ data.body_html|safe }}
+				</p>
+				{% if data.code %}
+				<p id="data-script">
+					{{ data.code|safe }}
+				</p>
+				{% endif %}
+			</div>
+			<div class="data-comments" id="disqus_thread"></div>
 		</div>
 		<noscript>
 			Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a>
