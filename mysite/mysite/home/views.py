@@ -11,6 +11,7 @@ def homepage(request):
     highlighted_data = [data for data in Data.objects.all()
                         if data.highlight == True and data.is_public == True]
     highlighted_posts = highlighted_blogs + highlighted_data
+    highlighted_posts.sort(key=lambda x:x.pub_date, reverse=True)
     post_urls, post_types = {}, {}
     for post in highlighted_posts:
         if isinstance(post, Blog) == True:
