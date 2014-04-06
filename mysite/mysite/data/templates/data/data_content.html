@@ -27,7 +27,10 @@
 					<a href="https://twitter.com/intent/tweet?text=@XiaohanZeng {{ data.title }}&url=http://www.zengxiaohan.com{% url 'data:content' data.slug %}"> <img src="{% static 'home/assets/twitter-logo-dark.png' %}" class="social_network_logo small"/> </a>
 				</div>
 			</div>
-			<div class="data-svg"></div>
+			<div class="data-svg">
+				<svg></svg>
+			</div>
+			<div class="data-btn"></div>
 			<div class="data-body">
 				<p id="data-body">
 					{{ data.body_html|safe }}
