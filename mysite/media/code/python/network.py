@@ -45,7 +45,7 @@ def get_deg_dist(g):
 if __name__ == '__main__':
     edges = []
     houses = ['Stark', 'Tully', 'Baratheon', 'Targaryen',
-              'Lannister', 'Greyjoy', 'Tarly', 'Tyrell']
+              'Lannister', 'Greyjoy', 'Tarly', 'Tyrell','Arryn']
     for line in open('../data/asif.dat').readlines():
         line = line.strip('\n').strip(' ')
         name1, name2 = line.split('\t')
