@@ -34,7 +34,7 @@
 
 		text {
 			fill: #333;
-			font-size: 14px;
+			font-size: 12px;
 			font-weight: 700;
 			font-family: "Helvetica", sans-serif;
 			pointer-events: none;
@@ -98,7 +98,7 @@
 
 		var color = d3.scale.category20();
 
-		var force = d3.layout.force().charge(-500).linkDistance(60).size([width, height]);
+		var force = d3.layout.force().charge(-150).linkDistance(80).size([width, height]);
 
 		var btn = d3.select(".data-svg").append("div").html('<button id="toggle-size" class="btn btn-round">Toggle Size</button>	<button id="toggle-name" class="btn btn-round">Toggle Name</button>');
 
