@@ -3,12 +3,14 @@
 @import "blog";
 @import "data";
 @import "sidebar";
+@color-main: #004C68;
+@color-main-light: #0084B4;
 @color-dark: #0A1D23;
 @color-text-light: #CEE0E5;
-@color-background-light: #BECCCD;
+@color-background-light: #CEE0E5;
+@color-background: #BECCCD;
 @color-dark-green: #023748;
 @color-dark-green-hover: #08556F;
-@color-darker-green: #01242F;
 @color-code-background: #f5f5f5;
 @color-code: #333333;
 @carousel-height: 600px;
@@ -29,7 +31,7 @@ body {
 
 h1 , h2 , h3 , h4 , h5 , .h1 , .h2 , .h3 , .h4 , .h5 {
 	font-family: "Montserrat", "WenQuanYi Micro Hei", "Microsoft YaHei", arial, sans-serif;
-	color: @color-dark-green;
+	color: @color-main;
 }
 
 a {
@@ -90,8 +92,8 @@ hr {
 
 .btn-primary {
 	color: #ffffff;
-	background-color: @color-dark-green;
-	border-color: @color-dark-green;
+	background-color: @color-main;
+	border-color: @color-main;
 	-o-transition: .2s;
 	-ms-transition: .2s;
 	-moz-transition: .2s;
@@ -99,8 +101,8 @@ hr {
 	transition: .2s;
 	&:hover {
 		color: #ffffff;
-		background-color: @color-dark-green-hover;
-		border-color: @color-dark-green-hover;
+		background-color: @color-main-light;
+		border-color: @color-main-light;
 		-o-transition: .2s;
 		-ms-transition: .2s;
 		-moz-transition: .2s;
@@ -121,7 +123,7 @@ hr {
 }
 
 .label-primary {
-	background-color: @color-dark-green;
+	background-color: @color-main;
 	color: white;
 	font-family: "Montserrat", "WenQuanYi Micro Hei", "Microsoft YaHei", arial, sans-serif;
 	font-size: 14px;
@@ -131,7 +133,7 @@ hr {
 .header {
 	text-align: left;
 	padding-top: 50px;
-	background: @color-dark;
+	background: @color-main;
 	color: @color-text-light;
 	margin-left: auto;
 	margin-right: auto;
@@ -194,7 +196,7 @@ hr {
 
 .footer {
 	text-align: left;
-	background: @color-dark;
+	background: @color-main;
 	color: @color-text-light;
 	padding-top: 40px;
 	padding-bottom: 80px;
@@ -386,7 +388,7 @@ hr {
 	}
 
 	&.marketing {
-		background: @color-dark;
+		background: @color-main;
 		z-index: 90;
 	}
 
