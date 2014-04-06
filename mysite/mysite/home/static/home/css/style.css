@@ -14,12 +14,12 @@
 .carousel-control.right{background-image:url('/static/home/assets/arrow-right-dark.png');background-size:50px 50px;background-repeat:no-repeat;background-position:center;position:absolute;z-index:14}.carousel-control.right:hover{background-image:url('/static/home/assets/arrow-right.png')}
 .carousel-control.left{background-image:url('/static/home/assets/arrow-left-dark.png');background-size:50px 50px;background-repeat:no-repeat;background-position:center;position:absolute;z-index:14}.carousel-control.left:hover{background-image:url('/static/home/assets/arrow-left.png')}
 .carousel-background{background-size:cover;background-position:center;height:600px}
-.carousel-indicators{z-index:14}.carousel-indicators .active{background-color:#023748;border-color:#023748}
-.carousel-indicators li{border:1px solid #023748;border-radius:0}
-.carousel-caption{left:65%;right:10%;text-align:justify;position:absolute;text-shadow:none}.carousel-caption .post-tease{font-size:16px;color:#cee0e5}
-.carousel-caption .post-caption{font-size:28px;color:#cee0e5;top:-10px;margin-bottom:30px;text-align:left}
-.carousel-caption .post-type{font-size:16px;color:#cee0e5;padding:10px 0;font-style:italic}
-.carousel-caption .carousel-caption-background{background:rgba(0,76,104,0.7);padding:50px}.carousel-caption .carousel-caption-background .carousel-caption-content{opacity:1}
+.carousel-indicators{z-index:14}.carousel-indicators .active{background-color:#004c68;border-color:#004c68}
+.carousel-indicators li{border:1px solid #004c68;border-radius:0}
+.carousel-caption{left:65%;right:10%;text-align:justify;position:absolute;text-shadow:none}.carousel-caption .post-tease{font-size:16px;color:#023748}
+.carousel-caption .post-caption{font-size:28px;color:#004c68;top:-10px;margin-bottom:30px;text-align:left}
+.carousel-caption .post-type{font-size:16px;color:#004c68;padding:10px 0;font-style:italic}
+.carousel-caption .carousel-caption-background{background:rgba(255,255,255,0.7);padding:50px}.carousel-caption .carousel-caption-background .carousel-caption-content{opacity:1}
 .main-content{top:60px;left:10px;position:relative;min-height:1000px;float:right;width:80%}.main-content .blog{background:#cee0e5;padding:20px 30px 20px 30px;margin:10px 10px 10px 10px;width:47%}
 .main-content .blog-tease{padding-top:20px;text-align:justify}
 .main-content .blog-tease-image{max-width:100%;max-height:300px}
