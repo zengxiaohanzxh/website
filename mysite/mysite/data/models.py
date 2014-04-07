@@ -18,7 +18,7 @@ class Data(CommonPost):
     '''
     
     title_image = models.ImageField(upload_to='blog_images', blank=True)
-    use_title_image = BooleanField(default=False,
+    use_title_image = models.BooleanField(default=False,
                                  help_text='Use title image')
     categories = models.ManyToManyField(DataCategory)
     code = models.TextField(help_text="Add code here", blank=True)
