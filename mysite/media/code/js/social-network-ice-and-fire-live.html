@@ -1,0 +1,448 @@
+<style>
+	@font-face {
+		font-family: GoT;
+		src: url("http://www.zengxiaohan.com/static/home/font/GoT.ttf");
+	}
+	.node > circle {
+		stroke: #fff;
+		stroke-width: 2px;
+	}
+
+	.link {
+		stroke: #999;
+		stroke-opacity: .6;
+		stroke-width: 1.5px;
+	}
+
+	text {
+		fill: #333;
+		font-size: 12px;
+		font-weight: 700;
+		font-family: "Helvetica", sans-serif;
+		pointer-events: none;
+	}
+
+	h1, h2, h3, h4, h5 {
+		font-family: "GoT", "Helvetica";
+		color: #464646;
+	}
+
+	p {
+		color: #464646;
+	}
+
+	.btn-round {
+		width: 100px;
+		height: 100px;
+		border-radius: 100px;
+		border: 3px solid #464646;
+		color: #464646;
+		background: white;
+		font-size: 15px;
+		font-family: "GoT", "Helvetica";
+		-o-transition: .2s ease-out;
+		-ms-transition: .2s ease-out;
+		-moz-transition: .2s ease-out;
+		-webkit-transition: .2s ease-out;
+		transition: .2s ease-out;
+	}
+
+	.btn-round:hover {
+		-o-transition: .2s ease-out;
+		-ms-transition: .2s ease-out;
+		-moz-transition: .2s ease-out;
+		-webkit-transition: .2s ease-out;
+		transition: .2s ease-out;
+	}
+
+	.btn-round-small {
+		width: 80px;
+		height: 80px;
+		overflow: hidden;
+	}
+
+	.btn-round > img {
+		width: 80px;
+		height: 80px;
+		left: -15px;
+		top: -10px;
+		position: relative;
+		opacity: 1;
+		-o-transition: .2s ease-out;
+		-ms-transition: .2s ease-out;
+		-moz-transition: .2s ease-out;
+		-webkit-transition: .2s ease-out;
+		transition: .2s ease-out;
+	}
+
+	.btn-round:hover > img {
+		opacity: 0.5;
+		-o-transition: .2s ease-out;
+		-ms-transition: .2s ease-out;
+		-moz-transition: .2s ease-out;
+		-webkit-transition: .2s ease-out;
+		transition: .2s ease-out;
+	}
+
+	.btn-round > text {
+		font-family: "GoT", "Helvetica";
+		font-size: 8px;
+		color: #464646;
+		text-align: center;
+		position: relative;
+		opacity: 0;
+		top: -15px;
+		left: -90px;
+		-o-transition: .2s ease-out;
+		-ms-transition: .2s ease-out;
+		-moz-transition: .2s ease-out;
+		-webkit-transition: .2s ease-out;
+		transition: .2s ease-out;
+	}
+
+	.btn-round:hover > text {
+		opacity: 1;
+		-o-transition: .2s ease-out;
+		-ms-transition: .2s ease-out;
+		-moz-transition: .2s ease-out;
+		-webkit-transition: .2s ease-out;
+		transition: .2s ease-out;
+	}
+
+	.btn-round:focus {
+		color: #464646;
+	}
+
+	.btn-round:hover {
+		color: #464646;
+		background: #CCC;
+	}
+
+</style>
+
+<script src="http://d3js.org/d3.v3.min.js"></script>
+<script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+<script>
+	// Transition duration
+	var duration = 200;
+
+	var height = 650;
+	var width = 1000;
+
+	var svg = d3.select(".data-svg").select("svg").attr("width", width).attr("height", height);
+
+	var color = d3.scale.category20();
+
+	var force = d3.layout.force().charge(-150).linkDistance(80).size([width, height]);
+
+	var houses = ["Targaryen", "Stark", "Lannister", "Tully", "Baratheon", "Arryn", "Tyrell", "Greyjoy"];
+
+	var btnHtml = '<button id="toggle-size" class="btn btn-round">Toggle<br>Size</button>' + '<button id="toggle-name" class="btn btn-round">Toggle<br>Name</button>' + '<br>';
+	for (i in houses) {
+		btnHtml += '<button id="toggle-' + houses[i].toLowerCase() + '" class="btn btn-round btn-round-small"><img src="http://www.zengxiaohan.com/media/blog_images/' + houses[i] + '.jpg"/><text>' + houses[i] + '</text></button>';
+	}
+
+	var btn = d3.select(".data-btn").html(btnHtml);
+	// Booleans to control size and name
+	var showSize = false;
+	var showName = false;
+
+	var div = d3.select("body").append("div").attr("class", "tooltip").style("opacity", 0);
+
+	d3.json("http://www.zengxiaohan.com/media/code/data/a-song-of-ice-and-fire-desc.json", function(error, graph) {
+		force.nodes(graph.nodes).links(graph.links).on("tick", tick).start();
+
+		var link = svg.selectAll(".link").data(graph.links).enter().append("line").attr("class", "link");
+
+		var node = svg.selectAll(".node").data(graph.nodes).enter().append("g").attr("class", "node");
+
+		node.append("circle").attr("r", 9).style("fill", function(d) {
+			return color(d.group);
+		});
+
+		node.append("text").attr("dy", ".35em").attr("text-anchor", "middle").style({
+			opacity : "0"
+		}).text(function(d) {
+			return d.name;
+		});
+
+		node.on("mouseover", function(d) {
+			div.transition().duration(200).style("opacity", .9);
+			div.html(d.desc).style("left", (d3.event.pageX) + "px").style("top", (d3.event.pageY) + "px");
+		}).on("mouseout", function(d) {
+			div.transition().duration(500).style("opacity", 0);
+		});
+
+		// Compute and store whether two nodes are connected
+		var linkedByIndex = {};
+		graph.links.forEach(function(d) {
+			linkedByIndex[d.source.index + "," + d.target.index] = 1;
+		});
+
+		function isConnected(a, b) {
+			return linkedByIndex[a.index + "," + b.index] || linkedByIndex[b.index + "," + a.index] || a.index == b.index;
+		}
+
+		// Add node event listeners
+		node.on("click", click).on("dblclick", dblclick).on("mouseover", mouseover).on("mouseout", mouseout).on("click", click(.4, "#666")).on("dblclick", dblclick()).call(force.drag);
+
+		// Set nodes and links in motion
+		function tick() {
+			link.attr("x1", function(d) {
+				return d.source.x;
+			}).attr("y1", function(d) {
+				return d.source.y;
+			}).attr("x2", function(d) {
+				return d.target.x;
+			}).attr("y2", function(d) {
+				return d.target.y;
+			});
+
+			node.attr("transform", function(d) {
+				return "translate(" + d.x + "," + d.y + ")";
+			});
+		};
+
+		// Display node name upon mouse over
+		function mouseover() {
+			if (!showName) {
+				d3.select(this).select("text").transition().duration(duration).style({
+					opacity : "1"
+				});
+			}
+			d3.select(this).select("circle").transition().duration(duration).style("stroke", "#888").style("stroke-width", "4px");
+
+		}
+
+		// Back to normal upon mouse off
+		function mouseout() {
+			if (!showName) {
+				d3.select(this).select("text").transition().duration(duration).style({
+					opacity : "0"
+				});
+			}
+			d3.select(this).select("circle").transition().duration(duration).style("stroke", "#fff").style("stroke-width", "2px");
+		}
+
+		// Highlight neighbors upon clicking
+		function click(opacity, color) {
+			return function(d) {
+				showName = true;
+				node.transition().duration(duration).style("opacity", function(o) {
+					return isConnected(d, o) ? 1 : opacity;
+				}).select("text").style("opacity", function(o) {
+					return isConnected(d, o) ? 1 : 0;
+				});
+
+				link.transition().duration(duration).style("stroke-width", function(o) {
+					return o.source === d || o.target === d ? 3 : 1.5;
+				}).style("stroke", function(o) {
+					return o.source === d || o.target === d ? color : "#888";
+				});
+			};
+		}
+
+		// Back to normal upon double clicking
+		function dblclick() {
+			return function(d) {
+				showName = false;
+				node.transition().duration(duration).style("opacity", 1).select("text").style("opacity", 0);
+				link.transition().duration(duration).style("stroke-width", 1.5).style("stroke", "#999");
+			};
+		}
+
+		// Set buttons to work
+		d3.select("#toggle-size").on("click", toggleSize);
+
+		function toggleSize() {
+			showSize = (!showSize);
+			if (showSize) {
+				d3.select("body").selectAll(".node").select("circle").transition().duration(duration * 2).attr("r", function(d) {
+					return 5 + 5 * Math.log(d.degree);
+				});
+			} else {
+				d3.select("body").selectAll(".node").select("circle").transition().duration(duration * 2).attr("r", 9);
+			}
+		}
+
+
+		d3.select("#toggle-name").on("click", toggleName);
+
+		function toggleName() {
+			showName = (!showName);
+			if (showName) {
+				d3.select("body").selectAll(".node").select("text").transition().duration(duration).style({
+					opacity : "1"
+				});
+			} else {
+				d3.select("body").selectAll(".node").select("text").transition().duration(duration).style({
+					opacity : "0"
+				});
+			}
+		}
+
+		var houseColors = {
+			"Stark" : "#939393",
+			"Arryn" : "#2d5ab5",
+			"Tully" : "#083288",
+			"Baratheon" : "#e3c608",
+			"Lannister" : "#8b0800",
+			"Targaryen" : "#000000",
+			"Tyrell" : "#4e830d",
+			"Greyjoy" : "#083288",
+		};
+
+		var showTargaryen = false;
+
+		d3.select("#toggle-targaryen").on("click", toggleTargaryen);
+
+		function toggleTargaryen() {
+			showTargaryen = (!showTargaryen);
+			if (showTargaryen) {
+				d3.select("body").selectAll(".node").select("circle").transition().duration(duration).style("stroke", function(d) {
+					if (d.house == "Targaryen") {
+						return houseColors[d.house];
+					} else {
+						return "#fff";
+					}
+				});
+			} else {
+				d3.select("body").selectAll(".node").select("circle").transition().duration(duration).style("stroke", "#fff");
+			}
+		}
+
+		var showStark = false;
+
+		d3.select("#toggle-stark").on("click", toggleStark);
+
+		function toggleStark() {
+			showStark = (!showStark);
+			if (showStark) {
+				d3.select("body").selectAll(".node").select("circle").transition().duration(duration).style("stroke", function(d) {
+					if (d.house == "Stark") {
+						return houseColors[d.house];
+					} else {
+						return "#fff";
+					}
+				});
+			} else {
+				d3.select("body").selectAll(".node").select("circle").transition().duration(duration).style("stroke", "#fff");
+			}
+		}
+
+		var showArryn = false;
+
+		d3.select("#toggle-arryn").on("click", toggleArryn);
+
+		function toggleArryn() {
+			showArryn = (!showArryn);
+			if (showArryn) {
+				d3.select("body").selectAll(".node").select("circle").transition().duration(duration).style("stroke", function(d) {
+					if (d.house == "Arryn") {
+						return houseColors[d.house];
+					} else {
+						return "#fff";
+					}
+				});
+			} else {
+				d3.select("body").selectAll(".node").select("circle").transition().duration(duration).style("stroke", "#fff");
+			}
+		}
+
+		var showTully = false;
+
+		d3.select("#toggle-tully").on("click", toggleTully);
+
+		function toggleTully() {
+			showTully = (!showTully);
+			if (showTully) {
+				d3.select("body").selectAll(".node").select("circle").transition().duration(duration).style("stroke", function(d) {
+					if (d.house == "Tully") {
+						return houseColors[d.house];
+					} else {
+						return "#fff";
+					}
+				});
+			} else {
+				d3.select("body").selectAll(".node").select("circle").transition().duration(duration).style("stroke", "#fff");
+			}
+		}
+
+		var showBaratheon = false;
+
+		d3.select("#toggle-baratheon").on("click", toggleBaratheon);
+
+		function toggleBaratheon() {
+			showBaratheon = (!showBaratheon);
+			if (showBaratheon) {
+				d3.select("body").selectAll(".node").select("circle").transition().duration(duration).style("stroke", function(d) {
+					if (d.house == "Baratheon") {
+						return houseColors[d.house];
+					} else {
+						return "#fff";
+					}
+				});
+			} else {
+				d3.select("body").selectAll(".node").select("circle").transition().duration(duration).style("stroke", "#fff");
+			}
+		}
+
+		var showLannister = false;
+
+		d3.select("#toggle-lannister").on("click", toggleLannister);
+
+		function toggleLannister() {
+			showLannister = (!showLannister);
+			if (showLannister) {
+				d3.select("body").selectAll(".node").select("circle").transition().duration(duration).style("stroke", function(d) {
+					if (d.house == "Lannister") {
+						return houseColors[d.house];
+					} else {
+						return "#fff";
+					}
+				});
+			} else {
+				d3.select("body").selectAll(".node").select("circle").transition().duration(duration).style("stroke", "#fff");
+			}
+		}
+
+		var showGreyjoy = false;
+
+		d3.select("#toggle-greyjoy").on("click", toggleGreyjoy);
+
+		function toggleGreyjoy() {
+			showGreyjoy = (!showGreyjoy);
+			if (showGreyjoy) {
+				d3.select("body").selectAll(".node").select("circle").transition().duration(duration).style("stroke", function(d) {
+					if (d.house == "Greyjoy") {
+						return houseColors[d.house];
+					} else {
+						return "#fff";
+					}
+				});
+			} else {
+				d3.select("body").selectAll(".node").select("circle").transition().duration(duration).style("stroke", "#fff");
+			}
+		}
+
+		var showTyrell = false;
+
+		d3.select("#toggle-tyrell").on("click", toggleTyrell);
+
+		function toggleTyrell() {
+			showTyrell = (!showTyrell);
+			if (showTyrell) {
+				d3.select("body").selectAll(".node").select("circle").transition().duration(duration).style("stroke", function(d) {
+					if (d.house == "Tyrell") {
+						return houseColors[d.house];
+					} else {
+						return "#fff";
+					}
+				});
+			} else {
+				d3.select("body").selectAll(".node").select("circle").transition().duration(duration).style("stroke", "#fff");
+			}
+		}
+
+	}); 
+</script>
