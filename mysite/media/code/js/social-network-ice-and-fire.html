@@ -9,21 +9,6 @@
 		.node > circle {
 			stroke: #fff;
 			stroke-width: 2px;
-			-o-transition: .2s ease-out;
-			-ms-transition: .2s ease-out;
-			-moz-transition: .2s ease-out;
-			-webkit-transition: .2s ease-out;
-			transition: .2s ease-out;
-		}
-
-		.node > circle:hover {
-			stroke: #888;
-			stroke-width: 4px;
-			-o-transition: .2s ease-out;
-			-ms-transition: .2s ease-out;
-			-moz-transition: .2s ease-out;
-			-webkit-transition: .2s ease-out;
-			transition: .2s ease-out;
 		}
 
 		.link {
@@ -42,6 +27,11 @@
 
 		h1, h2, h3, h4, h5 {
 			font-family: "GoT", "Helvetica";
+			color: #464646;
+		}
+
+		p {
+			color: #464646;
 		}
 
 		.btn-round {
@@ -53,19 +43,73 @@
 			background: white;
 			font-size: 15px;
 			font-family: "GoT", "Helvetica";
+			-o-transition: .2s ease-out;
+			-ms-transition: .2s ease-out;
+			-moz-transition: .2s ease-out;
+			-webkit-transition: .2s ease-out;
+			transition: .2s ease-out;
+		}
+
+		.btn-round:hover {
+			-o-transition: .2s ease-out;
+			-ms-transition: .2s ease-out;
+			-moz-transition: .2s ease-out;
+			-webkit-transition: .2s ease-out;
+			transition: .2s ease-out;
 		}
 
 		.btn-round-small {
-			width: 60px;
-			height: 60px;
+			width: 80px;
+			height: 80px;
+			overflow: hidden;
 		}
 
 		.btn-round > img {
-			width: 60px;
-			height: 60px;
+			width: 80px;
+			height: 80px;
 			left: -15px;
 			top: -10px;
 			position: relative;
+			opacity: 1;
+			-o-transition: .2s ease-out;
+			-ms-transition: .2s ease-out;
+			-moz-transition: .2s ease-out;
+			-webkit-transition: .2s ease-out;
+			transition: .2s ease-out;
+		}
+
+		.btn-round:hover > img {
+			opacity: 0.5;
+			-o-transition: .2s ease-out;
+			-ms-transition: .2s ease-out;
+			-moz-transition: .2s ease-out;
+			-webkit-transition: .2s ease-out;
+			transition: .2s ease-out;
+		}
+
+		.btn-round > text {
+			font-family: "GoT", "Helvetica";
+			font-size: 8px;
+			color: #464646;
+			text-align: center;
+			position: relative;
+			opacity: 0;
+			top: -15px;
+			left: -90px;
+			-o-transition: .2s ease-out;
+			-ms-transition: .2s ease-out;
+			-moz-transition: .2s ease-out;
+			-webkit-transition: .2s ease-out;
+			transition: .2s ease-out;
+		}
+
+		.btn-round:hover > text {
+			opacity: 1;
+			-o-transition: .2s ease-out;
+			-ms-transition: .2s ease-out;
+			-moz-transition: .2s ease-out;
+			-webkit-transition: .2s ease-out;
+			transition: .2s ease-out;
 		}
 
 		.btn-round:focus {
@@ -75,18 +119,6 @@
 		.btn-round:hover {
 			color: #464646;
 			background: #CCC;
-		}
-
-		.tooltip {
-			position: absolute;
-			text-align: justify;
-			width: 120px;
-			height: 200px;
-			padding: 2px;
-			font: 12px sans-serif;
-			background: #CEE0E5;
-			border: 0px;
-			pointer-events: none;
 		}
 
 	</style>
@@ -104,7 +136,7 @@
 		// Transition duration
 		var duration = 200;
 
-		var height = 800;
+		var height = 650;
 		var width = 1000;
 
 		var svg = d3.select(".data-svg").select("svg").attr("width", width).attr("height", height);
@@ -113,15 +145,21 @@
 
 		var force = d3.layout.force().charge(-150).linkDistance(80).size([width, height]);
 
-		var btn = d3.select(".data-btn").html('<button id="toggle-size" class="btn btn-round btn-round-small" style="background-image:url("")">Toggle Size</button>' + '<button id="toggle-name" class="btn btn-round">Toggle Name</button>' + '<br>' + '<button id="toggle-targaryen" class="btn btn-round">Toggle Tar</button>' + '<button id="toggle-stark" class="btn btn-round">Toggle Tar</button>' + '<button id="toggle-lannister" class="btn btn-round">Toggle Tar</button>' + '<button id="toggle-baratheon" class="btn btn-round">Toggle Tar</button>' + '<button id="toggle-tully" class="btn btn-round">Toggle Tar</button>' + '<button id="toggle-tyrell" class="btn btn-round">Toggle Tar</button>' + '<button id="toggle-arryn" class="btn btn-round">Toggle Tar</button>' + '<button id="toggle-greyjoy" class="btn btn-round">Toggle Tar</button>');
+		var houses = ["Targaryen", "Stark", "Lannister", "Tully", "Baratheon", "Arryn", "Tyrell", "Greyjoy"];
 
+		var btnHtml = '<button id="toggle-size" class="btn btn-round">Toggle<br>Size</button>' + '<button id="toggle-name" class="btn btn-round">Toggle<br>Name</button>' + '<br>';
+		for (i in houses) {
+			btnHtml += '<button id="toggle-' + houses[i].toLowerCase() + '" class="btn btn-round btn-round-small"><img src="http://www.zengxiaohan.com/media/blog_images/' + houses[i] + '.jpg"/><text>' + houses[i] + '</text></button>';
+		}
+
+		var btn = d3.select(".data-btn").html(btnHtml);
 		// Booleans to control size and name
 		var showSize = false;
 		var showName = false;
 
-		var div = d3.select(".data-svg").append("div").attr("class", "tooltip").style("opacity", 1).html("some");
+		var div = d3.select("body").append("div").attr("class", "tooltip").style("opacity", 0);
 
-		d3.json("../data/a-song-of-ice-and-fire-desc.json", function(error, graph) {
+		d3.json("http://www.zengxiaohan.com/media/code/data/a-song-of-ice-and-fire-desc.json", function(error, graph) {
 			force.nodes(graph.nodes).links(graph.links).on("tick", tick).start();
 
 			var link = svg.selectAll(".link").data(graph.links).enter().append("line").attr("class", "link");
@@ -138,13 +176,11 @@
 				return d.name;
 			});
 
-			node.append("div").attr("class", "tooltip").style("opacity", 1).html("any");
-
 			node.on("mouseover", function(d) {
-				//
-				div.html("any");
+				div.transition().duration(200).style("opacity", .9);
+				div.html(d.desc).style("left", (d3.event.pageX) + "px").style("top", (d3.event.pageY) + "px");
 			}).on("mouseout", function(d) {
-				// div.transition().duration(500).style("opacity", 0);
+				div.transition().duration(500).style("opacity", 0);
 			});
 
 			// Compute and store whether two nodes are connected
@@ -157,7 +193,7 @@
 				return linkedByIndex[a.index + "," + b.index] || linkedByIndex[b.index + "," + a.index] || a.index == b.index;
 			}
 
-
+			// Add node event listeners
 			node.on("click", click).on("dblclick", dblclick).on("mouseover", mouseover).on("mouseout", mouseout).on("click", click(.4, "#666")).on("dblclick", dblclick()).call(force.drag);
 
 			// Set nodes and links in motion
@@ -179,12 +215,13 @@
 
 			// Display node name upon mouse over
 			function mouseover() {
-				d3.select(this).select("text").transition().duration(duration).style({
-					opacity : "1"
-				});
-				div.html(function() {
-					return d.desc;
-				});
+				if (!showName) {
+					d3.select(this).select("text").transition().duration(duration).style({
+						opacity : "1"
+					});
+				}
+				d3.select(this).select("circle").transition().duration(duration).style("stroke", "#888").style("stroke-width", "4px");
+
 			}
 
 			// Back to normal upon mouse off
@@ -194,6 +231,7 @@
 						opacity : "0"
 					});
 				}
+				d3.select(this).select("circle").transition().duration(duration).style("stroke", "#fff").style("stroke-width", "2px");
 			}
 
 			// Highlight neighbors upon clicking
@@ -264,6 +302,18 @@
 				"Greyjoy" : "#083288",
 			};
 
+			function toggleHouse(house) {
+				d3.select("body").selectAll(".node").filter(function(d, i) {
+					return d.house == house;
+				}).select("circle").transition().duration(duration).style("stroke", function(d) {
+					if (d.house == "Targaryen") {
+						return houseColors[d.house];
+					} else {
+						return "#fff";
+					}
+				});
+			}
+
 			var showTargaryen = false;
 
 			d3.select("#toggle-targaryen").on("click", toggleTargaryen);
@@ -271,13 +321,7 @@
 			function toggleTargaryen() {
 				showTargaryen = (!showTargaryen);
 				if (showTargaryen) {
-					d3.select("body").selectAll(".node").select("circle").transition().duration(duration).style("stroke", function(d) {
-						if (d.house == "Targaryen") {
-							return houseColors[d.house];
-						} else {
-							return "#fff";
-						}
-					});
+					toggleHouse("Targaryen");
 				} else {
 					d3.select("body").selectAll(".node").select("circle").transition().duration(duration).style("stroke", "#fff");
 				}
