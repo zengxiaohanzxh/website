@@ -35,6 +35,7 @@
 		}
 
 		.btn-round {
+			cursor: pointer;
 			width: 100px;
 			height: 100px;
 			border-radius: 100px;
@@ -56,69 +57,47 @@
 			-moz-transition: .2s ease-out;
 			-webkit-transition: .2s ease-out;
 			transition: .2s ease-out;
-		}
-
-		.btn-round-small {
-			width: 80px;
-			height: 80px;
-			overflow: hidden;
-		}
-
-		.btn-round > img {
-			width: 80px;
-			height: 80px;
-			left: -15px;
-			top: -10px;
-			position: relative;
-			opacity: 1;
-			-o-transition: .2s ease-out;
-			-ms-transition: .2s ease-out;
-			-moz-transition: .2s ease-out;
-			-webkit-transition: .2s ease-out;
-			transition: .2s ease-out;
-		}
-
-		.btn-round:hover > img {
-			opacity: 0.5;
-			-o-transition: .2s ease-out;
-			-ms-transition: .2s ease-out;
-			-moz-transition: .2s ease-out;
-			-webkit-transition: .2s ease-out;
-			transition: .2s ease-out;
-		}
-
-		.btn-round > text {
-			font-family: "GoT", "Helvetica";
-			font-size: 8px;
 			color: #464646;
-			text-align: center;
-			position: relative;
-			opacity: 0;
-			top: -15px;
-			left: -90px;
-			-o-transition: .2s ease-out;
-			-ms-transition: .2s ease-out;
-			-moz-transition: .2s ease-out;
-			-webkit-transition: .2s ease-out;
-			transition: .2s ease-out;
-		}
-
-		.btn-round:hover > text {
-			opacity: 1;
-			-o-transition: .2s ease-out;
-			-ms-transition: .2s ease-out;
-			-moz-transition: .2s ease-out;
-			-webkit-transition: .2s ease-out;
-			transition: .2s ease-out;
+			background: #CCC;
 		}
 
 		.btn-round:focus {
 			color: #464646;
 		}
 
-		.btn-round:hover {
+		.btn-round-small {
+			background-size: 80px 80px;
+			background-position: center;
+			width: 80px;
+			height: 80px;
+			overflow: hidden;
+		}
+
+		.btn-round-small:hover {
+			background-size: 80px 80px;
+			background-position: center;
+		}
+
+		.btn-round span {
+			font-family: "GoT", "Helvetica";
+			font-size: 10px;
 			color: #464646;
-			background: #CCC;
+			text-align: center;
+			opacity: 0;
+			-o-transition: .2s ease-out;
+			-ms-transition: .2s ease-out;
+			-moz-transition: .2s ease-out;
+			-webkit-transition: .2s ease-out;
+			transition: .2s ease-out;
+		}
+
+		.btn-round:hover span {
+			opacity: 1;
+			-o-transition: .2s ease-out;
+			-ms-transition: .2s ease-out;
+			-moz-transition: .2s ease-out;
+			-webkit-transition: .2s ease-out;
+			transition: .2s ease-out;
 		}
 
 	</style>
@@ -147,9 +126,31 @@
 
 		var houses = ["Targaryen", "Stark", "Lannister", "Tully", "Baratheon", "Arryn", "Tyrell", "Greyjoy"];
 
+		var houseColors = {
+			"Stark" : "#939393",
+			"Arryn" : "#2d5ab5",
+			"Tully" : "#083288",
+			"Baratheon" : "#e3c608",
+			"Lannister" : "#8b0800",
+			"Targaryen" : "#000000",
+			"Tyrell" : "#4e830d",
+			"Greyjoy" : "#083288",
+		};
+
+		var showHouse = {
+			"Stark" : false,
+			"Arryn" : false,
+			"Tully" : false,
+			"Baratheon" : false,
+			"Lannister" : false,
+			"Targaryen" : false,
+			"Tyrell" : false,
+			"Greyjoy" : false,
+		};
+
 		var btnHtml = '<button id="toggle-size" class="btn btn-round">Toggle<br>Size</button>' + '<button id="toggle-name" class="btn btn-round">Toggle<br>Name</button>' + '<br>';
 		for (i in houses) {
-			btnHtml += '<button id="toggle-' + houses[i].toLowerCase() + '" class="btn btn-round btn-round-small"><img src="http://www.zengxiaohan.com/media/blog_images/' + houses[i] + '.jpg"/><text>' + houses[i] + '</text></button>';
+			btnHtml += '<button id="toggle-' + houses[i].toLowerCase() + '" class="btn btn-round btn-round-small" style="background-image:url(\'http://www.zengxiaohan.com/media/blog_images/' + houses[i] + '.jpg\')"/><div><span>' + houses[i] + '</span></div></button>';
 		}
 
 		var btn = d3.select(".data-btn").html(btnHtml);
@@ -215,23 +216,38 @@
 
 			// Display node name upon mouse over
 			function mouseover() {
+				var thisNode = d3.select(this);
 				if (!showName) {
-					d3.select(this).select("text").transition().duration(duration).style({
+					thisNode.select("text").transition().duration(duration).style({
 						opacity : "1"
 					});
 				}
-				d3.select(this).select("circle").transition().duration(duration).style("stroke", "#888").style("stroke-width", "4px");
 
+				house = thisNode.data()[0]["house"];
+
+				if (!showHouse[house]) {
+					thisNode.select("circle").transition().duration(duration).style("stroke-width", "4px").style("stroke", "#888");
+				} else {
+					thisNode.select("circle").transition().duration(duration).style("stroke-width", "4px").style("stroke", houseColors[house]);
+				}
 			}
 
 			// Back to normal upon mouse off
 			function mouseout() {
+				var thisNode = d3.select(this);
 				if (!showName) {
-					d3.select(this).select("text").transition().duration(duration).style({
+					thisNode.select("text").transition().duration(duration).style({
 						opacity : "0"
 					});
 				}
-				d3.select(this).select("circle").transition().duration(duration).style("stroke", "#fff").style("stroke-width", "2px");
+
+				house = thisNode.data()[0]["house"];
+
+				if (!showHouse[house]) {
+					thisNode.select("circle").transition().duration(duration).style("stroke-width", "2px").style("stroke", "#fff");
+				} else {
+					thisNode.select("circle").transition().duration(duration).style("stroke-width", "2px").style("stroke", houseColors[house]);
+				}
 			}
 
 			// Highlight neighbors upon clicking
@@ -291,174 +307,53 @@
 				}
 			}
 
-			var houseColors = {
-				"Stark" : "#939393",
-				"Arryn" : "#2d5ab5",
-				"Tully" : "#083288",
-				"Baratheon" : "#e3c608",
-				"Lannister" : "#8b0800",
-				"Targaryen" : "#000000",
-				"Tyrell" : "#4e830d",
-				"Greyjoy" : "#083288",
-			};
-
 			function toggleHouse(house) {
-				d3.select("body").selectAll(".node").filter(function(d, i) {
-					return d.house == house;
-				}).select("circle").transition().duration(duration).style("stroke", function(d) {
-					if (d.house == "Targaryen") {
+				showHouse[house] = (!showHouse[house]);
+				if (showHouse[house] == true) {
+					d3.select("body").selectAll(".node").filter(function(d, i) {
+						return d.house == house;
+					}).select("circle").transition().duration(duration).style("stroke", function(d) {
 						return houseColors[d.house];
-					} else {
-						return "#fff";
-					}
-				});
-			}
-
-			var showTargaryen = false;
-
-			d3.select("#toggle-targaryen").on("click", toggleTargaryen);
-
-			function toggleTargaryen() {
-				showTargaryen = (!showTargaryen);
-				if (showTargaryen) {
-					toggleHouse("Targaryen");
-				} else {
-					d3.select("body").selectAll(".node").select("circle").transition().duration(duration).style("stroke", "#fff");
-				}
-			}
-
-			var showStark = false;
-
-			d3.select("#toggle-stark").on("click", toggleStark);
-
-			function toggleStark() {
-				showStark = (!showStark);
-				if (showStark) {
-					d3.select("body").selectAll(".node").select("circle").transition().duration(duration).style("stroke", function(d) {
-						if (d.house == "Stark") {
-							return houseColors[d.house];
-						} else {
-							return "#fff";
-						}
 					});
 				} else {
-					d3.select("body").selectAll(".node").select("circle").transition().duration(duration).style("stroke", "#fff");
+					d3.select("body").selectAll(".node").filter(function(d, i) {
+						return d.house == house;
+					}).select("circle").transition().duration(duration).style("stroke", "#fff");
 				}
 			}
 
-			var showArryn = false;
 
-			d3.select("#toggle-arryn").on("click", toggleArryn);
+			d3.select("#toggle-targaryen").on("click", function() {
+				toggleHouse("Targaryen");
+			});
 
-			function toggleArryn() {
-				showArryn = (!showArryn);
-				if (showArryn) {
-					d3.select("body").selectAll(".node").select("circle").transition().duration(duration).style("stroke", function(d) {
-						if (d.house == "Arryn") {
-							return houseColors[d.house];
-						} else {
-							return "#fff";
-						}
-					});
-				} else {
-					d3.select("body").selectAll(".node").select("circle").transition().duration(duration).style("stroke", "#fff");
-				}
-			}
+			d3.select("#toggle-stark").on("click", function() {
+				toggleHouse("Stark");
+			});
 
-			var showTully = false;
+			d3.select("#toggle-arryn").on("click", function() {
+				toggleHouse("Arryn");
+			});
 
-			d3.select("#toggle-tully").on("click", toggleTully);
+			d3.select("#toggle-tully").on("click", function() {
+				toggleHouse("Tully");
+			});
 
-			function toggleTully() {
-				showTully = (!showTully);
-				if (showTully) {
-					d3.select("body").selectAll(".node").select("circle").transition().duration(duration).style("stroke", function(d) {
-						if (d.house == "Tully") {
-							return houseColors[d.house];
-						} else {
-							return "#fff";
-						}
-					});
-				} else {
-					d3.select("body").selectAll(".node").select("circle").transition().duration(duration).style("stroke", "#fff");
-				}
-			}
+			d3.select("#toggle-baratheon").on("click", function() {
+				toggleHouse("Baratheon");
+			});
 
-			var showBaratheon = false;
+			d3.select("#toggle-tyrell").on("click", function() {
+				toggleHouse("Tyrell");
+			});
 
-			d3.select("#toggle-baratheon").on("click", toggleBaratheon);
+			d3.select("#toggle-lannister").on("click", function() {
+				toggleHouse("Lannister");
+			});
 
-			function toggleBaratheon() {
-				showBaratheon = (!showBaratheon);
-				if (showBaratheon) {
-					d3.select("body").selectAll(".node").select("circle").transition().duration(duration).style("stroke", function(d) {
-						if (d.house == "Baratheon") {
-							return houseColors[d.house];
-						} else {
-							return "#fff";
-						}
-					});
-				} else {
-					d3.select("body").selectAll(".node").select("circle").transition().duration(duration).style("stroke", "#fff");
-				}
-			}
-
-			var showLannister = false;
-
-			d3.select("#toggle-lannister").on("click", toggleLannister);
-
-			function toggleLannister() {
-				showLannister = (!showLannister);
-				if (showLannister) {
-					d3.select("body").selectAll(".node").select("circle").transition().duration(duration).style("stroke", function(d) {
-						if (d.house == "Lannister") {
-							return houseColors[d.house];
-						} else {
-							return "#fff";
-						}
-					});
-				} else {
-					d3.select("body").selectAll(".node").select("circle").transition().duration(duration).style("stroke", "#fff");
-				}
-			}
-
-			var showGreyjoy = false;
-
-			d3.select("#toggle-greyjoy").on("click", toggleGreyjoy);
-
-			function toggleGreyjoy() {
-				showGreyjoy = (!showGreyjoy);
-				if (showGreyjoy) {
-					d3.select("body").selectAll(".node").select("circle").transition().duration(duration).style("stroke", function(d) {
-						if (d.house == "Greyjoy") {
-							return houseColors[d.house];
-						} else {
-							return "#fff";
-						}
-					});
-				} else {
-					d3.select("body").selectAll(".node").select("circle").transition().duration(duration).style("stroke", "#fff");
-				}
-			}
-
-			var showTyrell = false;
-
-			d3.select("#toggle-tyrell").on("click", toggleTyrell);
-
-			function toggleTyrell() {
-				showTyrell = (!showTyrell);
-				if (showTyrell) {
-					d3.select("body").selectAll(".node").select("circle").transition().duration(duration).style("stroke", function(d) {
-						if (d.house == "Tyrell") {
-							return houseColors[d.house];
-						} else {
-							return "#fff";
-						}
-					});
-				} else {
-					d3.select("body").selectAll(".node").select("circle").transition().duration(duration).style("stroke", "#fff");
-				}
-			}
+			d3.select("#toggle-greyjoy").on("click", function() {
+				toggleHouse("Greyjoy");
+			});
 
 		});
 	</script>
