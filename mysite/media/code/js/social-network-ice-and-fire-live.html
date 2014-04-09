@@ -118,7 +118,8 @@
 	}
 
 	.tip-desc {
-		font-size: 16px;
+		font-family: "Arimo", "Helvetica", sans-serif;
+		font-size: 15px;
 	}
 
 </style>
@@ -126,23 +127,26 @@
 <script src="http://d3js.org/d3.v3.min.js"></script>
 <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
 <script>
+	// Add header image
+	d3.select(".data-svg").append("div").html("<img src='http://www.zengxiaohan.com/media/blog_images/Social-Network-Ice-and-Fire.jpg'/>");
+
 	// Transition duration
 	var duration = 200;
 
 	var height = 650;
 	var width = 1000;
-
-	var canvas = d3.select(".data-svg").html("<div class='container'><div class='row'><div class='col-lg-10'></div><div class='col-lg-2'></div></div></div>");
+	var canvas = d3.select(".data-svg").append("div").attr("class", "container").html("<div class='row'><div class='col-lg-10'></div><div class='col-lg-2'></div></div>");
 
 	var svg = d3.select(".col-lg-10").append("svg").attr("width", width).attr("height", height);
-	var color = d3.scale.category20();
 
-	var force = d3.layout.force().charge(-150).linkDistance(80).size([700, height]);
+	var force = d3.layout.force().charge(-150).linkDistance(80).size([width, height]);
 
 	var tip = d3.select(".col-lg-2").append("div").attr("class", "tip").html("<div class='tip-header'>Character description</div><div class='tip-content'><div class='tip-name'></div><div class='tip-desc'></div></div>");
 
 	var showSize = false;
 	var showName = false;
+
+	var groupColors = ["#E8100F", "#FE8402", "#0079CD", "#EC4281", "#92CD00", "#AF74C0", "#B4DBE7"];
 
 	var houses = ["Targaryen", "Stark", "Lannister", "Tully", "Baratheon", "Arryn", "Tyrell", "Greyjoy"];
 
@@ -184,7 +188,7 @@
 		var node = svg.selectAll(".node").data(graph.nodes).enter().append("g").attr("class", "node");
 
 		node.append("circle").attr("r", 9).style("fill", function(d) {
-			return color(d.group);
+			return groupColors[d.group];
 		});
 
 		node.append("text").attr("dy", ".35em").attr("text-anchor", "middle").style({
