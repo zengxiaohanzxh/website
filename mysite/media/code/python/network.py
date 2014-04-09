@@ -91,6 +91,7 @@ if __name__ == '__main__':
         if node in char_desc:
             desc = char_desc[node]
         else:
+            print node
             desc = ''
         nw_json["nodes"].append({"name":name,
                                  "group":partition[node],
@@ -101,7 +102,7 @@ if __name__ == '__main__':
     nw_json["links"] = [{"source":nodes.index(edge[0]),
                          "target":nodes.index(edge[1])} 
                         for edge in g.edges()]
-    with open('../data/a-song-of-ice-and-fire-desc.json', 'w') as out_file:
+    with open('../data/a-song-of-ice-and-fire.json', 'w') as out_file:
         json.dump(nw_json, out_file)
     exit()
     

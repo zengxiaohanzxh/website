@@ -5,7 +5,7 @@ Eddard Stark	Rickon Stark
 Eddard Stark	Jon Snow
 Eddard Stark	Sansa Stark
 Eddard Stark	Arya Stark
-Eddard Stark	Lysa Arryn
+Eddard Stark	Lysa Tully
 Eddard Stark	Jon Arryn
 Eddard Stark	Benjen Stark
 Eddard Stark	Robin Arryn
@@ -20,14 +20,14 @@ Eddard Stark	Joffrey Baratheon
 Eddard Stark	Myrcella Baratheon
 Eddard Stark	Tommen Baratheon
 Eddard Stark	Petyr Baelish
-Eddard Stark	Maester Luwin
+Eddard Stark	Luwin
 Eddard Stark	Theon Greyjoy
 Eddard Stark	Stannis Baratheon
 Eddard Stark	Renly Baratheon
 Eddard Stark	Gendry 
-Eddard Stark	Illyn Payne
+Eddard Stark	Ilyn Payne
 Eddard Stark	Rodrik Cassel
-Eddard Stark	Grand Maester Pycelle
+Eddard Stark	Pycelle
 Eddard Stark	Barristan Selmy
 Eddard Stark	Varys
 Eddard Stark	Jory Cassel
@@ -41,7 +41,7 @@ Catelyn Tully	Bran Stark
 Catelyn Tully	Rickon Stark
 Catelyn Tully	Sansa Stark
 Catelyn Tully	Arya Stark
-Catelyn Tully	Lysa Arryn
+Catelyn Tully	Lysa Tully
 Catelyn Tully	Hoster Tully
 Catelyn Tully	Jon Arryn
 Catelyn Tully	Edmure Tully
@@ -53,7 +53,7 @@ Catelyn Tully	Myrcella Baratheon
 Catelyn Tully	Petyr Baelish
 Catelyn Tully	Tywin Lannister 
 Catelyn Tully	Jaime Lannister 
-Catelyn Tully	Maester Luwin
+Catelyn Tully	Luwin
 Catelyn Tully	Stannis Baratheon
 Catelyn Tully	Renly Baratheon
 Catelyn Tully	Walder Frey
@@ -70,7 +70,7 @@ Robb Stark	Arya Stark
 Robb Stark	Jaime Lannister 
 Robb Stark	Cersei Lannister 
 Robb Stark	Theon Greyjoy 
-Robb Stark	Maester Luwin
+Robb Stark	Luwin
 Robb Stark	Tywin Lannister 
 Robb Stark	Robert Baratheon
 Robb Stark	Joffrey Baratheon
@@ -98,20 +98,20 @@ Jon Snow	Samwell Tarly
 Jon Snow	Aemon Targaryen
 Jon Snow	Ghost
 Jon Snow	Craster
-Jon Snow	Maester Luwin
+Jon Snow	Luwin
 Jon Snow	Tyrion Lannister
 Jon Snow	Rodrik Cassel
 Jon Snow	Qhorin Halfhand
 Jon Snow	Ygritte
-Jon Snow	Pyp
+Jon Snow	Pypar
 Jon Snow	Grenn
 Bran Stark	Arya Stark
 Bran Stark	Sansa Stark
 Bran Stark	Summer
-Bran Stark	Maester Luwin
+Bran Stark	Luwin
 Bran Stark	Osha
 Bran Stark	Hodor
-Bran Stark	Old Nan
+Bran Stark	Nan
 Bran Stark	Theon Greyjoy
 Bran Stark	Rickon Stark
 Bran Stark	Jaime Lannister
@@ -131,8 +131,8 @@ Sansa Stark	Meryn Trant
 Sansa Stark	Dontos Hollard
 Sansa Stark	Shae
 Sansa Stark	Tyrion Lannister
-Sansa Stark	Septa Mordane
-Sansa Stark	Maester Luwin
+Sansa Stark	Mordane
+Sansa Stark	Luwin
 Sansa Stark	Robert Baratheon
 Sansa Stark	Benjen Stark
 Arya Stark	Rickon Stark
@@ -146,8 +146,8 @@ Arya Stark	Sandor Clegane
 Arya Stark	Gendry
 Arya Stark	Benjen Stark
 Arya Stark	Syrio Forel
-Arya Stark	Septa Mordane
-Arya Stark	Maester Luwin
+Arya Stark	Mordane
+Arya Stark	Luwin
 Arya Stark	Yoren
 Arya Stark	Hot Pie
 Arya Stark	Lommy Greenhands
@@ -157,7 +157,7 @@ Arya Stark	Biter
 Arya Stark	Polliver
 Arya Stark	Amory Lorch
 Arya Stark	Weasel
-Arya Stark	The Tickler
+Arya Stark	Tickler
 Arya Stark	Tywin Lannister
 Arya Stark	Gregor Clegane
 Jaime Lannister	Cersei Lannister
@@ -178,7 +178,7 @@ Cersei Lannister 	Tommen Baratheon
 Cersei Lannister 	Tywin Lannister
 Cersei Lannister 	Ilyn Payne
 Cersei Lannister 	Lancel Lannister
-Cersei Lannister 	Grand Maester Pycelle
+Cersei Lannister 	Pycelle
 Cersei Lannister 	Janos Slynt
 Cersei Lannister 	Stannis Baratheon
 Cersei Lannister 	Renly Baratheon
@@ -191,7 +191,7 @@ Tyrion Lannister 	Shae
 Tyrion Lannister 	Petyr Baelish
 Tyrion Lannister 	Bronn
 Tyrion Lannister 	Yoren
-Tyrion Lannister 	Lysa Arryn
+Tyrion Lannister 	Lysa Tully
 Tyrion Lannister 	Mord
 Tyrion Lannister 	Shagga
 Tyrion Lannister 	Joffrey Baratheon
@@ -207,7 +207,7 @@ Robert Baratheon	Stannis Baratheon
 Robert Baratheon	Renly Baratheon
 Robert Baratheon	Jon Arryn
 Robert Baratheon	Petyr Baelish
-Robert Baratheon	Grand Maester Pycelle
+Robert Baratheon	Pycelle
 Robert Baratheon	Barristan Selmy
 Robert Baratheon	Ilyn Payne
 Robert Baratheon	Lancel Lannister
@@ -231,7 +231,7 @@ Joffrey Baratheon	Daisy
 Joffrey Baratheon	Tommen Baratheon
 Stannis Baratheon	Renly Baratheon
 Stannis Baratheon	Melisandre
-Stannis Baratheon	Maester Cressen
+Stannis Baratheon	Cressen
 Stannis Baratheon	Davos Seaworth
 Stannis Baratheon	Selyse Florent
 Stannis Baratheon	Shireen Baratheon
@@ -247,7 +247,7 @@ Renly Baratheon	Margaery Tyrell
 Renly Baratheon	Brienne of Tarth
 Renly Baratheon	Tywin Lannister
 Renly Baratheon	Petyr Baelish
-Daenerys Targaryen	Khal Drogo
+Daenerys Targaryen	Drogo
 Daenerys Targaryen	Viserys Targaryen
 Daenerys Targaryen	Illyrio Mopatis
 Daenerys Targaryen	Jorah Mormont
@@ -258,46 +258,46 @@ Daenerys Targaryen	Rakharo
 Daenerys Targaryen	Mirri Maz Duur
 Daenerys Targaryen	Aggo
 Daenerys Targaryen	Kovarro
-Jorah Mormont	Khal Drogo
+Jorah Mormont	Drogo
 Jorah Mormont	Viserys Targaryen
 Jorah Mormont	Illyrio Mopatis
 Theon Greyjoy	Asha Greyjoy
 Theon Greyjoy	Balon Greyjoy
 Theon Greyjoy	Ros
-Theon Greyjoy	Maester Luwin
+Theon Greyjoy	Luwin
 Theon Greyjoy	Captain's Daughter
 Theon Greyjoy	Osha
-Lysa Arryn	Jon Arryn
-Lysa Arryn	Hoster Tully
+Lysa Tully	Jon Arryn
+Lysa Tully	Hoster Tully
 Robin Arryn	Jon Arryn
-Robin Arryn	Lysa Arryn
+Robin Arryn	Lysa Tully
 Edmure Tully	Hoster Tully
 Myrcella Baratheon	Tommen Baratheon
 Tywin Lannister	Myrcella Baratheon
-Tywin Lannister	The Tickler
+Tywin Lannister	Tickler
 Tommen Baratheon	Tywin Lannister
 Petyr Baelish	Varys
 Petyr Baelish	Mhaegen
 Petyr Baelish	Ros
 Petyr Baelish	Daisy
-Petyr Baelish	Lothar Brune
-Petyr Baelish	Grand Maester Pycelle
-Grand Maester Pycelle	Ros
-Grand Maester Pycelle	Jon Arryn
+Petyr Baelish	Lothor Brune
+Petyr Baelish	Pycelle
+Pycelle	Ros
+Pycelle	Jon Arryn
 Mhaegen	Barra
 Gendry	Hot Pie
 Gendry	Yoren
 Gendry	Lommy Greenhands
 Petyr Baelish	Gendry
 Varys	Illyrio Mopatis
-Varys	Grand Maester Pycelle
+Varys	Pycelle
 Varys	Jon Arryn
 Illyrio Mopatis	Viserys Targaryen
-Illyrio Mopatis	Khal Drogo
-Khal Drogo	Viserys Targaryen
-Khal Drogo	Cohollo
-Khal Drogo	Qotho
-Khal Drogo	Haggo
+Illyrio Mopatis	Drogo
+Drogo	Viserys Targaryen
+Drogo	Cohollo
+Drogo	Qotho
+Drogo	Haggo
 Balon Greyjoy	Asha Greyjoy
 Margaery Tyrell	Loras Tyrell
 Selyse Florent	Shireen Baratheon
@@ -329,13 +329,13 @@ Alliser Thorne	Samwell Tarly
 Benjen Stark	Jeor Mormont
 Alliser Thorne	Benjen Stark
 Aemon Targaryen	Benjen Stark
-Maester Luwin	Septa Mordane
-Khal Drogo	Mirri Maz Duur
+Luwin	Mordane
+Drogo	Mirri Maz Duur
 Rickon Stark	Benjen Stark
 Rickon Stark	Osha
-Rickon Stark	Maester Luwin
+Rickon Stark	Luwin
 Rickon Stark	Hodor
-Mord	Lysa Arryn
+Mord	Lysa Tully
 Jeor Mormont	Aemon Targaryen
 Selyse Florent	Melisandre
 Davos Seaworth	Melisandre
@@ -345,12 +345,12 @@ Qhorin Halfhand	Ygritte
 Jory Cassel	Rodrik Cassel
 Osha	Hodor
 Osha	Summer
-Osha	Maester Luwin
-Pyp	Grenn
-Pyp	Samwell Tarly
-Pyp	Alliser Thorne
-Pyp	Jeor Mormont
-Pyp	Aemon Targaryen
+Osha	Luwin
+Pypar	Grenn
+Pypar	Samwell Tarly
+Pypar	Alliser Thorne
+Pypar	Jeor Mormont
+Pypar	Aemon Targaryen
 Grenn	Samwell Tarly
 Grenn	Alliser Thorne
 Grenn	Jeor Mormont

@@ -101,7 +101,7 @@
 		font-family: "Helvetica", sans-serif;
 		text-align: left;
 		width: 200px;
-		height: 500px;
+		height: 650px;
 		padding: 20px;
 		background: #EEE;
 	}
@@ -137,7 +137,7 @@
 	var svg = d3.select(".col-lg-10").append("svg").attr("width", width).attr("height", height);
 	var color = d3.scale.category20();
 
-	var force = d3.layout.force().charge(-150).linkDistance(80).size([width, height]);
+	var force = d3.layout.force().charge(-150).linkDistance(80).size([700, height]);
 
 	var tip = d3.select(".col-lg-2").append("div").attr("class", "tip").html("<div class='tip-header'>Character description</div><div class='tip-content'><div class='tip-name'></div><div class='tip-desc'></div></div>");
 
