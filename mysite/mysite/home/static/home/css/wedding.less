@@ -1,0 +1,130 @@
+@color-purple: #8C2789;
+@color-orange: #FF634D;
+.main-content-wedding {
+	margin-top: 50px;
+	font-size: 18px;
+	font-family: "Open Sans", "WenQuanYi Micro Hei", "Microsoft YaHei", arial, sans-serif;
+	font-weight: 300;
+	p , a {
+		font-family: "Open Sans", "WenQuanYi Micro Hei", "Microsoft YaHei", arial, sans-serif;
+		font-weight: 300;
+		font-size: 18px;
+	}
+
+	h1 , h2 , h3 , h4 , h5 {
+		font-family: "Open Sans", "WenQuanYi Micro Hei", "Microsoft YaHei", arial, sans-serif;
+	}
+
+	h1 {
+		font-size: 40px;
+	}
+}
+
+.bold {
+	font-weight: 700;
+}
+
+.light {
+	font-weight: 300;
+}
+
+.purple {
+	color: @color-purple;
+	h1 , h2 , h3 , h4 , h5 , a {
+		color: @color-purple;
+	}
+
+	.div-title {
+		background: @color-purple;
+		padding: 30px 0px 30px 0px;
+		h1 , h2 , h3 , h4 , h5 {
+			color: #fff;
+		}
+	}
+}
+
+.orange {
+	color: @color-orange;
+	h1 , h2 , h3 , h4 , h5 , a {
+		color: @color-orange;
+	}
+
+	.div-title {
+		background: @color-orange;
+		padding: 30px 0px 30px 0px;
+		h1 , h2 , h3 , h4 , h5 {
+			color: #fff;
+		}
+	}
+}
+
+.div-background {
+	background-position: center;
+	background-attachment: fixed;
+	background-size: cover;
+	position: relative;
+}
+
+#about-us {
+	background-image: url('/static/home/assets/wedding/about-us.jpg');
+	img {
+		padding: 5px;
+	}
+}
+
+#ceremony {
+	background-image: url('/static/home/assets/wedding/alice-millar.jpg');
+	img {
+		padding: 5px;
+	}
+}
+
+#reception {
+	background-image: url('/static/home/assets/wedding/hilton-garden-inn.jpg');
+	img {
+		padding: 5px;
+	}
+}
+
+.div-content {
+	background: #fff;
+	position: relative;
+	img {
+		-webkit-transition: all .2s ease;
+		-moz-transition: all .2s ease;
+		-o-transition: all .2s ease;
+		-ms-transition: all .2s ease;
+		transition: all .2s ease;
+		transform: scale(1);
+		-ms-transform: scale(1);
+		-moz-transform: scale(1);
+		-webkit-transform: scale(1);
+		-o-transform: scale(1);
+		&:hover {
+			-webkit-transition: all .2s ease;
+			-moz-transition: all .2s ease;
+			-o-transition: all .2s ease;
+			-ms-transition: all .2s ease;
+			transition: all .2s ease;
+			transform: scale(1.1);
+			-ms-transform: scale(1.1);
+			-moz-transform: scale(1.1);
+			-webkit-transform: scale(1.1);
+			-o-transform: scale(1.1);
+		}
+	}
+}
+
+.div-body {
+	margin: 40px 0px;
+	text-align: left;
+}
+
+hr {
+	margin-top: 40px;
+	margin-bottom: 40px;
+	&.short {
+		width: 20%;
+	}
+}
+

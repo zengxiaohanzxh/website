@@ -47,19 +47,22 @@
 .bs-sidebar .sidebar-heading>h4{color:#cee0e5}
 .bs-sidebar .sidebar-content{opacity:0;-o-transition:opacity .2s .1s,-webkit-transform .2s .1s;-ms-transition:opacity .2s .1s,-webkit-transform .2s .1s;-moz-transition:opacity .2s .1s,-webkit-transform .2s .1s;-webkit-transition:opacity .2s .1s,-webkit-transform .2s .1s;transition:opacity .2s .1s,-webkit-transform .2s .1s;min-height:300px;-webkit-transform:translateY(0);padding:0 20px 0 20px}.bs-sidebar .sidebar-content .badge{border-radius:0;color:#cee0e5;background-color:#004c68}
 .bs-sidebar .sidebar-content>ul>li{list-style:none}.bs-sidebar .sidebar-content>ul>li>a{padding:0}
-.main-content-wedding{margin-top:50px;font-size:16px;font-family:"Open Sans";font-weight:300}.main-content-wedding p,.main-content-wedding a{font-family:"Open Sans";font-weight:300}
-.main-content-wedding h1,.main-content-wedding h2,.main-content-wedding h3,.main-content-wedding h4,.main-content-wedding h5{font-family:"Open Sans";font-weight:300}
-.main-content-wedding h1{font-size:30px}
-.blue{color:#036}.blue .div-body h1,.blue .div-body h2,.blue .div-body h3,.blue .div-body h4,.blue .div-body h5,.blue .div-body a{color:#036}
-.blue .div-title{background:#036;padding:30px 0 30px 0}.blue .div-title h1,.blue .div-title h2,.blue .div-title h3,.blue .div-title h4,.blue .div-title h5{color:#fff}
-.orange{color:#ff634d}.orange .div-body h1,.orange .div-body h2,.orange .div-body h3,.orange .div-body h4,.orange .div-body h5,.orange .div-body a{color:#ff634d}
+.main-content-wedding{margin-top:50px;font-size:18px;font-family:"Open Sans","WenQuanYi Micro Hei","Microsoft YaHei",arial,sans-serif;font-weight:300}.main-content-wedding p,.main-content-wedding a{font-family:"Open Sans","WenQuanYi Micro Hei","Microsoft YaHei",arial,sans-serif;font-weight:300;font-size:18px}
+.main-content-wedding h1,.main-content-wedding h2,.main-content-wedding h3,.main-content-wedding h4,.main-content-wedding h5{font-family:"Open Sans","WenQuanYi Micro Hei","Microsoft YaHei",arial,sans-serif}
+.main-content-wedding h1{font-size:40px}
+.bold{font-weight:700}
+.light{font-weight:300}
+.purple{color:#8c2789}.purple h1,.purple h2,.purple h3,.purple h4,.purple h5,.purple a{color:#8c2789}
+.purple .div-title{background:#8c2789;padding:30px 0 30px 0}.purple .div-title h1,.purple .div-title h2,.purple .div-title h3,.purple .div-title h4,.purple .div-title h5{color:#fff}
+.orange{color:#ff634d}.orange h1,.orange h2,.orange h3,.orange h4,.orange h5,.orange a{color:#ff634d}
 .orange .div-title{background:#ff634d;padding:30px 0 30px 0}.orange .div-title h1,.orange .div-title h2,.orange .div-title h3,.orange .div-title h4,.orange .div-title h5{color:#fff}
 .div-background{background-position:center;background-attachment:fixed;background-size:cover;position:relative}
-#about-us{background-image:url('/static/home/assets/about-us.jpg')}
-#ceremony{background-image:url('/static/home/assets/alice-millar.jpg')}
-#reception{background-image:url('/static/home/assets/hilton-orrington.jpg')}
-.div-content{background:#fff;min-height:1200px;top:400px;position:relative}
-.div-body{margin:40px 0}
+#about-us{background-image:url('/static/home/assets/wedding/about-us.jpg')}#about-us img{padding:5px}
+#ceremony{background-image:url('/static/home/assets/wedding/alice-millar.jpg')}#ceremony img{padding:5px}
+#reception{background-image:url('/static/home/assets/wedding/hilton-garden-inn.jpg')}#reception img{padding:5px}
+.div-content{background:#fff;position:relative}.div-content img{-webkit-transition:all .2s ease;-moz-transition:all .2s ease;-o-transition:all .2s ease;-ms-transition:all .2s ease;transition:all .2s ease;transform:scale(1);-ms-transform:scale(1);-moz-transform:scale(1);-webkit-transform:scale(1);-o-transform:scale(1)}.div-content img:hover{-webkit-transition:all .2s ease;-moz-transition:all .2s ease;-o-transition:all .2s ease;-ms-transition:all .2s ease;transition:all .2s ease;transform:scale(1.1);-ms-transform:scale(1.1);-moz-transform:scale(1.1);-webkit-transform:scale(1.1);-o-transform:scale(1.1)}
+.div-body{margin:40px 0;text-align:left}
+hr{margin-top:40px;margin-bottom:40px}hr.short{width:20%}
 html{font-family:"Arimo","WenQuanYi Micro Hei","Microsoft YaHei",arial,sans-serif}
 body{font-family:"Arimo","WenQuanYi Micro Hei","Microsoft YaHei",arial,sans-serif;background:#fff;color:#0a1d23;line-height:1.6;font-size:14px;margin:0 auto;padding:0;text-align:center}
 h1,h2,h3,h4,h5,.h1,.h2,.h3,.h4,.h5{font-family:"Montserrat","WenQuanYi Micro Hei","Microsoft YaHei",arial,sans-serif;color:#004c68}
