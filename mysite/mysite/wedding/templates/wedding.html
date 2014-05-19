@@ -1,0 +1,244 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block extralinks %}
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,700' rel='stylesheet' type='text/css'>
+{% endblock %}
+
+{% block content %}
+<div class='main-content-wedding'>
+	<div class="div-background" id="count-down" style="height:350px">
+		<div class="purple" style="padding:60px 0px">
+			<img src="{% static 'home/assets/wedding/Logo.png'%}">
+			<h1 class="bold">Xiaohan &amp; Ting's Wedding</h1>
+			<h1 class="light" id="countdown">
+			<br>
+			</h1>
+
+			<div style="margin:40px">
+				<audio controls autoplay>
+					<source src="{% static 'home/assets/wedding/孙燕姿 - 遇见.mp3'%}" type="audio/mpeg">
+					Your browser does not support the audio element.
+				</audio>
+			</div>
+		</div>
+	</div>
+	<div class="div-background" id="about-us">
+		<div class="div-content orange" style="top: 400px; margin-top:400px">
+			<div class="div-title">
+				<h1 class="bold">About Us</h1>
+			</div>
+			<div class="container">
+				<div class="div-body">
+					<div class="row" id="chongqing">
+						<div class="col-sm-8">
+							<h2>曾笑寒</h2>
+							生于巴蜀之地，长于川渝之家。巴地多酷暑，地崎岖。巴人性放诞，好食辣，以擅国粹闻于天下。
+							<h2>Xiaohan</h2>
+							was born and raised in <a href="http://en.wikipedia.org/wiki/Chongqing">Chongqing</a>, the Mountain City, well known for its hilly landscape,
+							splendid night view, and extraordinary spicy cuisine.
+						</div>
+						<div class="col-sm-4" style="margin-top:0px">
+							<img src="{% static 'home/assets/wedding/chongqing-1.jpg'%}" height="120"/>
+							<img src="{% static 'home/assets/wedding/chongqing-2.png'%}" height="120"/>
+							<img src="{% static 'home/assets/wedding/chongqing-3.jpg'%}" height="120"/>
+							<img src="{% static 'home/assets/wedding/chongqing-4.png'%}" height="120"/>
+						</div>
+					</div>
+					<hr class="short">
+					<div class="row" id="handan">
+						<div class="col-sm-4" style="margin-top:0px">
+							<img src="{% static 'home/assets/wedding/handan-1.jpg'%}" height="120"/>
+							<img src="{% static 'home/assets/wedding/handan-2.jpg'%}" height="120"/>
+							<img src="{% static 'home/assets/wedding/handan-3.jpg'%}" height="120"/>
+							<img src="{% static 'home/assets/wedding/handan-4.jpg'%}" height="120"/>
+						</div>
+						<div class="col-sm-8">
+							<h2>李婷</h2>
+							赵国人，乃齐人之后。北人慎行讷言，重礼法，喜食面。邯郸乃赵国故都，采丽竞繁，至始皇帝一平海内，遂为郡。今遗有丛台，以资凭吊。
+							<h2>Ting</h2>
+							was born and grew up in <a href="http://en.wikipedia.org/wiki/Handan">Handan</a>, capital of the ancient Zhao Kingdom before the unification of China,
+							and hometown for many idioms in Chinese.
+						</div>
+					</div>
+					<hr>
+					<div>
+						<h2>In August, 2005</h2>
+						我们同时来到了清华园，开始了我们的本科生活。这里是一切开始的地方。虽然我们不在同一个系，却有很多课在一起上。笑寒就是在微积分的课堂上第一次见到了李婷。
+						<br>
+						We both went to Tsinghua University as undergraduate students. That is where the story began.
+						Although we were in different programs, we had many classes in common. It was in the classroom
+						of Calculus I that we met each other. Naturally, Xiaohan did not score very high for that course.
+					</div>
+					<hr class="short">
+					<div>
+						<h2>On August 8, 2006</h2>
+						我们开始了我们的恋爱！我们在一起总共
+						<br>
+						We started dating each other. Since that day, we have been together for
+						<h2 id="countdays" style="text-align: center"></h2>
+					</div>
+					<hr class="short">
+					<div>
+						<h2>In August, 2009</h2>
+						我们来到了美国，开始博士生涯。不过我们暂时分离了一段时间，李婷在纽约，而曽笑寒在芝加哥。
+						<br>
+						We came to the U.S. and started our Ph.D. life! However, we separated for a while, since Ting was in New York while Han stayed in Chicago.
+					</div>
+					<hr class="short">
+					<div>
+						<h2>In January, 2011</h2>
+						李婷来了芝加哥，我们幸福地生活在了一起！
+						<br>
+						Ting moved to Chicago, and we started living together.
+					</div>
+					<hr class="short">
+					<div>
+						<h2>On December 8, 2012</h2>
+						曽笑寒向李婷求婚成功！
+						<br>
+						Han proposed and Ting accepted!
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="div-background" id="ceremony">
+		<div class="div-content purple" style="top: 400px;margin-top: 400px;height:800px">
+			<div class="div-title">
+				<h1 class="bold">Ceremony</h1>
+			</div>
+			<div class="container">
+				<div class="div-body">
+					<div class="row">
+						<div class="col-sm-6">
+							<h2>Saturday June 28 2014 11 am</h2>
+							<h2>Alice Millar Chapel</h2>
+							1870 Sheridan Road
+							Evanston IL 60208
+							<div style="margin-top: 40px">
+								<img src="{% static 'home/assets/wedding/millar-1.jpg'%}" height="150"/>
+								<img src="{% static 'home/assets/wedding/millar-2.jpg'%}" height="150"/>
+								<img src="{% static 'home/assets/wedding/millar-3.jpg'%}" height="150"/>
+								<img src="{% static 'home/assets/wedding/millar-4.jpg'%}" height="150"/>
+							</div>
+						</div>
+						<div class="col-sm-6">
+							<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2962.659935220603!2d-87.67707800000001!3d42.05047200000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x880fd074bad9aa13%3A0xde30dbb77068434e!2sThe+Alice+Millar+Chapel!5e0!3m2!1sen!2sus!4v1397430245382" width="600" height="450" frameborder="0" style="border:0"></iframe>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="div-background" id="reception">
+		<div class="div-content orange" style="top: 400px;margin-top: 400px;height:1200px">
+			<div class="div-title">
+				<h1 class="bold">Reception</h1>
+			</div>
+			<div class="container">
+				<div class="div-body">
+					<div class="row">
+						<div class="col-sm-6">
+							<h2>Saturday June 28 2014 12 pm</h2>
+							<h2>Hilton Garden Inn</h2>
+							1818 Maple Ave
+							Evanston IL 60201
+							<div style="margin-top: 40px">
+								<img src="{% static 'home/assets/wedding/hgi-1.jpg'%}" height="150"/>
+								<img src="{% static 'home/assets/wedding/hgi-2.jpg'%}" height="150"/>
+								<img src="{% static 'home/assets/wedding/hgi-3.jpg'%}" height="150"/>
+								<img src="{% static 'home/assets/wedding/hgi-4.jpg'%}" height="150"/>
+							</div>
+						</div>
+						<div class="col-sm-6">
+							<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2962.644450428683!2d-87.68514000000006!3d42.05080400000003!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x880fd0092f993435%3A0xa15972420b2603d7!2sHilton+Garden+Inn+Chicago+North+Shore%2FEvanston!5e0!3m2!1sen!2sus!4v1397430303664" width="600" height="450" frameborder="0" style="border:0"></iframe>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="info">
+		<div class="div-content purple" style="top:0px;margin-top:0px;">
+			<div class="div-title">
+				<h1 class="bold">Info</h1>
+			</div>
+			<div class="container">
+				<div class="div-body">
+					<h2 class="bold">Registry</h2>
+					Since we have been living together for quite a while, we are not in particular need of houseware, games, baby stuff, etc.
+					If you would like to send us anything, gift cards will be greatly appreciated!
+					<hr class="short">
+					<h2 class="bold">Parking</h2>
+					<h2>Maple Avenue Parking</h2>
+					1800 Maple Ave, Evanston, IL 60201
+					<h2>Sharman Plaza Parking</h2>
+					821 Davis St, Evanston, IL 60201
+					<h2>Northwestern University Parking</h2>
+					NU parking lots are free on weekends
+					<hr class="short">
+					<h2>Logo design by <a href="http://www.tingzhouart.com/" style="font-size: 22px; font-weight:700">Ting Zhou</a></h2>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<script>
+	// set the date we're counting down to
+	var target_date = new Date("2014-06-28T11:00:00").getTime();
+
+	// variables for time units
+	var days, hours, minutes, seconds;
+
+	// get tag element
+	var countdown = document.getElementById("countdown");
+
+	// update the tag with id "countdown" every 1 second
+	setInterval(function() {
+
+		// find the amount of "seconds" between now and target
+		var current_date = new Date().getTime();
+		var seconds_left = (target_date - current_date) / 1000;
+
+		// do some time calculations
+		days = parseInt(seconds_left / 86400);
+		seconds_left = seconds_left % 86400;
+
+		hours = parseInt(seconds_left / 3600);
+		seconds_left = seconds_left % 3600;
+
+		minutes = parseInt(seconds_left / 60);
+		seconds = parseInt(seconds_left % 60);
+
+		// format countdown string + set tag value
+		countdown.innerHTML = days + " Days, " + hours + " Hours, " + minutes + " Minutes, " + seconds + " Seconds";
+
+	}, 1000); 
+</script>
+<script>
+	// set the date we're counting down to
+	var start_date = new Date("Nov 6, 2006").getTime();
+
+	// variables for time units
+	var days, hours, minutes, seconds;
+
+	// get tag element
+	var countdays = document.getElementById("countdays");
+
+	// update the tag with id "countdown" every 1 second
+	setInterval(function() {
+
+		// find the amount of "seconds" between now and target
+		var current_date = new Date().getTime();
+		var seconds_elapsed = (current_date - start_date) / 1000;
+
+		// do some time calculations
+		days = parseInt(seconds_elapsed / 86400);
+
+		// format countdown string + set tag value
+		countdays.innerHTML = days + " Days";
+
+	}, 1000); 
+</script>
+{% endblock %}
+
